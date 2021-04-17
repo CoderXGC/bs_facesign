@@ -129,3 +129,9 @@ F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.application
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\UI.csproj.CopyComplete
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.exe
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.pdb
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\MaterialDesignColors.dll
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\MaterialDesignThemes.Wpf.dll
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\MaterialDesignColors.pdb
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\MaterialDesignThemes.Wpf.pdb
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\MaterialDesignThemes.Wpf.xml
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\HZH_Controls.dll

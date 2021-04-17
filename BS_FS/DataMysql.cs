@@ -100,3 +100,32 @@ namespace BS_FS
         }
     }
 }
+/*    if (pwd.Text.Trim() != "")
+              {
+                  //连接数据库
+                  DataMysql data = new DataMysql();
+                  data.dataCon();
+
+                  //查询数据库
+                  string cmdStr = "Select * from admin where pwd='" + pwd.Text + "'";
+                  DataSet ds;
+                  ds = data.getDataSet(cmdStr);
+                  if (ds.Tables[0].Rows.Count == 1)
+                  {
+                      //FaceForm faceForm = new FaceForm();
+                      //faceForm.Show();
+                      Form_Admin form_Admin = new Form_Admin();
+                      form_Admin.StartPosition = FormStartPosition.CenterScreen;
+                      form_Admin.Show();
+                      this.Hide();
+                  }
+                  else
+                  {
+                      MessageBox.Show("密码错误!");
+                  }
+              }
+              else
+              {
+                  MessageBox.Show("密码不能为空!");
+              }
+          */

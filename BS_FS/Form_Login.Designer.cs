@@ -32,108 +32,52 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlFm));
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.pwd = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.uiButton1 = new Sunny.UI.UIButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.id = new System.Windows.Forms.TextBox();
+            this.pwd = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(61, 61);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(185, 123);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(403, 30);
+            this.label1.Size = new System.Drawing.Size(223, 30);
             this.label1.TabIndex = 0;
-            this.label1.Text = "欢迎使用人脸识别的考勤系统";
+            this.label1.Text = "欢迎使用TL系统";
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(237, 120);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(58, 19);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.Text = "用户";
-            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(83, 122);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label2.Location = new System.Drawing.Point(344, 259);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 15);
+            this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "请选择您的身份：";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(340, 120);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(73, 19);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.Text = "管理员";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // pwd
-            // 
-            this.pwd.Location = new System.Drawing.Point(343, 168);
-            this.pwd.Margin = new System.Windows.Forms.Padding(4);
-            this.pwd.Name = "pwd";
-            this.pwd.PasswordChar = '*';
-            this.pwd.Size = new System.Drawing.Size(132, 25);
-            this.pwd.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(340, 149);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "请输入管理员密码：";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(357, 201);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 29);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "登录";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label2.Text = "忘记密码";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(308, 400);
+            this.label4.Location = new System.Drawing.Point(234, 346);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 15);
+            this.label4.Size = new System.Drawing.Size(97, 15);
             this.label4.TabIndex = 8;
-            this.label4.Text = "当前时间：";
+            this.label4.Text = "专属账号登录";
             // 
             // label5
             // 
@@ -150,55 +94,78 @@
             this.uiButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(357, 238);
+            this.uiButton1.Location = new System.Drawing.Point(208, 288);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
             this.uiButton1.Radius = 20;
-            this.uiButton1.Size = new System.Drawing.Size(100, 35);
+            this.uiButton1.Size = new System.Drawing.Size(172, 35);
             this.uiButton1.TabIndex = 10;
-            this.uiButton1.Text = "登录";
+            this.uiButton1.Text = "安全登录";
             this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
             // 
-            // pictureBox1
+            // id
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::BS_FS.Properties.Resources.close;
-            this.pictureBox1.Location = new System.Drawing.Point(544, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(44, 37);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.id.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.id.BackColor = System.Drawing.Color.White;
+            this.id.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.id.Location = new System.Drawing.Point(174, 178);
+            this.id.Margin = new System.Windows.Forms.Padding(4);
+            this.id.Name = "id";
+            this.id.Size = new System.Drawing.Size(234, 25);
+            this.id.TabIndex = 5;
+            // 
+            // pwd
+            // 
+            this.pwd.Location = new System.Drawing.Point(174, 223);
+            this.pwd.Name = "pwd";
+            this.pwd.PasswordChar = '*';
+            this.pwd.Size = new System.Drawing.Size(234, 25);
+            this.pwd.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label3.Location = new System.Drawing.Point(119, 188);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 15);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "账号：";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label6.Location = new System.Drawing.Point(119, 233);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 15);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "密码：";
             // 
             // ControlFm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(600, 750);
-            this.ControlBox = false;
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(572, 373);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pwd);
             this.Controls.Add(this.uiButton1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.pwd);
-            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.id);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "ControlFm";
             this.Text = "考勤系统";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ControlFm_FormClosed);
             this.Load += new System.EventHandler(this.ControlFm_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ControlFm_MouseDown);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,15 +175,13 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox pwd;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private Sunny.UI.UIButton uiButton1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox id;
+        private System.Windows.Forms.TextBox pwd;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "BS_FS\UI.csproj", "{5E201B09-B51B-4DE6-92B9-76BEBEEA7CE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bsfs", "BS_FS\bsfs.csproj", "{5E201B09-B51B-4DE6-92B9-76BEBEEA7CE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
