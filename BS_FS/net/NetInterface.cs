@@ -9,5 +9,7 @@ namespace BS_FS.net
     interface NetInterface
     {
         string Login(String id, String pwd);
+        string Uploadimg(String id, String path, string filename);
+        string Find(String id);
     }
 }

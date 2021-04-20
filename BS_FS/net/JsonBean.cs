@@ -18,6 +18,7 @@ namespace BS_FS.net
             /// 徐广超
             /// </summary>
             public string name { get; set; }
+            public string faceimg { get; set; }
         }
 
             /// <summary>

@@ -24,7 +24,7 @@ namespace BS_FS
         private void 录入员工信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            Form_Admin_insert From_admin_insert = new Form_Admin_insert(); //实例化一个子窗口
+            Form_Admin_insert From_admin_insert = new Form_Admin_insert(this.Text); //实例化一个子窗口
 
             //设置子窗口不显示为顶级窗口
 

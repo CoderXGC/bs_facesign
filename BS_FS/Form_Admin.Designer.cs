@@ -56,7 +56,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.uiHeaderButton1 = new Sunny.UI.UIHeaderButton();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -242,7 +241,6 @@
             // panel1
             // 
             this.panel1.AutoSize = true;
-            this.panel1.Controls.Add(this.uiHeaderButton1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(0, 35);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
@@ -274,20 +272,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // uiHeaderButton1
-            // 
-            this.uiHeaderButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiHeaderButton1.Location = new System.Drawing.Point(27, 25);
-            this.uiHeaderButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiHeaderButton1.Name = "uiHeaderButton1";
-            this.uiHeaderButton1.Padding = new System.Windows.Forms.Padding(0, 8, 0, 3);
-            this.uiHeaderButton1.Radius = 0;
-            this.uiHeaderButton1.RadiusSides = Sunny.UI.UICornerRadiusSides.None;
-            this.uiHeaderButton1.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
-            this.uiHeaderButton1.Size = new System.Drawing.Size(100, 88);
-            this.uiHeaderButton1.TabIndex = 4;
-            this.uiHeaderButton1.Text = "uiHeaderButton1";
             // 
             // Form_Admin
             // 
@@ -342,6 +326,5 @@
         private System.Windows.Forms.ToolStripMenuItem 数据备份ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 智能排版管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统设置ToolStripMenuItem;
-        private Sunny.UI.UIHeaderButton uiHeaderButton1;
     }
 }

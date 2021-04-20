@@ -12,6 +12,10 @@ using System.Threading;
 using System.Windows.Forms;
 using System.IO;
 using System.Net;
+using BS_FS.net;
+using Newtonsoft.Json;
+using Sunny.UI;
+
 namespace BS_FS
 {
     public partial class Form_Admin_insert : Form
@@ -28,10 +32,11 @@ namespace BS_FS
 
 
         private string[] path;
-        public Form_Admin_insert()
+        public Form_Admin_insert(string id)
         {
             InitializeComponent();
             InitEngines();
+            this.Text = id;
         }
 
         /// <summary>
@@ -257,13 +262,18 @@ namespace BS_FS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!(String.IsNullOrEmpty(path[0])))
+
+            string filename = idtb.Text + Path.GetFileName(path[0]);
+            Net n = new Net();
+            MessageBox.Show(n.Uploadimg(this.Text, path[0], Path.GetFileName(path[0])));
+               
+           /* if (!(String.IsNullOrEmpty(path[0])))
             {
                 if (!(String.IsNullOrEmpty(idtb.Text)))
                 {
                     if (!(String.IsNullOrEmpty(nametb.Text)))
                     {
-
+                       
                         DataMysql data = new DataMysql();
                         data.dataCon();
                         string cmdStr = "Select * from user where id='" + idtb.Text + "'";
@@ -337,7 +347,7 @@ namespace BS_FS
             {
                 MessageBox.Show("您未选择录入图片，请选择后提交!");
             }
-
+            */
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -350,5 +360,18 @@ namespace BS_FS
             idtb.Text = "";
             nametb.Text = "";
         }
+        public void ShowSuccessTip(string text, int delay = 500, bool floating = true)
+   => UIMessageTip.ShowOk(text, delay, floating);
+        public void ShowWarningTip(string text, int delay = 1000, bool floating = true)
+    => UIMessageTip.ShowWarning(text, delay, floating);
+        public void ShowErrorTip(string text, int delay = 1000, bool floating = true)
+    => UIMessageTip.ShowError(text, delay, floating);
+
+        private void Form_Admin_insert_Load(object sender, EventArgs e)
+        {
+        
+        }
+
+
     }
 }

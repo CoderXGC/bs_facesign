@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
+
 using Sunny.UI;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net;
 using BS_FS.net;
 using Newtonsoft.Json;
-using Sunny.UI;
 
 namespace BS_FS
 {
@@ -22,7 +15,7 @@ namespace BS_FS
         public ControlFm()
         {
             InitializeComponent();
-           
+            this.MaximizedBounds = Screen.PrimaryScreen.WorkingArea;
         }
        
         private void timer1_Tick(object sender, EventArgs e)
@@ -32,7 +25,9 @@ namespace BS_FS
 
         private void ControlFm_Load(object sender, EventArgs e)
         {
-       
+ 
+
+
             try
             {
                 Task.Factory.StartNew(() => {
@@ -82,16 +77,24 @@ namespace BS_FS
             Net n = new Net();
             //这个需要引入Newtonsoft.Json这个DLL并using
             //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
+
             JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Login(id.Text, pwd.Text));
             //这样就可以取出json数据里面的值
             //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
             if (rt.code.ToString() == "200")
             {
+              
+               // MessageBox.Show(n.Find(id.Text));
                 ShowSuccessTip("登录成功");
-                Form_Admin form_Admin = new Form_Admin();
-                form_Admin.StartPosition = FormStartPosition.CenterScreen;
-                form_Admin.Show();
+
+                Form_people form_people = new Form_people(id.Text);
+                form_people.StartPosition = FormStartPosition.CenterScreen;
+                form_people.Show();
                 this.Hide();
+                /* Form_Admin form_Admin = new Form_Admin();
+                 form_Admin.StartPosition = FormStartPosition.CenterScreen;
+                 form_Admin.Show();
+                 this.Hide();*/
             }
             else if (rt.code.ToString() == "-1")
             {
@@ -123,13 +126,54 @@ namespace BS_FS
 
         }
             //引用登录提示框架弹出气泡
-            public void ShowSuccessTip(string text, int delay = 500, bool floating = true)
+        public void ShowSuccessTip(string text, int delay = 500, bool floating = true)
     => UIMessageTip.ShowOk(text, delay, floating);
         public void ShowWarningTip(string text, int delay = 1000, bool floating = true)
     => UIMessageTip.ShowWarning(text, delay, floating);
         public void ShowErrorTip(string text, int delay = 1000, bool floating = true)
     => UIMessageTip.ShowError(text, delay, floating);
+        private Point mouseOff; //抓取窗体Form中的鼠标的坐标,需要设置一个参数
+        private bool leftFlag;  //标签，用来标记鼠标的左键的状态
+        private void ControlFm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)   //判断鼠标左键是否被按下
+            {
+                mouseOff = new Point(e.X, e.Y); //通过结构，将鼠标在窗体中的坐标（e.X,e.Y）赋值给mouseOff参数
+                leftFlag = true;    //标记鼠标左键的状态
+            }
+        }
+
+        private void ControlFm_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (leftFlag)
+            {
+                leftFlag = false;
+            }
+        }
+
+        private void ControlFm_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            if (leftFlag)    //判断，鼠标左键是否被按下
+            {
+                Point mouseSet = Control.MousePosition; //抓取屏幕中鼠标光标所在的位置
+                mouseSet.Offset(-mouseOff.X, -mouseOff.Y);  //两个坐标相减，得到窗体左上角相对于屏幕的坐标
+                Location = mouseSet;    //将上面得到的坐标赋值给窗体Form的Location属性
+            }
+        }
+
+        private void ControlFm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'a')                                           //因为Form的KeyPreview属性，设置为True后，会向窗体注册窗体控件的键盘事件,所以鼠标拖动Panel，按下键值，其实是响应的Form的keypress事件。
+            {
+                leftFlag = false;
+            }
+        }
+
+        private void uiButton2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
-    
-    
+
 }

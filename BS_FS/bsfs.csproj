@@ -211,6 +211,12 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_people_apply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_people_apply.Designer.cs">
+      <DependentUpon>Form_people_apply.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Admin_insert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_people.resx">
       <DependentUpon>Form_people.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_people_apply.resx">
+      <DependentUpon>Form_people_apply.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Sign.resx">
       <DependentUpon>Form_Sign.cs</DependentUpon>
