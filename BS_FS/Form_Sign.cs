@@ -382,6 +382,7 @@ namespace BS_FS
                 {
                     fileNames[j] = Convert.ToString(Row["faceimg"]);
                     j++;
+                    
                 }
 
                 for (int i = 0; i < fileNames.Length; i++)

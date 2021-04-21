@@ -96,5 +96,12 @@ namespace BS_FS
     => UIMessageTip.ShowWarning(text, delay, floating);
         public void ShowErrorTip(string text, int delay = 1000, bool floating = true)
     => UIMessageTip.ShowError(text, delay, floating);
+
+        private void 签到ToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Form_Sign form_User = new Form_Sign();
+            form_User.Show();
+
+        }
     }
 }

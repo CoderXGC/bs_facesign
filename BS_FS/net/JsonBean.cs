@@ -19,6 +19,8 @@ namespace BS_FS.net
             /// </summary>
             public string name { get; set; }
             public string faceimg { get; set; }
+            public string url { get; set; }
+
         }
 
             /// <summary>

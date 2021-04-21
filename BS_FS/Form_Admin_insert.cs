@@ -15,6 +15,7 @@ using System.Net;
 using BS_FS.net;
 using Newtonsoft.Json;
 using Sunny.UI;
+using System.Collections.Specialized;
 
 namespace BS_FS
 {
@@ -263,91 +264,155 @@ namespace BS_FS
         private void button1_Click(object sender, EventArgs e)
         {
 
-            string filename = idtb.Text + Path.GetFileName(path[0]);
-            Net n = new Net();
-            MessageBox.Show(n.Uploadimg(this.Text, path[0], Path.GetFileName(path[0])));
-               
-           /* if (!(String.IsNullOrEmpty(path[0])))
+            NameValueCollection nvc = new NameValueCollection();
+                    nvc.Add("id",this.Text);
+                    Net n = new Net();
+            //这个需要引入Newtonsoft.Json这个DLL并using
+            //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
+            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Uploadimgtest1(3000, "file", path[0], nvc));
+            if (rt.code.ToString() == "200")
             {
-                if (!(String.IsNullOrEmpty(idtb.Text)))
-                {
-                    if (!(String.IsNullOrEmpty(nametb.Text)))
-                    {
-                       
-                        DataMysql data = new DataMysql();
-                        data.dataCon();
-                        string cmdStr = "Select * from user where id='" + idtb.Text + "'";
-                        DataSet ds;
-                        ds = data.getDataSet(cmdStr);
-                        if (ds.Tables[0].Rows.Count == 1)
-                        {
-                            MessageBox.Show("已经添加过此员工了，请勿重复添加！");
-                            AppendText("已经添加过此员工了，请勿重复添加！");
-                            imageLists.Images.Clear();
-                            imageList.Items.Clear();
-                            imagesFeatureList.Clear();
-                            imagePathList.Clear();
-                            idtb.Text = "";
-                            nametb.Text = "";
-                        }
-                        else
-                        {
-                            string url = "https://www.ylesb.com/csimg/pound.php";
-                            try
-                            {
-                                WebClient client = new WebClient();
-                                client.Credentials = CredentialCache.DefaultCredentials;
-                                client.Headers.Add("Content-Type", "application/form-data");//注意头部必须是form-data
-                                string filename = idtb.Text + Path.GetFileName(path[0]);
-                                client.QueryString["file_name"] = filename;
-                                byte[] fileb = client.UploadFile(new Uri(url), "POST", path[0]);
-                                string res = Encoding.UTF8.GetString(fileb);
-                            }
-                            catch (Exception ex)
-                            {
-                                AppendText(ex.Message);
-                            }
 
-                            DataMysql datasql = new DataMysql();
-                            datasql.dataCon();
-                            string imgname = "https://www.ylesb.com/csimg/" + idtb.Text + Path.GetFileName(path[0]);
-                            string insert = "insert into user (id,name,faceimg) values ( '" + idtb.Text + "','" + nametb.Text + "','" + imgname + "')";
-                            if (datasql.sqlExec(insert))
-                            {
-                                AppendText("录入成功，请访问'" + imgname + "'查看是否本人\n");
-                                imageLists.Images.Clear();
-                                imageList.Items.Clear();
-                                imagesFeatureList.Clear();
-                                imagePathList.Clear();
-                                idtb.Text = "";
-                                nametb.Text = "";
-                            }
-                            else
-                            {
-                                AppendText("录入失败，网络出现异常，请稍后再试！");
-                                imageLists.Images.Clear();
-                                imageList.Items.Clear();
-                                imagesFeatureList.Clear();
-                                imagePathList.Clear();
-                                idtb.Text = "";
-                                nametb.Text = "";
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("您未输入员工姓名，请输入后提交!");
-                    }
+               JsonBean rtt = JsonConvert.DeserializeObject<JsonBean>(n.addfaceimg(this.Text, rt.data.url));
+               
+                if (rtt.code.ToString() == "200")
+                {
+                   
+                    ShowSuccessTip("添加成功");
+
                 }
-                else {
-                    MessageBox.Show("您未输入员工ID，请输入后提交!");
+                else if (rtt.code.ToString() == "-1")
+                {
+                    ShowErrorTip(rtt.message);
+
                 }
+                else if (rtt.code.ToString() == "404")
+                {
+                    ShowWarningTip(rtt.message);
+
+                }
+                else if (rtt.code.ToString() == "100")
+                {
+                    ShowWarningTip(rtt.message);
+
+                }
+                else if (rtt.code.ToString() == "1000")
+                {
+                    ShowWarningTip(rtt.message);
+
+                }
+
+
             }
-            else
+            else if (rt.code.ToString() == "-1")
             {
-                MessageBox.Show("您未选择录入图片，请选择后提交!");
+                ShowErrorTip(rt.message);
+
             }
-            */
+            else if (rt.code.ToString() == "404")
+            {
+                ShowWarningTip(rt.message);
+
+            }
+            else if (rt.code.ToString() == "100")
+            {
+                ShowWarningTip(rt.message);
+
+            }
+            else if (rt.code.ToString() == "1000")
+            {
+                ShowWarningTip(rt.message);
+
+            }
+
+
+            /* 
+             *     string filename = idtb.Text + Path.GetFileName(path[0]);
+             * MessageBox.Show(n.Uploadimg(this.Text, path[0], Path.GetFileName(path[0])));
+                    //   MessageBox.Show(path[0]);
+                    //    MessageBox.Show(n.Uploadimg(this.Text, path[0], Path.GetFileName(path[0])));
+                   // MessageBox.Show(n.Uploadimgtest("file", path[0], nvc));*/
+            /* if (!(String.IsNullOrEmpty(path[0])))
+             {
+                 if (!(String.IsNullOrEmpty(idtb.Text)))
+                 {
+                     if (!(String.IsNullOrEmpty(nametb.Text)))
+                     {
+
+                         DataMysql data = new DataMysql();
+                         data.dataCon();
+                         string cmdStr = "Select * from user where id='" + idtb.Text + "'";
+                         DataSet ds;
+                         ds = data.getDataSet(cmdStr);
+                         if (ds.Tables[0].Rows.Count == 1)
+                         {
+                             MessageBox.Show("已经添加过此员工了，请勿重复添加！");
+                             AppendText("已经添加过此员工了，请勿重复添加！");
+                             imageLists.Images.Clear();
+                             imageList.Items.Clear();
+                             imagesFeatureList.Clear();
+                             imagePathList.Clear();
+                             idtb.Text = "";
+                             nametb.Text = "";
+                         }
+                         else
+                         {
+                             string url = "https://www.ylesb.com/csimg/pound.php";
+                             try
+                             {
+                                 WebClient client = new WebClient();
+                                 client.Credentials = CredentialCache.DefaultCredentials;
+                                 client.Headers.Add("Content-Type", "application/form-data");//注意头部必须是form-data
+                                 string filename = idtb.Text + Path.GetFileName(path[0]);
+                                 client.QueryString["file_name"] = filename;
+                                 byte[] fileb = client.UploadFile(new Uri(url), "POST", path[0]);
+                                 string res = Encoding.UTF8.GetString(fileb);
+                             }
+                             catch (Exception ex)
+                             {
+                                 AppendText(ex.Message);
+                             }
+
+                             DataMysql datasql = new DataMysql();
+                             datasql.dataCon();
+                             string imgname = "https://www.ylesb.com/csimg/" + idtb.Text + Path.GetFileName(path[0]);
+                             string insert = "insert into user (id,name,faceimg) values ( '" + idtb.Text + "','" + nametb.Text + "','" + imgname + "')";
+                             if (datasql.sqlExec(insert))
+                             {
+                                 AppendText("录入成功，请访问'" + imgname + "'查看是否本人\n");
+                                 imageLists.Images.Clear();
+                                 imageList.Items.Clear();
+                                 imagesFeatureList.Clear();
+                                 imagePathList.Clear();
+                                 idtb.Text = "";
+                                 nametb.Text = "";
+                             }
+                             else
+                             {
+                                 AppendText("录入失败，网络出现异常，请稍后再试！");
+                                 imageLists.Images.Clear();
+                                 imageList.Items.Clear();
+                                 imagesFeatureList.Clear();
+                                 imagePathList.Clear();
+                                 idtb.Text = "";
+                                 nametb.Text = "";
+                             }
+                         }
+                     }
+                     else
+                     {
+                         MessageBox.Show("您未输入员工姓名，请输入后提交!");
+                     }
+                 }
+                 else {
+                     MessageBox.Show("您未输入员工ID，请输入后提交!");
+                 }
+             }
+             else
+             {
+                 MessageBox.Show("您未选择录入图片，请选择后提交!");
+             }
+             */
         }
 
         private void button2_Click(object sender, EventArgs e)

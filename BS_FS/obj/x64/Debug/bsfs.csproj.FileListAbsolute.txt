@@ -71,4 +71,3 @@ F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.exe
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.pdb
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\Newtonsoft.Json.dll
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\Newtonsoft.Json.xml
-F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_people_apply.resources
