@@ -3,10 +3,12 @@ using ArcSoftFace.Entity;
 using ArcSoftFace.SDKModels;
 using ArcSoftFace.SDKUtil;
 using ArcSoftFace.Utils;
+using BS_FS.net;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net;
@@ -365,7 +367,9 @@ namespace BS_FS
             }
             lock (locker)
             {
-              
+                Net n = new Net();
+                n.Findfaceimg(this.Text);
+
                 List<string> imagePathListTemp = new List<string>();
                 var numStart = imagePathList.Count;
                 //查询数据库
@@ -381,6 +385,7 @@ namespace BS_FS
                 foreach (DataRow Row in ds.Tables[0].Rows)
                 {
                     fileNames[j] = Convert.ToString(Row["faceimg"]);
+                    Console.WriteLine(fileNames[j]);
                     j++;
                     
                 }

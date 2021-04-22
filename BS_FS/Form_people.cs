@@ -99,7 +99,9 @@ namespace BS_FS
 
         private void 签到ToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            Form_Sign form_User = new Form_Sign();
+          /*  FaceForm faceForm = new FaceForm();
+            faceForm.Show();*/
+          Form_Sign form_User = new Form_Sign();
             form_User.Show();
 
         }

@@ -105,7 +105,7 @@ namespace BS_FS.net
             }
         }
 
-        public string addfaceimg(string id, string faceimg)
+        public string Addfaceimg(string id, string faceimg)
         {
             try
             {
@@ -115,6 +115,25 @@ namespace BS_FS.net
                 string jsonParam = "{ \"id\":" + id + ",\"faceimg\":"+"\""+ faceimg + "\"" + "}";
                 //将接口传入，这个HttpUitls的类，有兴趣可以研究下，也可以直接用就可以，不用管如何实现。
                 string getJson = HttpUitls.Addfaceimg(url, jsonParam);
+
+                return getJson;
+            }
+            catch
+            {
+                return "{ \"code\":\"1000\",\"message\": \"服务器请求异常，请检查网络。\",\"data\": {\"user_id\": \"null\",\"name\":\"null\" }}";
+            }
+        }
+
+        public string Findfaceimg(String id)
+        {
+            try
+            {
+                //地址
+                string url = homeurl + "/user/find";
+                //json参数
+                string jsonParam = "{ \"id\":" + id + "}";
+                //将接口传入，这个HttpUitls的类，有兴趣可以研究下，也可以直接用就可以，不用管如何实现。
+                string getJson = HttpUitls.FindPost(url, jsonParam);
 
                 return getJson;
             }

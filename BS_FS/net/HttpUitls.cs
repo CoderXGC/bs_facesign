@@ -349,5 +349,40 @@ namespace BS_FS.net
                 return "{ \"code\":\"1000\",\"message\": \"服务器请求异常，请检查网络。\",\"data\": {\"user_id\": \"0\",\"name\":\"123456\" }}"; ;
             }
         }
+        /*查找请求*/
+        public static string FindFaceimgPost(string Url, string Data)
+        {
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
+                request.Method = "POST";
+                byte[] bytes = Encoding.UTF8.GetBytes(Data);
+                request.ContentType = "application/json;charset=UTF-8";
+                request.ContentLength = bytes.Length;
+                Stream myResponseStream = request.GetRequestStream();
+                myResponseStream.Write(bytes, 0, bytes.Length);
+
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                StreamReader myStreamReader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
+                string retString = myStreamReader.ReadToEnd();
+
+                myStreamReader.Close();
+                myResponseStream.Close();
+
+                if (response != null)
+                {
+                    response.Close();
+                }
+                if (request != null)
+                {
+                    request.Abort();
+                }
+                return retString;
+            }
+            catch
+            {
+                return "{ \"code\":\"1000\",\"message\": \"服务器请求异常，请检查网络。\",\"data\": {\"user_id\": \"0\",\"name\":\"123456\" }}";
+            }
+        }
     }
 }

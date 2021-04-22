@@ -15,6 +15,7 @@ namespace BS_FS.net
         string Uploadimgtest(string fileKeyName, string filePath, NameValueCollection stringDict);
         string Uploadimgtest1(int Outtime,string fileKeyName, string filePath, NameValueCollection stringDict);
 
-        string addfaceimg(String id, String faceimg);
+        string Addfaceimg(String id, String faceimg);
+        string Findfaceimg(String id);
     }
 }
