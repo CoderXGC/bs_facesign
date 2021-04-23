@@ -149,14 +149,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BS_FS.exe" size="291224">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BS_FS.exe" size="293784">
       <assemblyIdentity name="BS_FS" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HWZm+VU3sQw6XdT/QoHzwEAudXsJdvZQUk1Tw8yvSpg=</dsig:DigestValue>
+        <dsig:DigestValue>fNcUHQ2U8k18nvZbRs6Tin0MZd0ErEgI5ce4tjCRrco=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

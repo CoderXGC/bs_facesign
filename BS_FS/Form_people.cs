@@ -45,17 +45,16 @@ namespace BS_FS
             Net n = new Net();
             JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(this.Text));
             //这样就可以取出json数据里面的值
-            if (rt.data.faceimg.ToString() != "")
+            if (rt.data.faceimg.ToString().Equals("0"))
+            {
+                From_admin_insert.Show();
+
+            } else if (rt.data.faceimg.ToString() != "")
             {
                 ShowSuccessTip("已经提交过人脸信息了，请勿重复添加！");
 
             }
             else if (rt.code.ToString() == "-1")
-            {
-                From_admin_insert.Show();
-
-            }
-            else if (rt.data.faceimg.ToString() == "")
             {
                 From_admin_insert.Show();
 
@@ -101,7 +100,7 @@ namespace BS_FS
         {
           /*  FaceForm faceForm = new FaceForm();
             faceForm.Show();*/
-          Form_Sign form_User = new Form_Sign();
+          Form_Sign form_User = new Form_Sign(this.Text);
             form_User.Show();
 
         }

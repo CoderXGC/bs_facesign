@@ -13,6 +13,7 @@ namespace BS_FS.net
     class Net : NetInterface
     {
         private string homeurl = "http://localhost:8080";
+        //private string homeurl = "http://bs.ylesb.com";
         public String Login(String id, String pwd)
         {
             try
@@ -141,6 +142,46 @@ namespace BS_FS.net
             {
                 return "{ \"code\":\"1000\",\"message\": \"服务器请求异常，请检查网络。\",\"data\": {\"user_id\": \"null\",\"name\":\"null\" }}";
             }
+        }
+
+        public string Signin(String id, String signid, String flag, String signintime ,String daytime)
+        {
+            try
+            {
+                //地址
+                string url = homeurl + "/user/signin";
+                //json参数
+                string jsonParam = "{ \"id\":" + id + ",\"signid\":\"" + signid + "\",\"signintime\":\"" + signintime + "\",\"daytime\":\""+daytime+"\"}";
+                //将接口传入，这个HttpUitls的类，有兴趣可以研究下，也可以直接用就可以，不用管如何实现。
+                string getJson = HttpUitls.SigninPost(url,jsonParam);
+
+                return getJson;
+            }
+            catch
+            {
+                return "{ \"code\":\"1000\",\"message\": \"服务器请求异常，请检查网络。\",\"data\": {\"user_id\": \"null\",\"name\":\"null\" }}";
+            }
+        }
+
+        public string Findsign(string id,string signid)
+        {
+            try
+            {
+                //地址
+                string url = homeurl+"/user/findsign";
+                //json参数
+                string jsonParam = "{\"id\":"+id+ ",\"signid\":\""+signid+ "\"}";
+                //将接口传入，这个HttpUitls的类，有兴趣可以研究下，也可以直接用就可以，不用管如何实现。
+                string getJson = HttpUitls.FindSignPost(url, jsonParam);
+
+                return getJson;
+            }
+            catch
+            {
+                return "{ \"code\":\"1000\",\"message\": \"服务器请求异常，请检查网络。\",\"data\": {\"user_id\": \"null\",\"name\":\"null\" }}";
+            }
+           
+
         }
     }
 }

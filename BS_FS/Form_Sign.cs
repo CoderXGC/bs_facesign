@@ -36,10 +36,12 @@ namespace BS_FS
         private List<IntPtr> imagesFeatureList = new List<IntPtr>();
 
         //相似度
-        private float threshold = 0.8f;
+        private float threshold = 0.5f;
 
         //用于标记是否需要清除比对结果
         private bool isCompare = false;
+
+        private int[] id;
 
         #region 视频模式下相关
 
@@ -56,10 +58,10 @@ namespace BS_FS
 
         #endregion
 
-        public Form_Sign()
+        public Form_Sign(String id)
         {
             InitializeComponent();
-          
+            this.Text = id;
             InitEngines();
             videoSource.Hide();
         }
@@ -174,7 +176,100 @@ namespace BS_FS
         //执行数据库操作
         private void SignSql(int id)
         {
-       
+            Net n = new Net();
+            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(this.Text));
+            if (rt.code.ToString() == "200")
+            {
+                string signintime = rt.data.signintime;
+                string signouttime = rt.data.signouttime;
+                string[] strArrayin = signintime.Split(':');
+                string[] strArrayout = signouttime.Split(':');
+           //     MessageBox.Show("当前系统时间"+ int.Parse(DateTime.Now.ToString("HH"))+"签到时间" + strArrayin[0]+"签退时间"+ strArrayout[0]+ "签到时间1" + int.Parse(strArrayin[0]) + "签退时间" + int.Parse(strArrayout[0]));
+               if (int.Parse(DateTime.Now.ToString("HH"))> int.Parse(strArrayin[0]))
+                {
+                    string singid = this.Text + DateTime.Now.ToString("yyyy-MM-dd");
+
+             
+                    JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, singid));
+                    if (fs.code.ToString() == "200")
+                    {
+                        MessageBox.Show("您今天已经签到！");
+                    }
+                    else if (fs.code.ToString() == "-1")
+                    {
+                      
+                            JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(this.Text, singid, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd")));
+                            //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
+                            if (si.code.ToString() == "200")
+                            {
+                                MessageBox.Show("恭喜您签到成功");
+
+                            }
+                            else if (si.code.ToString() == "-1")
+                            {
+                                MessageBox.Show(si.message);
+
+                            }
+                            else if (si.code.ToString() == "404")
+                            {
+
+                                MessageBox.Show(si.message + this.Text);
+                            }
+                            else if (si.code.ToString() == "100")
+                            {
+                                MessageBox.Show(si.message);
+
+                            }
+                            else if (si.code.ToString() == "1000")
+                            {
+
+                                MessageBox.Show(si.message);
+                            }
+
+                    }
+                    else if (fs.code.ToString() == "404")
+                    {
+                        MessageBox.Show(fs.message);
+
+                    }
+                    else if (fs.code.ToString() == "100")
+                    {
+
+                        MessageBox.Show(fs.message);
+                    }
+                    else if (fs.code.ToString() == "1000")
+                    {
+                        MessageBox.Show(fs.message);
+
+                    }
+
+                }
+                else {
+                    MessageBox.Show("您好你已经迟到！");
+                
+                }
+            }
+            else if (rt.code.ToString() == "-1")
+            {
+
+                MessageBox.Show(rt.message);
+            }
+            else if (rt.code.ToString() == "404")
+            {
+                MessageBox.Show(rt.message);
+            }
+            else if (rt.code.ToString() == "100")
+            {
+                MessageBox.Show(rt.message);
+
+            }
+            else if (rt.code.ToString() == "1000")
+            {
+
+                MessageBox.Show(rt.message);
+            }
+         
+       /*
             int flag = 0;
             DataMysql datasql = new DataMysql();
             datasql.dataCon();
@@ -191,7 +286,7 @@ namespace BS_FS
                 timedata[j] = Convert.ToString(Row["signid"]);
                 j++;
             }
-            string time = id.ToString() + DateTime.Now.ToString("yyyy-MM-dd");
+            string time = this.Text+ DateTime.Now.ToString("yyyy-MM-dd");
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 if (timedata[i].Equals(time)) {
@@ -216,7 +311,7 @@ namespace BS_FS
                 }
             }
             else
-            { MessageBox.Show("尊敬的用户：" + dsa.Tables[0].Rows[0][0].ToString() + " 您今天已经签到无需再次签到"); }
+            { MessageBox.Show("尊敬的用户：" + dsa.Tables[0].Rows[0][0].ToString() + " 您今天已经签到无需再次签到"); }*/
 
 
         }
@@ -326,6 +421,7 @@ namespace BS_FS
                     if (similarity >= threshold)
                     {
                         result = i;
+                        // result = id[i];
                         break;
                     }
                 }
@@ -369,37 +465,24 @@ namespace BS_FS
             lock (locker)
             {
                 Net n = new Net();
-               
-                //这个需要引入Newtonsoft.Json这个DLL并using
-                //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
-
-              //  JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Findfaceimg(this.Text));
-             //   MessageBox.Show(rt.data.faceimg.ToString()+"人脸id"+rt.data.user_id.ToString());
                 List<string> imagePathListTemp = new List<string>();
                 var numStart = imagePathList.Count;
-                //查询数据库
-                DataMysql datasql = new DataMysql();
-                datasql.dataCon();
-                string cmdStr = "Select faceimg from user";
-                DataSet ds;
-                ds = datasql.getDataSet(cmdStr);
-                int j = 0;
-                j = ds.Tables[0].Rows.Count;
-                string[] fileNames = new string[j];
-                j = 0;
-                foreach (DataRow Row in ds.Tables[0].Rows)
-                {
-                    fileNames[j] = Convert.ToString(Row["faceimg"]);
-                    Console.WriteLine(fileNames[j]);
-                    j++;
-                    
+                //这个需要引入Newtonsoft.Json这个DLL并using
+                //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
+                JsonArrayBean rt = JsonConvert.DeserializeObject<JsonArrayBean>(n.Findfaceimg(this.Text));
+                for(int i=0;i<rt.data.Length;i++) {
+                    if (rt.data[i].faceimg.Equals("0"))
+                    {
+
+                    }
+                    else {
+                        imagePathListTemp.Add(rt.data[i].faceimg.ToString());
+                    }
+          
+               //     id[i] = int.Parse(rt.data[i].id.ToString());
+
                 }
 
-                for (int i = 0; i < fileNames.Length; i++)
-                {
-                    imagePathListTemp.Add(fileNames[i]);
-                   
-                }
 
                 //人脸检测以及提取人脸特征
                 ThreadPool.QueueUserWorkItem(new WaitCallback(delegate
@@ -459,11 +542,11 @@ namespace BS_FS
                             {
                                 if (singleFaceInfo.faceRect.left == 0 && singleFaceInfo.faceRect.right == 0)
                                 {
-                                    AppendText(string.Format("{0}号未检测到人脸\r\n", i));
+                                    AppendText(string.Format("{0}号未检测到人脸\r\n", rt.data[i].id));
                                 }
                                 else
                                 {
-                                    AppendText(string.Format("已提取{0}号人脸特征值，[left:{1},right:{2},top:{3},bottom:{4},orient:{5}]\r\n", i, singleFaceInfo.faceRect.left, singleFaceInfo.faceRect.right, singleFaceInfo.faceRect.top, singleFaceInfo.faceRect.bottom, singleFaceInfo.faceOrient));
+                                    AppendText(string.Format("已提取{0}号人脸特征值，[left:{1},right:{2},top:{3},bottom:{4},orient:{5}]\r\n",rt.data[i].id, singleFaceInfo.faceRect.left, singleFaceInfo.faceRect.right, singleFaceInfo.faceRect.top, singleFaceInfo.faceRect.bottom, singleFaceInfo.faceOrient));
                                     imagesFeatureList.Add(feature);
                                 }
                             }));

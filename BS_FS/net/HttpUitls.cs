@@ -165,6 +165,59 @@ namespace BS_FS.net
                 return "{ \"code\":\"1000\",\"message\": \"服务器请求异常，请检查网络。\",\"data\": {\"user_id\": \"0\",\"name\":\"123456\" }}";
             }
         }
+
+        public static string FindFaceimgStreamPost(string url)
+        {
+            HttpWebRequest req = null;
+            HttpWebResponse res = null;
+            System.IO.Stream stream = null;
+            bool result = false;
+            System.GC.Collect();
+            try
+            {
+                req = HttpWebRequest.Create(url) as System.Net.HttpWebRequest;
+                req.CookieContainer = new CookieContainer();
+                req.AllowAutoRedirect = true;
+                req.KeepAlive = false;
+                req.Timeout = 60 * 1000;
+                req.ServicePoint.ConnectionLeaseTimeout = 2 * 60 * 1000;
+                // req.ServicePoint.ConnectionLimit = int.MaxValue;
+
+                req.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
+                req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:9.0.1) Gecko/20100101 Firefox/9.0.1";
+                req.Headers.Add("Accept-Language", "en-us,en;q=0.5");
+                req.Headers.Add("Accept-Charset", "ISO-8859-1,utf-8;q=0.7,*;q=0.7");
+                req.Headers.Add("Accept-Encoding", "gzip, deflate");
+
+
+                res = req.GetResponse() as System.Net.HttpWebResponse;
+                stream = res.GetResponseStream();
+            }
+            catch (Exception exception)
+            {
+                
+            }
+            finally
+            {
+                if (stream != null)
+                {
+                    stream.Close(); stream.Dispose();
+                }
+                if (req != null)
+                {
+                    req.Abort();
+                    req = null;
+                }
+                if (res != null)
+                {
+                    res.Close();
+                    res = null;
+                }
+            }
+            return null;
+
+        }
+
         /// <summary>
         /// HttpWebRequest发送文件
         /// </summary>
@@ -351,6 +404,76 @@ namespace BS_FS.net
         }
         /*查找请求*/
         public static string FindFaceimgPost(string Url, string Data)
+        {
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
+                request.Method = "POST";
+                byte[] bytes = Encoding.UTF8.GetBytes(Data);
+                request.ContentType = "application/json;charset=UTF-8";
+                request.ContentLength = bytes.Length;
+                Stream myResponseStream = request.GetRequestStream();
+                myResponseStream.Write(bytes, 0, bytes.Length);
+
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                StreamReader myStreamReader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
+                string retString = myStreamReader.ReadToEnd();
+
+                myStreamReader.Close();
+                myResponseStream.Close();
+
+                if (response != null)
+                {
+                    response.Close();
+                }
+                if (request != null)
+                {
+                    request.Abort();
+                }
+                return retString;
+            }
+            catch
+            {
+                return "{ \"code\":\"1000\",\"message\": \"服务器请求异常，请检查网络。\",\"data\": {\"user_id\": \"0\",\"name\":\"123456\" }}";
+            }
+        }
+        /*查找是否签到接口*/
+        public static string FindSignPost(string Url, string Data)
+        {
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
+                request.Method = "POST";
+                byte[] bytes = Encoding.UTF8.GetBytes(Data);
+                request.ContentType = "application/json;charset=UTF-8";
+                request.ContentLength = bytes.Length;
+                Stream myResponseStream = request.GetRequestStream();
+                myResponseStream.Write(bytes, 0, bytes.Length);
+
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                StreamReader myStreamReader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
+                string retString = myStreamReader.ReadToEnd();
+
+                myStreamReader.Close();
+                myResponseStream.Close();
+
+                if (response != null)
+                {
+                    response.Close();
+                }
+                if (request != null)
+                {
+                    request.Abort();
+                }
+                return retString;
+            }
+            catch
+            {
+                return "{ \"code\":\"1000\",\"message\": \"服务器请求异常，请检查网络。\",\"data\": {\"user_id\": \"0\",\"name\":\"123456\" }}";
+            }
+        }
+        /*签到接口*/
+        public static string SigninPost(string Url, string Data)
         {
             try
             {

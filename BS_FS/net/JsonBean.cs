@@ -20,6 +20,11 @@ namespace BS_FS.net
             public string name { get; set; }
             public string faceimg { get; set; }
             public string url { get; set; }
+            public string signintime { get; set; }
+            public string signouttime { get; set; }
+
+            public string signid { get; set; }
+
 
         }
 
