@@ -23,19 +23,22 @@ namespace BS_FS.net
 
         }
 
-            /// <summary>
-            /// 
-            /// </summary>
-            public int code { get; set; }
-            /// <summary>
-            /// 请求成功
-            /// </summary>
-            public string message { get; set; }
-            /// <summary>
-            /// 
-            /// </summary>
-            public Data data { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int code { get; set; }
+        /// <summary>
+        /// 请求成功
+        /// </summary>
+        public string message { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public Data data { get; set; }
 
-        
     }
+
+
+
+
 }

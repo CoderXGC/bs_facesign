@@ -77,7 +77,8 @@ namespace BS_FS
             Net n = new Net();
             //这个需要引入Newtonsoft.Json这个DLL并using
             //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
-
+            JsonArrayBean rt1 = JsonConvert.DeserializeObject<JsonArrayBean>(n.Findfaceimg(this.Text));
+             MessageBox.Show("代码=" + rt1.code + "\r\n" + "信息=" + rt1.message + "\r\n" + "数据=" + rt1.data[0].faceimg.ToString());
             JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Login(id.Text, pwd.Text));
             //这样就可以取出json数据里面的值
             //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);

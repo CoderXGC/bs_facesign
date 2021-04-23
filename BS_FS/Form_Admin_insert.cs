@@ -273,7 +273,7 @@ namespace BS_FS
             if (rt.code.ToString() == "200")
             {
 
-               JsonBean rtt = JsonConvert.DeserializeObject<JsonBean>(n.addfaceimg(this.Text, rt.data.url));
+               JsonBean rtt = JsonConvert.DeserializeObject<JsonBean>(n.Addfaceimg(this.Text, rt.data.url));
                
                 if (rtt.code.ToString() == "200")
                 {

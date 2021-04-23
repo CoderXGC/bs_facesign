@@ -269,6 +269,7 @@
     </Compile>
     <Compile Include="LoadingDot.cs" />
     <Compile Include="LoadingHelper.cs" />
+    <Compile Include="net\JsonArrayBean.cs" />
     <Compile Include="net\JsonBean.cs" />
     <Compile Include="net\HttpUitls.cs" />
     <Compile Include="net\Net.cs" />

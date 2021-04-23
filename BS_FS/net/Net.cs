@@ -129,11 +129,11 @@ namespace BS_FS.net
             try
             {
                 //地址
-                string url = homeurl + "/user/find";
+                string url = homeurl + "/user/findfaceimg";
                 //json参数
                 string jsonParam = "{ \"id\":" + id + "}";
                 //将接口传入，这个HttpUitls的类，有兴趣可以研究下，也可以直接用就可以，不用管如何实现。
-                string getJson = HttpUitls.FindPost(url, jsonParam);
+                string getJson = HttpUitls.FindFaceimgPost(url, jsonParam);
 
                 return getJson;
             }

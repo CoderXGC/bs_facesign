@@ -4,6 +4,7 @@ using ArcSoftFace.SDKModels;
 using ArcSoftFace.SDKUtil;
 using ArcSoftFace.Utils;
 using BS_FS.net;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -368,8 +369,12 @@ namespace BS_FS
             lock (locker)
             {
                 Net n = new Net();
-                n.Findfaceimg(this.Text);
+               
+                //这个需要引入Newtonsoft.Json这个DLL并using
+                //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
 
+              //  JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Findfaceimg(this.Text));
+             //   MessageBox.Show(rt.data.faceimg.ToString()+"人脸id"+rt.data.user_id.ToString());
                 List<string> imagePathListTemp = new List<string>();
                 var numStart = imagePathList.Count;
                 //查询数据库
