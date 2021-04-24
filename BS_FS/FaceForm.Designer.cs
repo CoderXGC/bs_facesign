@@ -52,9 +52,10 @@
             // 
             this.picImageCompare.BackColor = System.Drawing.Color.White;
             this.picImageCompare.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picImageCompare.Location = new System.Drawing.Point(603, 37);
+            this.picImageCompare.Location = new System.Drawing.Point(804, 46);
+            this.picImageCompare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picImageCompare.Name = "picImageCompare";
-            this.picImageCompare.Size = new System.Drawing.Size(494, 362);
+            this.picImageCompare.Size = new System.Drawing.Size(657, 452);
             this.picImageCompare.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picImageCompare.TabIndex = 1;
             this.picImageCompare.TabStop = false;
@@ -62,18 +63,20 @@
             // lblImageList
             // 
             this.lblImageList.AutoSize = true;
-            this.lblImageList.Location = new System.Drawing.Point(12, 11);
+            this.lblImageList.Location = new System.Drawing.Point(16, 14);
+            this.lblImageList.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblImageList.Name = "lblImageList";
-            this.lblImageList.Size = new System.Drawing.Size(47, 12);
+            this.lblImageList.Size = new System.Drawing.Size(60, 15);
             this.lblImageList.TabIndex = 7;
             this.lblImageList.Text = "人脸库:";
             // 
             // chooseMultiImgBtn
             // 
             this.chooseMultiImgBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chooseMultiImgBtn.Location = new System.Drawing.Point(14, 431);
+            this.chooseMultiImgBtn.Location = new System.Drawing.Point(19, 539);
+            this.chooseMultiImgBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chooseMultiImgBtn.Name = "chooseMultiImgBtn";
-            this.chooseMultiImgBtn.Size = new System.Drawing.Size(133, 26);
+            this.chooseMultiImgBtn.Size = new System.Drawing.Size(177, 32);
             this.chooseMultiImgBtn.TabIndex = 32;
             this.chooseMultiImgBtn.Text = "注册人脸";
             this.chooseMultiImgBtn.UseVisualStyleBackColor = true;
@@ -82,20 +85,22 @@
             // logBox
             // 
             this.logBox.BackColor = System.Drawing.Color.White;
-            this.logBox.Location = new System.Drawing.Point(14, 477);
+            this.logBox.Location = new System.Drawing.Point(19, 596);
+            this.logBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logBox.Multiline = true;
             this.logBox.Name = "logBox";
             this.logBox.ReadOnly = true;
             this.logBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.logBox.Size = new System.Drawing.Size(1083, 139);
+            this.logBox.Size = new System.Drawing.Size(1443, 173);
             this.logBox.TabIndex = 31;
             // 
             // chooseImgBtn
             // 
             this.chooseImgBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chooseImgBtn.Location = new System.Drawing.Point(603, 431);
+            this.chooseImgBtn.Location = new System.Drawing.Point(804, 539);
+            this.chooseImgBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chooseImgBtn.Name = "chooseImgBtn";
-            this.chooseImgBtn.Size = new System.Drawing.Size(109, 26);
+            this.chooseImgBtn.Size = new System.Drawing.Size(145, 32);
             this.chooseImgBtn.TabIndex = 30;
             this.chooseImgBtn.Text = "选择识别图";
             this.chooseImgBtn.UseVisualStyleBackColor = true;
@@ -110,9 +115,10 @@
             // matchBtn
             // 
             this.matchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.matchBtn.Location = new System.Drawing.Point(748, 431);
+            this.matchBtn.Location = new System.Drawing.Point(997, 539);
+            this.matchBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.matchBtn.Name = "matchBtn";
-            this.matchBtn.Size = new System.Drawing.Size(104, 26);
+            this.matchBtn.Size = new System.Drawing.Size(139, 32);
             this.matchBtn.TabIndex = 34;
             this.matchBtn.Text = "开始匹配";
             this.matchBtn.UseVisualStyleBackColor = true;
@@ -121,9 +127,10 @@
             // btnClearFaceList
             // 
             this.btnClearFaceList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearFaceList.Location = new System.Drawing.Point(416, 431);
+            this.btnClearFaceList.Location = new System.Drawing.Point(555, 539);
+            this.btnClearFaceList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClearFaceList.Name = "btnClearFaceList";
-            this.btnClearFaceList.Size = new System.Drawing.Size(125, 26);
+            this.btnClearFaceList.Size = new System.Drawing.Size(167, 32);
             this.btnClearFaceList.TabIndex = 35;
             this.btnClearFaceList.Text = "清空人脸库";
             this.btnClearFaceList.UseVisualStyleBackColor = true;
@@ -132,9 +139,10 @@
             // lblCompareImage
             // 
             this.lblCompareImage.AutoSize = true;
-            this.lblCompareImage.Location = new System.Drawing.Point(601, 11);
+            this.lblCompareImage.Location = new System.Drawing.Point(801, 14);
+            this.lblCompareImage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompareImage.Name = "lblCompareImage";
-            this.lblCompareImage.Size = new System.Drawing.Size(59, 12);
+            this.lblCompareImage.Size = new System.Drawing.Size(75, 15);
             this.lblCompareImage.TabIndex = 36;
             this.lblCompareImage.Text = "比对人脸:";
             // 
@@ -142,17 +150,19 @@
             // 
             this.lblCompareInfo.AutoSize = true;
             this.lblCompareInfo.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblCompareInfo.Location = new System.Drawing.Point(667, 11);
+            this.lblCompareInfo.Location = new System.Drawing.Point(889, 14);
+            this.lblCompareInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompareInfo.Name = "lblCompareInfo";
-            this.lblCompareInfo.Size = new System.Drawing.Size(0, 16);
+            this.lblCompareInfo.Size = new System.Drawing.Size(0, 20);
             this.lblCompareInfo.TabIndex = 37;
             // 
             // btnStartVideo
             // 
             this.btnStartVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStartVideo.Location = new System.Drawing.Point(883, 431);
+            this.btnStartVideo.Location = new System.Drawing.Point(1177, 539);
+            this.btnStartVideo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStartVideo.Name = "btnStartVideo";
-            this.btnStartVideo.Size = new System.Drawing.Size(107, 26);
+            this.btnStartVideo.Size = new System.Drawing.Size(143, 32);
             this.btnStartVideo.TabIndex = 39;
             this.btnStartVideo.Text = "启用摄像头";
             this.btnStartVideo.UseVisualStyleBackColor = true;
@@ -163,9 +173,10 @@
             this.txtThreshold.BackColor = System.Drawing.SystemColors.Window;
             this.txtThreshold.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtThreshold.Font = new System.Drawing.Font("微软雅黑", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtThreshold.Location = new System.Drawing.Point(1037, 431);
+            this.txtThreshold.Location = new System.Drawing.Point(1383, 539);
+            this.txtThreshold.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtThreshold.Name = "txtThreshold";
-            this.txtThreshold.Size = new System.Drawing.Size(60, 25);
+            this.txtThreshold.Size = new System.Drawing.Size(79, 29);
             this.txtThreshold.TabIndex = 40;
             this.txtThreshold.Text = "0.8";
             this.txtThreshold.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtThreshold_KeyPress);
@@ -174,17 +185,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(996, 436);
+            this.label1.Location = new System.Drawing.Point(1328, 545);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 41;
             this.label1.Text = "阈值：";
             // 
             // videoSource
             // 
-            this.videoSource.Location = new System.Drawing.Point(603, 37);
+            this.videoSource.Location = new System.Drawing.Point(804, 46);
+            this.videoSource.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.videoSource.Name = "videoSource";
-            this.videoSource.Size = new System.Drawing.Size(494, 362);
+            this.videoSource.Size = new System.Drawing.Size(659, 452);
             this.videoSource.TabIndex = 38;
             this.videoSource.Text = "videoSource";
             this.videoSource.VideoSource = null;
@@ -192,18 +205,20 @@
             // 
             // imageList
             // 
+            this.imageList.HideSelection = false;
             this.imageList.LargeImageList = this.imageLists;
-            this.imageList.Location = new System.Drawing.Point(14, 37);
+            this.imageList.Location = new System.Drawing.Point(19, 46);
+            this.imageList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.imageList.Name = "imageList";
-            this.imageList.Size = new System.Drawing.Size(527, 362);
+            this.imageList.Size = new System.Drawing.Size(701, 452);
             this.imageList.TabIndex = 33;
             this.imageList.UseCompatibleStateImageBehavior = false;
             // 
             // FaceForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1115, 633);
+            this.ClientSize = new System.Drawing.Size(1487, 791);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtThreshold);
             this.Controls.Add(this.btnStartVideo);
@@ -220,12 +235,14 @@
             this.Controls.Add(this.picImageCompare);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FaceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "人脸识别C# demo";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Closed);
+            this.Load += new System.EventHandler(this.FaceForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picImageCompare)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -18,7 +18,7 @@ namespace BS_FS.net
         string Addfaceimg(String id, String faceimg);
         string Findfaceimg(String id);
         string Signin(String id,String signid,String flag,String signintime,String daytime);
-
+        string Signout(String id, String signid, String signouttime);
         string Findsign(String id,String signid);
     }
 }

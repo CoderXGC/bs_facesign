@@ -7,30 +7,37 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BS_FS.net;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace BS_FS
 {
     public partial class ControlFm : Form
     {
+        delegate void AsynUpdateUI(int step);
+        System.Timers.Timer t = new System.Timers.Timer(10000);//实例化Timer类，设置间隔时间为10000毫秒；
+        private bool isLock = false;
+
+
         public ControlFm()
         {
             InitializeComponent();
             this.MaximizedBounds = Screen.PrimaryScreen.WorkingArea;
+
         }
-       
-        private void timer1_Tick(object sender, EventArgs e)
+        public void theout(object source, System.Timers.ElapsedEventArgs e)
         {
-            
+
         }
 
         private void ControlFm_Load(object sender, EventArgs e)
         {
- 
 
 
+            uiProgressIndicator1.Visible = false;
             try
             {
-                Task.Factory.StartNew(() => {
+                Task.Factory.StartNew(() =>
+                {
                     //更新程序位于主程序安装目录的“UpdateApp”文件夹里面
                     string exePath = $@"{AppDomain.CurrentDomain.BaseDirectory}AppUpdate\UpdateApp.exe";
                     if (File.Exists(exePath))
@@ -43,37 +50,71 @@ namespace BS_FS
             }
             catch { }
             string url = "https://www.ylesb.com/csimg/login.jpg";
-   /*       this.pictureBox1.Image = Image.FromStream(System.Net.WebRequest.Create(url).GetResponse().GetResponseStream());
-          this.pictureBox1.SendToBack();//将背景图片放到最下面
-            this.label1.Parent = this.pictureBox1;
-            this.label1.BackColor = Color.Transparent;
-            this.label2.Parent = this.pictureBox1;
-            this.label2.BackColor = Color.Transparent;
-            this.label3.Parent = this.pictureBox1;
-            this.label3.BackColor = Color.Transparent;
-            this.label4.Parent = this.pictureBox1;
-            this.label4.BackColor = Color.Transparent;
-            this.label5.Parent = this.pictureBox1;*/
+            /*       this.pictureBox1.Image = Image.FromStream(System.Net.WebRequest.Create(url).GetResponse().GetResponseStream());
+                   this.pictureBox1.SendToBack();//将背景图片放到最下面
+                     this.label1.Parent = this.pictureBox1;
+                     this.label1.BackColor = Color.Transparent;
+                     this.label2.Parent = this.pictureBox1;
+                     this.label2.BackColor = Color.Transparent;
+                     this.label3.Parent = this.pictureBox1;
+                     this.label3.BackColor = Color.Transparent;
+                     this.label4.Parent = this.pictureBox1;
+                     this.label4.BackColor = Color.Transparent;
+                     this.label5.Parent = this.pictureBox1;*/
             this.label5.BackColor = Color.Transparent;
-       //     this.radioButton1.Parent= this.pictureBox1;
-         //   this.radioButton2.Parent = this.pictureBox1;
-          
-         //   label3.Visible = false;
-           // pwd.Visible = false;
+            //     this.radioButton1.Parent= this.pictureBox1;
+            //   this.radioButton2.Parent = this.pictureBox1;
+
+            //   label3.Visible = false;
+            // pwd.Visible = false;
         }
 
 
 
         private void ControlFm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            timer1.Stop();
             Dispose();
             Application.Exit();
         }
 
+
+
+        private void UpdataUIStatus(int step)
+        {
+            if (InvokeRequired)
+            {
+                this.Invoke(new AsynUpdateUI(delegate (int s)
+                {
+                  
+                }), step);
+            }
+            else
+            {
+                
+            }
+        }
+        //完成任务时需要调用
+        private void Accomplish()
+        {
+            //还可以进行其他的一些完任务完成之后的逻辑处理
+            MessageBox.Show("任务完成");
+        }
         private void uiButton1_Click(object sender, EventArgs e)
         {
+            int taskCount = 100; //任务量为10000
+            this.pgbWrite.Maximum = taskCount;
+            this.pgbWrite.Value = 0;
 
+            DataWrite dataWrite = new DataWrite();//实例化一个写入数据的类
+            dataWrite.UpdateUIDelegate += UpdataUIStatus;//绑定更新任务状态的委托
+            dataWrite.TaskCallBack += Accomplish;//绑定完成任务要调用的委托
+
+            Thread thread = new Thread(new ParameterizedThreadStart(dataWrite.Write));
+            thread.IsBackground = true;
+            thread.Start(taskCount);
+
+            uiProgressIndicator1.Visible = true;
+       
             Net n = new Net();
             //这个需要引入Newtonsoft.Json这个DLL并using
             //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
@@ -82,10 +123,10 @@ namespace BS_FS
             //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
             if (rt.code.ToString() == "200")
             {
-              
-               // MessageBox.Show(n.Find(id.Text));
-                ShowSuccessTip("登录成功");
 
+
+                // MessageBox.Show(n.Find(id.Text));
+                ShowSuccessTip("登录成功");
                 Form_people form_people = new Form_people(id.Text);
                 form_people.StartPosition = FormStartPosition.CenterScreen;
                 form_people.Show();
@@ -97,24 +138,30 @@ namespace BS_FS
             }
             else if (rt.code.ToString() == "-1")
             {
+
                 ShowErrorTip(rt.message);
 
             }
             else if (rt.code.ToString() == "404")
             {
+
                 ShowWarningTip(rt.message);
 
             }
             else if (rt.code.ToString() == "100")
             {
+
                 ShowWarningTip(rt.message);
 
             }
             else if (rt.code.ToString() == "1000")
             {
+                uiProgressIndicator1.Visible = false;
+
                 ShowWarningTip(rt.message);
 
             }
+
             //FaceForm faceForm = new FaceForm();
             //faceForm.Show();
             /*   Form_Sign form_User = new Form_Sign();
@@ -172,6 +219,13 @@ namespace BS_FS
         private void uiButton2_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Form_Login_Admin form_Login_Admin = new Form_Login_Admin();
+            form_Login_Admin.Show();
+            this.Hide();
         }
     }
 

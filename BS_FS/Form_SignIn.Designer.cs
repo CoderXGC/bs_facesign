@@ -1,6 +1,6 @@
 ﻿namespace BS_FS
 {
-    partial class Form_Sign
+    partial class Form_SignIn
     {
         /// <summary>
         /// Required designer variable.

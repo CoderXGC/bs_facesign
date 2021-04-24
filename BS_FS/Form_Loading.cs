@@ -307,5 +307,10 @@ namespace BS_FS
         }
 
         #endregion 重写  
+
+        private void LblMessage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

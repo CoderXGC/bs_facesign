@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace BS_FS
 {
-    public partial class Form_Sign : Form
+    public partial class Form_SignIn : Form
     {
         //引擎Handle
         private IntPtr pImageEngine = IntPtr.Zero;
@@ -58,7 +58,7 @@ namespace BS_FS
 
         #endregion
 
-        public Form_Sign(String id)
+        public Form_SignIn(String id)
         {
             InitializeComponent();
             this.Text = id;
@@ -184,12 +184,10 @@ namespace BS_FS
                 string signouttime = rt.data.signouttime;
                 string[] strArrayin = signintime.Split(':');
                 string[] strArrayout = signouttime.Split(':');
-           //     MessageBox.Show("当前系统时间"+ int.Parse(DateTime.Now.ToString("HH"))+"签到时间" + strArrayin[0]+"签退时间"+ strArrayout[0]+ "签到时间1" + int.Parse(strArrayin[0]) + "签退时间" + int.Parse(strArrayout[0]));
-               if (int.Parse(DateTime.Now.ToString("HH"))> int.Parse(strArrayin[0]))
+                //  MessageBox.Show("当前系统时间"+ int.Parse(DateTime.Now.ToString("HH"))+"签到时间" + strArrayin[0]+"签退时间"+ strArrayout[0]+ "签到时间1" + int.Parse(strArrayin[0]) + "签退时间" + int.Parse(strArrayout[0]));
+                if (int.Parse(DateTime.Now.ToString("hh")) < int.Parse(strArrayin[0]))
                 {
                     string singid = this.Text + DateTime.Now.ToString("yyyy-MM-dd");
-
-             
                     JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, singid));
                     if (fs.code.ToString() == "200")
                     {
@@ -197,12 +195,126 @@ namespace BS_FS
                     }
                     else if (fs.code.ToString() == "-1")
                     {
-                      
-                            JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(this.Text, singid, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd")));
+
+                        JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(this.Text, singid, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd")));
+                        //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
+                        if (si.code.ToString() == "200")
+                        {
+                            MessageBox.Show("恭喜您签到成功");
+
+                        }
+                        else if (si.code.ToString() == "-1")
+                        {
+                            MessageBox.Show(si.message);
+
+                        }
+                        else if (si.code.ToString() == "404")
+                        {
+
+                            MessageBox.Show(si.message + this.Text);
+                        }
+                        else if (si.code.ToString() == "100")
+                        {
+                            MessageBox.Show(si.message);
+
+                        }
+                        else if (si.code.ToString() == "1000")
+                        {
+
+                            MessageBox.Show(si.message);
+                        }
+
+                    }
+                    else if (fs.code.ToString() == "404")
+                    {
+                        MessageBox.Show(fs.message);
+
+                    }
+                    else if (fs.code.ToString() == "100")
+                    {
+
+                        MessageBox.Show(fs.message);
+                    }
+                    else if (fs.code.ToString() == "1000")
+                    {
+                        MessageBox.Show(fs.message);
+
+                    }
+
+                }
+                else if (int.Parse(DateTime.Now.ToString("hh")) > int.Parse(strArrayin[0]) && int.Parse(DateTime.Now.ToString("hh")) < int.Parse(strArrayout[0]))
+                {
+
+                    string signid = this.Text + DateTime.Now.ToString("yyyy-MM-dd");
+                    JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, signid));
+                    if (fs.code.ToString() == "200")
+                    {
+                        MessageBox.Show("您已签到，您今天已经迟到！");
+                    }
+                    else if (fs.code.ToString() == "-1")
+                    {
+
+                        JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(this.Text, signid, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd")));
+                        //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
+                        if (si.code.ToString() == "200")
+                        {
+                            MessageBox.Show("签到成功，您已经迟到！");
+
+                        }
+                        else if (si.code.ToString() == "-1")
+                        {
+                            MessageBox.Show(si.message);
+
+                        }
+                        else if (si.code.ToString() == "404")
+                        {
+
+                            MessageBox.Show(si.message + this.Text);
+                        }
+                        else if (si.code.ToString() == "100")
+                        {
+                            MessageBox.Show(si.message);
+
+                        }
+                        else if (si.code.ToString() == "1000")
+                        {
+
+                            MessageBox.Show(si.message);
+                        }
+
+                    }
+                    else if (fs.code.ToString() == "404")
+                    {
+                        MessageBox.Show(fs.message);
+
+                    }
+                    else if (fs.code.ToString() == "100")
+                    {
+
+                        MessageBox.Show(fs.message);
+                    }
+                    else if (fs.code.ToString() == "1000")
+                    {
+                        MessageBox.Show(fs.message);
+
+                    }
+
+                } else if (int.Parse(DateTime.Now.ToString("hh")) > int.Parse(strArrayout[0]))
+                {
+
+                    string singid = this.Text + DateTime.Now.ToString("yyyy-MM-dd");
+
+                    JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, singid));
+                    if (fs.code.ToString() == "200")
+                    {
+
+                        if (fs.data.signouttime.Equals("0")) {
+
+                            JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signout(this.Text, singid, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
                             //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
                             if (si.code.ToString() == "200")
                             {
-                                MessageBox.Show("恭喜您签到成功");
+                                MessageBox.Show("恭喜您签退成功");
 
                             }
                             else if (si.code.ToString() == "-1")
@@ -226,6 +338,16 @@ namespace BS_FS
                                 MessageBox.Show(si.message);
                             }
 
+                        }
+                        else {
+
+                            MessageBox.Show("您今天已经签退！");
+                        }
+                   
+                    }
+                    else if (fs.code.ToString() == "-1")
+                    {
+                        MessageBox.Show(fs.message);
                     }
                     else if (fs.code.ToString() == "404")
                     {
@@ -242,11 +364,7 @@ namespace BS_FS
                         MessageBox.Show(fs.message);
 
                     }
-
-                }
-                else {
-                    MessageBox.Show("您好你已经迟到！");
-                
+  
                 }
             }
             else if (rt.code.ToString() == "-1")

@@ -771,5 +771,10 @@ namespace BS_FS
         }
 
         #endregion
+
+        private void FaceForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -9,14 +9,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="BS_FS.exe.manifest" size="28607">
+    <dependentAssembly dependencyType="install" codebase="BS_FS.exe.manifest" size="34205">
       <assemblyIdentity name="BS_FS.exe" version="1.0.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ihRoZISdowH2Px+1JeJSdrBiLqX0/+2OHmeV5aJif1o=</dsig:DigestValue>
+        <dsig:DigestValue>rcJ50cBHoeGFZF0hJsiN7QUAtHuquUhF9qWnRD+6MxA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

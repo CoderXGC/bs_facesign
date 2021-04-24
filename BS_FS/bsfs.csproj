@@ -211,6 +211,7 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataWrite.cs" />
     <Compile Include="Form_Admin_insert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,11 +256,17 @@
     <Compile Include="Form_people.Designer.cs">
       <DependentUpon>Form_people.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Sign.cs">
+    <Compile Include="Form_People_Signlog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Sign.Designer.cs">
-      <DependentUpon>Form_Sign.cs</DependentUpon>
+    <Compile Include="Form_People_Signlog.Designer.cs">
+      <DependentUpon>Form_People_Signlog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_SignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_SignIn.Designer.cs">
+      <DependentUpon>Form_SignIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Start.cs">
       <SubType>Form</SubType>
@@ -269,11 +276,11 @@
     </Compile>
     <Compile Include="LoadingDot.cs" />
     <Compile Include="LoadingHelper.cs" />
-    <Compile Include="net\JsonArrayBean.cs" />
-    <Compile Include="net\JsonBean.cs" />
-    <Compile Include="net\HttpUitls.cs" />
-    <Compile Include="net\Net.cs" />
-    <Compile Include="net\NetInterface.cs" />
+    <Compile Include="Net\JsonArrayBean.cs" />
+    <Compile Include="Net\JsonBean.cs" />
+    <Compile Include="Net\HttpUitls.cs" />
+    <Compile Include="Net\Net.cs" />
+    <Compile Include="Net\NetInterface.cs" />
     <Compile Include="SDKModels\ASF_AgeInfo.cs" />
     <Compile Include="SDKModels\ASF_Face3DAngle.cs" />
     <Compile Include="SDKModels\ASF_FaceFeature.cs" />
@@ -302,6 +309,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SDKUtil\ASFFunctions.cs" />
+    <Compile Include="Form_Login_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Login_Admin.Designer.cs">
+      <DependentUpon>Form_Login_Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\FaceUtil.cs" />
     <Compile Include="Utils\ImageUtil.cs" />
     <Compile Include="Utils\MemoryUtil.cs" />
@@ -332,8 +345,11 @@
     <EmbeddedResource Include="Form_people.resx">
       <DependentUpon>Form_people.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Sign.resx">
-      <DependentUpon>Form_Sign.cs</DependentUpon>
+    <EmbeddedResource Include="Form_People_Signlog.resx">
+      <DependentUpon>Form_People_Signlog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_SignIn.resx">
+      <DependentUpon>Form_SignIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Start.resx">
       <DependentUpon>Form_Start.cs</DependentUpon>
@@ -342,6 +358,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Login_Admin.resx">
+      <DependentUpon>Form_Login_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
@@ -370,8 +389,25 @@
     <Content Include="lib\AForge.Video.DirectShow.dll" />
     <Content Include="lib\AForge.Video.dll" />
     <Content Include="Resources\close.png" />
+    <Content Include="Resources\colorbarIndicators.bmp" />
     <Content Include="Resources\favicon.ico" />
+    <Content Include="Resources\gps1.png" />
+    <Content Include="Resources\gps_postion.png" />
+    <None Include="Resources\Image1.bmp" />
+    <Content Include="Resources\img_notifier.png" />
+    <None Include="Resources\l1.bmp" />
+    <Content Include="Resources\Login1.png" />
+    <Content Include="Resources\Login2.png" />
+    <Content Include="Resources\Login3.png" />
+    <Content Include="Resources\Login4.png" />
+    <Content Include="Resources\Login5.png" />
+    <Content Include="Resources\Login6.png" />
+    <None Include="Resources\logo1.png" />
+    <Content Include="Resources\menu.png" />
     <Content Include="Resources\min.png" />
+    <Content Include="Resources\notifier.png" />
+    <Content Include="Resources\wind.png" />
+    <Content Include="Resources\wind_postion.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">

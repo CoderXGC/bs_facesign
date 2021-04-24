@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlFm));
             this.label1 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,6 +39,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.uiButton2 = new Sunny.UI.UIButton();
+            this.uiProgressIndicator1 = new Sunny.UI.UIProgressIndicator();
+            this.pgbWrite = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
@@ -53,10 +53,6 @@
             this.label1.Size = new System.Drawing.Size(223, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "欢迎使用TL系统";
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label2
             // 
@@ -76,6 +72,7 @@
             this.label4.Size = new System.Drawing.Size(97, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "专属账号登录";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -91,7 +88,7 @@
             this.uiButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(181, 321);
+            this.uiButton1.Location = new System.Drawing.Point(181, 305);
             this.uiButton1.Margin = new System.Windows.Forms.Padding(2);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
@@ -154,7 +151,7 @@
             this.uiButton2.FillPressColor = System.Drawing.Color.Salmon;
             this.uiButton2.FillSelectedColor = System.Drawing.Color.Salmon;
             this.uiButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton2.Location = new System.Drawing.Point(305, 321);
+            this.uiButton2.Location = new System.Drawing.Point(319, 305);
             this.uiButton2.Margin = new System.Windows.Forms.Padding(2);
             this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton2.Name = "uiButton2";
@@ -169,6 +166,24 @@
             this.uiButton2.Text = "退出系统";
             this.uiButton2.Click += new System.EventHandler(this.uiButton2_Click);
             // 
+            // uiProgressIndicator1
+            // 
+            this.uiProgressIndicator1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiProgressIndicator1.Location = new System.Drawing.Point(266, 187);
+            this.uiProgressIndicator1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiProgressIndicator1.Name = "uiProgressIndicator1";
+            this.uiProgressIndicator1.Radius = 10;
+            this.uiProgressIndicator1.Size = new System.Drawing.Size(100, 100);
+            this.uiProgressIndicator1.TabIndex = 16;
+            this.uiProgressIndicator1.Text = "uiProgressIndicator1";
+            // 
+            // pgbWrite
+            // 
+            this.pgbWrite.Location = new System.Drawing.Point(214, 58);
+            this.pgbWrite.Name = "pgbWrite";
+            this.pgbWrite.Size = new System.Drawing.Size(100, 23);
+            this.pgbWrite.TabIndex = 17;
+            // 
             // ControlFm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -176,6 +191,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(590, 420);
             this.ControlBox = false;
+            this.Controls.Add(this.pgbWrite);
+            this.Controls.Add(this.uiProgressIndicator1);
             this.Controls.Add(this.uiButton2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -208,7 +225,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -218,5 +234,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private Sunny.UI.UIButton uiButton2;
+        private Sunny.UI.UIProgressIndicator uiProgressIndicator1;
+        private System.Windows.Forms.ProgressBar pgbWrite;
     }
 }

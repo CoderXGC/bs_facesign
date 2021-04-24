@@ -100,9 +100,38 @@ namespace BS_FS
         {
           /*  FaceForm faceForm = new FaceForm();
             faceForm.Show();*/
-          Form_Sign form_User = new Form_Sign(this.Text);
+          Form_SignIn form_User = new Form_SignIn(this.Text);
             form_User.Show();
 
+        }
+
+        private void 查看签到信息ToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Form_People_Signlog form_People_Signlog = new Form_People_Signlog(this.Text); //实例化一个子窗口
+
+            //设置子窗口不显示为顶级窗口
+
+            form_People_Signlog.TopLevel = false;
+
+            //设置子窗口的样式，没有上面的标题栏
+
+            form_People_Signlog.FormBorderStyle = FormBorderStyle.None;
+
+            //填充
+
+            //  From_admin_query.Dock = DockStyle.Fill;
+
+            //清空Panel里面的控件
+
+            this.panel1.Controls.Clear();
+
+            //加入控件
+
+            this.panel1.Controls.Add(form_People_Signlog);
+
+            //让窗体显示
+
+            form_People_Signlog.Show();
         }
     }
 }

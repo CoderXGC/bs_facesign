@@ -27,7 +27,7 @@ namespace BS_FS
             if (compNum > 0)
             {
                 MessageBox.Show("查询错误，请选择比当前日期小的时间。");
-                button1.Enabled = false;
+                uiSymbolButton1.Enabled = false;
             }
             else {
 
@@ -44,10 +44,10 @@ namespace BS_FS
                 if (ds.Tables[0].Rows.Count == 0)
                 {
                     MessageBox.Show(dateTimePicker1.Value.ToString("yyyy-MM-dd") + "当天没有人员签到哦");
-                    button1.Enabled = false;
+                    uiSymbolButton1.Enabled = false;
                 }
                 else { dataGridView1.DataSource = ds.Tables[0];
-                    button1.Enabled = true;
+                    uiSymbolButton1.Enabled = true;
                 }
 
             }
@@ -61,13 +61,15 @@ namespace BS_FS
             dataGridView1.AllowUserToResizeColumns = false;//禁止用户改变DataGridView1的所有列的列宽
             dataGridView1.AllowUserToResizeRows = false;//禁止用户改变DataGridView1の所有行的行高
             dataGridView1.RowHeadersVisible = false;//第一列空白
-            button1.Enabled = false;//禁止导出按钮
+            uiSymbolButton1.Enabled = false;//禁止导出按钮
             //this.pictureBox1.Image = Image.FromFile(Application.StartupPath + "\\bg.jpg");
             //this.pictureBox1.SendToBack();//将背景图片放到最下面
             //      this.dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows.Count - 1;//Datagridview中的数据很多，加载完数据后滚动条自动滚动到最后一行
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       
+
+        private void uiSymbolButton1_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Excel files (*.xls)|*.xls";
@@ -77,7 +79,7 @@ namespace BS_FS
             saveFileDialog.Title = "导出Excel文件到";
 
             DateTime now = DateTime.Now;
-            saveFileDialog.FileName = dateTimePicker1.Value.ToString("yyyy-MM-dd")+"人员签到情况表";
+            saveFileDialog.FileName = dateTimePicker1.Value.ToString("yyyy-MM-dd") + "人员签到情况表";
             saveFileDialog.ShowDialog();
 
             Stream myStream = saveFileDialog.OpenFile();
@@ -123,7 +125,7 @@ namespace BS_FS
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void uiSymbolButton3_Click(object sender, EventArgs e)
         {
             this.Close();
         }
