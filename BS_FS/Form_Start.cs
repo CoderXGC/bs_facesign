@@ -21,7 +21,7 @@ namespace BS_FS
             this.FormBorderStyle = FormBorderStyle.None;//去掉外框
            string url = "https://www.ylesb.com/csimg/bg.jpg";
             //this.pictureBox.Image = Image.FromStream(System.Net.WebRequest.Create(url).GetResponse().GetResponseStream());
-            this.BackgroundImage = Image.FromStream(System.Net.WebRequest.Create(url).GetResponse().GetResponseStream());//背景图片
+           this.BackgroundImage = Image.FromStream(System.Net.WebRequest.Create(url).GetResponse().GetResponseStream());//背景图片
             this.StartPosition = FormStartPosition.CenterScreen;//屏幕中央
         }
 

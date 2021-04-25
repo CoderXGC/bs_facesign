@@ -144,14 +144,14 @@ namespace BS_FS.net
             }
         }
 
-        public string Signin(String id, String signid, String flag, String signintime ,String daytime)
+        public string Signin(String id, String signid, String flag, String signintime ,String daytime,String signouttime)
         {
             try
             {
                 //地址
                 string url = homeurl + "/user/signin";
                 //json参数
-                string jsonParam = "{ \"id\":" + id + ",\"signid\":\"" + signid + "\",\"signintime\":\"" + signintime + "\",\"daytime\":\""+daytime+"\"}";
+                string jsonParam = "{ \"id\":" + id + ",\"signid\":\"" + signid + "\",\"signintime\":\"" + signintime + "\",\"daytime\":\""+daytime+ "\",\"signouttime\":\"" + signouttime + "\"}";
                 //将接口传入，这个HttpUitls的类，有兴趣可以研究下，也可以直接用就可以，不用管如何实现。
                 string getJson = HttpUitls.SigninPost(url,jsonParam);
 

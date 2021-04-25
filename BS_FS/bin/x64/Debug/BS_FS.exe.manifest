@@ -149,14 +149,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BS_FS.exe" size="606616">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BS_FS.exe" size="763288">
       <assemblyIdentity name="BS_FS" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Pa1td24+rILcrzvsWg0OAHjPFDToH3z3fHgEVRZBaFM=</dsig:DigestValue>
+        <dsig:DigestValue>XygZN3qoYNlSTij4nSFGwNpywcSA4RshGXYRqyh8B7E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -479,6 +479,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>uvpu0EyieCJwB0EnoEmN3gIsKp9Alsa7K448CLs9QE0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\bg1.png" size="135979">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>5GVHp9NnMb97fo2y7BgZbNEGvYmIzvSHQHoHkp7lXM0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\close.png" size="228">

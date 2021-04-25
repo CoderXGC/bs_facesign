@@ -185,22 +185,22 @@ namespace BS_FS
                 string[] strArrayin = signintime.Split(':');
                 string[] strArrayout = signouttime.Split(':');
                 //  MessageBox.Show("当前系统时间"+ int.Parse(DateTime.Now.ToString("HH"))+"签到时间" + strArrayin[0]+"签退时间"+ strArrayout[0]+ "签到时间1" + int.Parse(strArrayin[0]) + "签退时间" + int.Parse(strArrayout[0]));
-                if (int.Parse(DateTime.Now.ToString("hh")) < int.Parse(strArrayin[0]))
+                if (int.Parse(DateTime.Now.ToString("HH")) < int.Parse(strArrayin[0]))
                 {
                     string singid = this.Text + DateTime.Now.ToString("yyyy-MM-dd");
                     JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, singid));
                     if (fs.code.ToString() == "200")
                     {
-                        MessageBox.Show("您今天已经签到！");
+                        MessageBox.Show("尊敬的ID: " +fs.data.user_id +"您今天已经签到！");
                     }
                     else if (fs.code.ToString() == "-1")
                     {
 
-                        JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(this.Text, singid, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd")));
+                        JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(this.Text, singid, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd"),"0"));
                         //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
                         if (si.code.ToString() == "200")
                         {
-                            MessageBox.Show("恭喜您签到成功");
+                            MessageBox.Show("尊敬的ID: " + si.data.user_id + "恭喜您签到成功");
 
                         }
                         else if (si.code.ToString() == "-1")
@@ -211,7 +211,7 @@ namespace BS_FS
                         else if (si.code.ToString() == "404")
                         {
 
-                            MessageBox.Show(si.message + this.Text);
+                            MessageBox.Show(si.message );
                         }
                         else if (si.code.ToString() == "100")
                         {
@@ -242,23 +242,24 @@ namespace BS_FS
                     }
 
                 }
-                else if (int.Parse(DateTime.Now.ToString("hh")) > int.Parse(strArrayin[0]) && int.Parse(DateTime.Now.ToString("hh")) < int.Parse(strArrayout[0]))
+                else if (int.Parse(DateTime.Now.ToString("HH")) > int.Parse(strArrayin[0]) && int.Parse(DateTime.Now.ToString("HH")) < int.Parse(strArrayout[0]))
                 {
 
                     string signid = this.Text + DateTime.Now.ToString("yyyy-MM-dd");
                     JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, signid));
                     if (fs.code.ToString() == "200")
                     {
-                        MessageBox.Show("您已签到，您今天已经迟到！");
+                       // MessageBox.Show("当前时间"+ int.Parse(DateTime.Now.ToString("HH"))+"签到时间"+ strArrayin[0]+"签退时间" + int.Parse(strArrayout[0]));
+                        MessageBox.Show("尊敬的ID: " + fs.data.user_id + "您已签到，您今天已经迟到！");
                     }
                     else if (fs.code.ToString() == "-1")
                     {
 
-                        JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(this.Text, signid, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd")));
+                        JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(this.Text, signid, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd"), "0"));
                         //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
                         if (si.code.ToString() == "200")
                         {
-                            MessageBox.Show("签到成功，您已经迟到！");
+                            MessageBox.Show("尊敬的ID: " + si.data.user_id + "签到成功，您已经迟到！");
 
                         }
                         else if (si.code.ToString() == "-1")
@@ -299,7 +300,7 @@ namespace BS_FS
 
                     }
 
-                } else if (int.Parse(DateTime.Now.ToString("hh")) > int.Parse(strArrayout[0]))
+                } else if (int.Parse(DateTime.Now.ToString("HH")) > int.Parse(strArrayout[0]))
                 {
 
                     string singid = this.Text + DateTime.Now.ToString("yyyy-MM-dd");
@@ -314,7 +315,7 @@ namespace BS_FS
                             //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
                             if (si.code.ToString() == "200")
                             {
-                                MessageBox.Show("恭喜您签退成功");
+                                MessageBox.Show("尊敬的ID: " + fs.data.user_id + "恭喜您签退成功");
 
                             }
                             else if (si.code.ToString() == "-1")
@@ -341,7 +342,7 @@ namespace BS_FS
                         }
                         else {
 
-                            MessageBox.Show("您今天已经签退！");
+                            MessageBox.Show("尊敬的ID: " + fs.data.user_id + "您今天已经签退！");
                         }
                    
                     }
@@ -595,9 +596,10 @@ namespace BS_FS
                     }
                     else {
                         imagePathListTemp.Add(rt.data[i].faceimg.ToString());
+                     //   id[i] = int.Parse(rt.data[i].id.ToString());
                     }
           
-               //     id[i] = int.Parse(rt.data[i].id.ToString());
+               
 
                 }
 

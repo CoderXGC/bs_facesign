@@ -13,9 +13,6 @@ namespace BS_FS
 {
     public partial class ControlFm : Form
     {
-        delegate void AsynUpdateUI(int step);
-        System.Timers.Timer t = new System.Timers.Timer(10000);//实例化Timer类，设置间隔时间为10000毫秒；
-        private bool isLock = false;
 
 
         public ControlFm()
@@ -76,91 +73,118 @@ namespace BS_FS
             Dispose();
             Application.Exit();
         }
-
-
-
-        private void UpdataUIStatus(int step)
+        //方法一 声明委托
+        private delegate void SetDataDelegate();
+        private void SetData()
         {
-            if (InvokeRequired)
+            if (this.InvokeRequired)
             {
-                this.Invoke(new AsynUpdateUI(delegate (int s)
-                {
-                  
-                }), step);
+                this.Invoke(new SetDataDelegate(SetData));
             }
             else
             {
-                
+
+
             }
         }
-        //完成任务时需要调用
-        private void Accomplish()
+
+        //声明委托
+        private delegate void ShowMessageDelegate(string code, string message);
+        private void ShowMessage(string code,string message)
         {
-            //还可以进行其他的一些完任务完成之后的逻辑处理
-            MessageBox.Show("任务完成");
+            if (this.InvokeRequired)
+            {
+                ShowMessageDelegate showMessageDelegate = ShowMessage;
+                this.Invoke(showMessageDelegate, new object[] { code,message });
+            }
+            else
+            {
+    
+                if (code == "200")
+                {
+                    uiProgressIndicator1.Visible = false;
+
+                    ShowSuccessTip("登录成功");
+                    Form_people form_people = new Form_people(id.Text);
+                    form_people.StartPosition = FormStartPosition.CenterScreen;
+                    form_people.Show();
+                    this.Hide();
+                }
+                else if (code == "-1")
+                {
+                    uiButton1.Enabled = true;
+                    id.Enabled = true;
+                    pwd.Enabled = true;
+                    uiProgressIndicator1.Visible = false;
+                    ShowErrorTip(message);
+
+                }
+                else if (code == "404")
+                {
+                    uiButton1.Enabled = true;
+                    id.Enabled = true;
+                    pwd.Enabled = true;
+                    uiProgressIndicator1.Visible = false;
+                    ShowWarningTip(message);
+
+                }
+                else if (code == "100")
+                {
+                    uiButton1.Enabled = true;
+                    id.Enabled = true;
+                    pwd.Enabled = true;
+                    uiProgressIndicator1.Visible = false;
+                    ShowWarningTip(message);
+
+                }
+                else if (code == "1000")
+                {
+
+                    uiButton1.Enabled = true;
+                    id.Enabled = true;
+                    pwd.Enabled = true;
+                    uiProgressIndicator1.Visible = false;
+                    ShowWarningTip(message);
+
+                }
+
+                // textBox1.Text = message;
+            }
         }
-        private void uiButton1_Click(object sender, EventArgs e)
+        //另外一种委托写法
+        //richTextBox1.Invoke(new Action(() => { richTextBox1.AppendText(str + "\r\n"); }));
+
+        private void GetData()
         {
-            int taskCount = 100; //任务量为10000
-            this.pgbWrite.Maximum = taskCount;
-            this.pgbWrite.Value = 0;
-
-            DataWrite dataWrite = new DataWrite();//实例化一个写入数据的类
-            dataWrite.UpdateUIDelegate += UpdataUIStatus;//绑定更新任务状态的委托
-            dataWrite.TaskCallBack += Accomplish;//绑定完成任务要调用的委托
-
-            Thread thread = new Thread(new ParameterizedThreadStart(dataWrite.Write));
-            thread.IsBackground = true;
-            thread.Start(taskCount);
-
-            uiProgressIndicator1.Visible = true;
-       
+            var timer = new System.Timers.Timer();
+            timer.Interval = 5000;
+            timer.Enabled = true;
+            timer.AutoReset = false;//设置是执行一次（false）还是一直执行(true)；  
+            timer.Start();
             Net n = new Net();
             //这个需要引入Newtonsoft.Json这个DLL并using
             //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
             JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Login(id.Text, pwd.Text));
-            //这样就可以取出json数据里面的值
-            //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
-            if (rt.code.ToString() == "200")
+
+        timer.Elapsed += (o, a) =>
             {
 
+                //SetData();
+                ShowMessage(rt.code.ToString(),rt.message);
+            };
+        }
 
-                // MessageBox.Show(n.Find(id.Text));
-                ShowSuccessTip("登录成功");
-                Form_people form_people = new Form_people(id.Text);
-                form_people.StartPosition = FormStartPosition.CenterScreen;
-                form_people.Show();
-                this.Hide();
-                /* Form_Admin form_Admin = new Form_Admin();
-                 form_Admin.StartPosition = FormStartPosition.CenterScreen;
-                 form_Admin.Show();
-                 this.Hide();*/
-            }
-            else if (rt.code.ToString() == "-1")
-            {
 
-                ShowErrorTip(rt.message);
 
-            }
-            else if (rt.code.ToString() == "404")
-            {
-
-                ShowWarningTip(rt.message);
-
-            }
-            else if (rt.code.ToString() == "100")
-            {
-
-                ShowWarningTip(rt.message);
-
-            }
-            else if (rt.code.ToString() == "1000")
-            {
-                uiProgressIndicator1.Visible = false;
-
-                ShowWarningTip(rt.message);
-
-            }
+        private void uiButton1_Click(object sender, EventArgs e)
+        {
+            uiButton1.Enabled = false;
+            id.Enabled = false;
+            pwd.Enabled = false;
+            uiProgressIndicator1.Visible = true;
+            Thread t = new Thread(new ThreadStart(GetData));
+            t.IsBackground = true;
+            t.Start();
 
             //FaceForm faceForm = new FaceForm();
             //faceForm.Show();

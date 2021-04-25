@@ -388,6 +388,7 @@
     <Content Include="lib\AForge.Math.dll" />
     <Content Include="lib\AForge.Video.DirectShow.dll" />
     <Content Include="lib\AForge.Video.dll" />
+    <Content Include="Resources\bg1.png" />
     <Content Include="Resources\close.png" />
     <Content Include="Resources\colorbarIndicators.bmp" />
     <Content Include="Resources\favicon.ico" />

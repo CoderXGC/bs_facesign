@@ -40,7 +40,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.uiButton2 = new Sunny.UI.UIButton();
             this.uiProgressIndicator1 = new Sunny.UI.UIProgressIndicator();
-            this.pgbWrite = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
@@ -177,13 +176,6 @@
             this.uiProgressIndicator1.TabIndex = 16;
             this.uiProgressIndicator1.Text = "uiProgressIndicator1";
             // 
-            // pgbWrite
-            // 
-            this.pgbWrite.Location = new System.Drawing.Point(214, 58);
-            this.pgbWrite.Name = "pgbWrite";
-            this.pgbWrite.Size = new System.Drawing.Size(100, 23);
-            this.pgbWrite.TabIndex = 17;
-            // 
             // ControlFm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -191,7 +183,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(590, 420);
             this.ControlBox = false;
-            this.Controls.Add(this.pgbWrite);
             this.Controls.Add(this.uiProgressIndicator1);
             this.Controls.Add(this.uiButton2);
             this.Controls.Add(this.label6);
@@ -235,6 +226,5 @@
         private System.Windows.Forms.Label label6;
         private Sunny.UI.UIButton uiButton2;
         private Sunny.UI.UIProgressIndicator uiProgressIndicator1;
-        private System.Windows.Forms.ProgressBar pgbWrite;
     }
 }

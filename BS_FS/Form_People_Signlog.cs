@@ -26,6 +26,12 @@ namespace BS_FS
 
         private void Form_People_Signlog_Load(object sender, EventArgs e)
         {
+           
+            uiDataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;//设置列标题文字
+            uiDataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;//设置单元格内容居中
+            uiDataGridView1.AllowUserToResizeColumns = false;//禁止用户改变DataGridView1的所有列的列宽
+            uiDataGridView1.AllowUserToResizeRows = false;//禁止用户改变DataGridView1の所有行的行高
+            uiDataGridView1.RowHeadersVisible = false;//第一列空白
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;//设置列标题文字居中
             dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;//设置单元格内容居中
             dataGridView1.AllowUserToResizeColumns = false;//禁止用户改变DataGridView1的所有列的列宽
@@ -185,21 +191,17 @@ namespace BS_FS
 
         private void uiDatePicker1_ValueChanged(object sender, DateTime value)
         {
+            UIStyle style = (UIStyle)1;
+            uiStyleManager1.Style = style;
             while (this.uiDataGridView1.Rows.Count != 0)
             {
-                if (uiDataGridView1.Rows.Count > 1)
-                {
-                    this.uiDataGridView1.Rows.RemoveAt(0);
-                }
+                this.uiDataGridView1.Rows.RemoveAt(0);
             }
-
-
-            uiDatePicker1.Value.ToString("yyyy-MM-dd");
+           
             int compNum = DateTime.Compare(uiDatePicker1.Value.Date, DateTime.Now);
             if (compNum > 0)
             {
-                UIStyle style = (UIStyle)1;
-                uiStyleManager1.Style = style;
+                
                 UIMessageDialog.ShowMessageDialog("查询错误，请选择比当前日期小的时间。", UILocalize.InfoTitle, false, style);
                // UIMessageDialog.ShowMessageDialog("查询错误，请选择比当前日期小的时间。", UILocalize.InfoTitle, false, Style);
              //   MessageBox.Show("查询错误，请选择比当前日期小的时间。");
@@ -209,22 +211,26 @@ namespace BS_FS
             {
                uiDataGridView1.ReadOnly = true;
                 Net n = new Net();
-
                 //这个需要引入Newtonsoft.Json这个DLL并using
                 //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
-                JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, this.Text + dateTimePicker1.Value.ToString("yyyy-MM-dd")));
+                JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, this.Text + uiDatePicker1.Value.ToString("yyyy-MM-dd")));
                 if (rt.code.ToString() == "200")
                 {
 
                     this.uiDataGridView1.Rows.Add(rt.data.user_id, "徐广超", rt.data.signintime, rt.data.signouttime);
+                    this.dataGridView1.Rows.Add(rt.data.user_id, "徐广超", rt.data.signintime, rt.data.signouttime);
                     //     DataGridView1.Columns[0].
                     //   dataGridView1.DataSource = rt.data.signintime;
                     uiSymbolButton1.Enabled = true;
+                    //     DataGridView1.Columns[0].
+                    //   dataGridView1.DataSource = rt.data.signintime;
+                    uiSymbolButton1.Enabled = true;
+           
 
                 }
                 else if (rt.code.ToString() == "-1")
                 {
-                    MessageBox.Show(dateTimePicker1.Value.ToString("yyyy-MM-dd") + "当天您没有签到哦");
+                    UIMessageDialog.ShowMessageDialog(uiDatePicker1.Value.ToString("yyyy-MM-dd") + "当天您没有签到哦", UILocalize.InfoTitle, false, style);
                     uiSymbolButton1.Enabled = false;
 
                 }
@@ -243,6 +249,7 @@ namespace BS_FS
                     ShowWarningTip(rt.message);
 
                 }
+
             }
         }
     }
