@@ -35,81 +35,20 @@ namespace BS_FS
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.signouttime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
             this.uiDatePicker1 = new Sunny.UI.UIDatePicker();
             this.uiStyleManager1 = new Sunny.UI.UIStyleManager(this.components);
             this.uiDataGridView1 = new Sunny.UI.UIDataGridView();
-            this.dataSet1 = new System.Data.DataSet();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.signintime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.signout = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataSet1 = new System.Data.DataSet();
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.signouttime});
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(416, 15);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(513, 268);
-            this.dataGridView1.TabIndex = 9;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "id";
-            this.Column1.HeaderText = "员工ID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "name";
-            this.Column2.HeaderText = "员工姓名";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "signintime";
-            this.Column3.HeaderText = "签到时间";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 125;
-            // 
-            // signouttime
-            // 
-            this.signouttime.HeaderText = "签退时间";
-            this.signouttime.MinimumWidth = 6;
-            this.signouttime.Name = "signouttime";
-            this.signouttime.Width = 125;
             // 
             // label1
             // 
@@ -120,15 +59,6 @@ namespace BS_FS
             this.label1.Size = new System.Drawing.Size(157, 15);
             this.label1.TabIndex = 8;
             this.label1.Text = "请选择查看签到日期：";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(513, 305);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(265, 25);
-            this.dateTimePicker1.TabIndex = 7;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // uiSymbolButton1
             // 
@@ -172,6 +102,7 @@ namespace BS_FS
             this.uiDatePicker1.SymbolDropDown = 61555;
             this.uiDatePicker1.SymbolNormal = 61555;
             this.uiDatePicker1.TabIndex = 14;
+            this.uiDatePicker1.Text = "2021-04-25";
             this.uiDatePicker1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiDatePicker1.Value = new System.DateTime(2021, 4, 25, 22, 41, 10, 0);
             this.uiDatePicker1.ValueChanged += new Sunny.UI.UIDatePicker.OnDateTimeChanged(this.uiDatePicker1_ValueChanged);
@@ -209,7 +140,7 @@ namespace BS_FS
             this.uiDataGridView1.EnableHeadersVisualStyles = false;
             this.uiDataGridView1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.uiDataGridView1.Location = new System.Drawing.Point(288, 11);
+            this.uiDataGridView1.Location = new System.Drawing.Point(309, 11);
             this.uiDataGridView1.Name = "uiDataGridView1";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
@@ -227,10 +158,6 @@ namespace BS_FS
             this.uiDataGridView1.ShowGridLine = true;
             this.uiDataGridView1.Size = new System.Drawing.Size(704, 363);
             this.uiDataGridView1.TabIndex = 15;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "NewDataSet";
             // 
             // id
             // 
@@ -260,6 +187,10 @@ namespace BS_FS
             this.signout.Name = "signout";
             this.signout.Width = 200;
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "NewDataSet";
+            // 
             // Form_People_Signlog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -269,13 +200,10 @@ namespace BS_FS
             this.Controls.Add(this.uiDatePicker1);
             this.Controls.Add(this.uiSymbolButton2);
             this.Controls.Add(this.uiSymbolButton1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker1);
             this.Name = "Form_People_Signlog";
             this.Text = "Form_People_Signlog";
             this.Load += new System.EventHandler(this.Form_People_Signlog_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
@@ -284,13 +212,7 @@ namespace BS_FS
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn signouttime;
         private Sunny.UI.UISymbolButton uiSymbolButton1;
         private Sunny.UI.UISymbolButton uiSymbolButton2;
         private Sunny.UI.UIDatePicker uiDatePicker1;
