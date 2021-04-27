@@ -1,6 +1,10 @@
-﻿using Sunny.UI;
+﻿using BS_FS.net;
+using Newtonsoft.Json;
+using Sunny.UI;
 using System;
 using System.ComponentModel;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace BS_FS
 {
@@ -50,15 +54,126 @@ namespace BS_FS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (ButtonCancelClick != null)
-                ButtonCancelClick?.Invoke(sender, e);
-            else
-                Close();
+       
+                this.Close();
         }
+        //方法一 声明委托
+        private delegate void SetDataDelegate();
+        private void SetData()
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new SetDataDelegate(SetData));
+            }
+            else
+            {
+
+
+            }
+        }
+
+        //声明委托
+        private delegate void ShowMessageDelegate(string code, string message);
+        private void ShowMessage(string code, string message)
+        {
+            if (this.InvokeRequired)
+            {
+                ShowMessageDelegate showMessageDelegate = ShowMessage;
+                this.Invoke(showMessageDelegate, new object[] { code, message });
+            }
+            else
+            {
+
+                if (code == "200")
+                {
+                    uiProgressIndicator1.Visible = false;
+
+                    ShowSuccessTip("登录成功");
+                    Form_Admin form_admin = new Form_Admin(edtUser.Text);
+                    form_admin.StartPosition = FormStartPosition.CenterScreen;
+                    form_admin.Show();
+                    this.Hide();
+                }
+                else if (code == "-1")
+                {
+                    btnCancel.Enabled = true;
+                    btnLogin.Enabled = true;
+                    edtUser.Enabled = true;
+                    edtPassword.Enabled = true;
+                    uiProgressIndicator1.Visible = false;
+                    ShowErrorTip(message);
+
+                }
+                else if (code == "404")
+                {
+                    btnCancel.Enabled = true;
+                    btnLogin.Enabled = true;
+                    edtUser.Enabled = true;
+                    edtPassword.Enabled = true;
+                    uiProgressIndicator1.Visible = false;
+                    ShowWarningTip(message);
+
+                }
+                else if (code == "100")
+                {
+                    btnCancel.Enabled = true;
+                    btnLogin.Enabled = true;
+                    edtUser.Enabled = true;
+                    edtPassword.Enabled = true;
+                    uiProgressIndicator1.Visible = false;
+                    ShowWarningTip(message);
+
+                }
+                else if (code == "1000")
+                {
+                    btnCancel.Enabled = true;
+                    btnLogin.Enabled = true;
+                    edtUser.Enabled = true;
+                    edtPassword.Enabled = true;
+                    uiProgressIndicator1.Visible = false;
+                    ShowWarningTip(message);
+
+                }
+
+                // textBox1.Text = message;
+            }
+        }
+        //另外一种委托写法
+        //richTextBox1.Invoke(new Action(() => { richTextBox1.AppendText(str + "\r\n"); }));
+
+        private void GetData()
+        {
+            var timer = new System.Timers.Timer();
+            timer.Interval = 5000;
+            timer.Enabled = true;
+            timer.AutoReset = false;//设置是执行一次（false）还是一直执行(true)；  
+            timer.Start();
+            Net n = new Net();
+            //这个需要引入Newtonsoft.Json这个DLL并using
+            //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
+            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.AdminLogin(edtUser.Text, edtPassword.Text));
+
+            timer.Elapsed += (o, a) =>
+            {
+
+                //SetData();
+                ShowMessage(rt.code.ToString(), rt.message);
+            };
+        }
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (ButtonLoginClick != null)
+            btnCancel.Enabled = false;
+            btnLogin.Enabled = false;
+            edtUser.Enabled = false;
+            edtPassword.Enabled = false;
+            uiProgressIndicator1.Visible = true;
+            Thread t = new Thread(new ThreadStart(GetData));
+            t.IsBackground = true;
+            t.Start();
+
+            /* if (ButtonLoginClick != null)
             {
                 ButtonLoginClick?.Invoke(sender, e);
             }
@@ -66,7 +181,7 @@ namespace BS_FS
             {
                 IsLogin = OnLogin != null && OnLogin(edtUser.Text, edtPassword.Text);
                 if (IsLogin) Close();
-            }
+            }*/
         }
 
         public event EventHandler ButtonLoginClick;
@@ -85,7 +200,9 @@ namespace BS_FS
             //btnLogin.PerformClick();
         }
 
-
-
+        private void Form_Login_Admin_Load(object sender, EventArgs e)
+        {
+            uiProgressIndicator1.Visible = false;
+        }
     }
 }

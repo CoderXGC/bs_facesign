@@ -15,10 +15,10 @@ namespace BS_FS
 {
     public partial class Form_Admin : Form
     {
-        public Form_Admin()
+        public Form_Admin(string id)
         {
             InitializeComponent();
-
+            this.Text = id;
         }
 
         private void 录入员工信息ToolStripMenuItem_Click(object sender, EventArgs e)

@@ -6,9 +6,9 @@ using Sunny.UI;
 
 namespace BS_FS
 {
-    public partial class Form_people : Form
+    public partial class Form_People : Form
     {
-        public Form_people(string id)
+        public Form_People(string id)
         {
             InitializeComponent();
             this.Text = id;
@@ -80,10 +80,7 @@ namespace BS_FS
            
         }
 
-        private void 修改密码ToolStripMenuItem_Click(object sender, System.EventArgs e)
-        {
 
-        }
 
         private void Form_people_Load(object sender, System.EventArgs e)
         {
@@ -132,6 +129,36 @@ namespace BS_FS
             //让窗体显示
 
             form_People_Signlog.Show();
+        }
+
+        private void 提交申请信息ToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Form_People_Apply form_People_Applly = new Form_People_Apply(this.Text); //实例化一个子窗口
+
+            //设置子窗口不显示为顶级窗口
+
+            form_People_Applly.TopLevel = false;
+
+            //设置子窗口的样式，没有上面的标题栏
+
+            form_People_Applly.FormBorderStyle = FormBorderStyle.None;
+
+            //填充
+
+            //  From_admin_query.Dock = DockStyle.Fill;
+
+            //清空Panel里面的控件
+
+            this.panel1.Controls.Clear();
+
+            //加入控件
+
+            this.panel1.Controls.Add(form_People_Applly);
+
+            //让窗体显示
+
+            form_People_Applly.Show();
+
         }
     }
 }

@@ -38,6 +38,7 @@ namespace BS_FS
             this.lblTitle = new Sunny.UI.UILabel();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.uiProgressIndicator1 = new Sunny.UI.UIProgressIndicator();
             this.uiPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -168,6 +169,7 @@ namespace BS_FS
             // 
             // uiPanel1
             // 
+            this.uiPanel1.Controls.Add(this.uiProgressIndicator1);
             this.uiPanel1.Controls.Add(this.uiAvatar1);
             this.uiPanel1.Controls.Add(this.uiLabel1);
             this.uiPanel1.Controls.Add(this.uiLine1);
@@ -189,6 +191,17 @@ namespace BS_FS
             this.uiPanel1.TabIndex = 9;
             this.uiPanel1.Text = null;
             // 
+            // uiProgressIndicator1
+            // 
+            this.uiProgressIndicator1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiProgressIndicator1.Location = new System.Drawing.Point(65, 16);
+            this.uiProgressIndicator1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiProgressIndicator1.Name = "uiProgressIndicator1";
+            this.uiProgressIndicator1.Size = new System.Drawing.Size(70, 66);
+            this.uiProgressIndicator1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiProgressIndicator1.TabIndex = 9;
+            this.uiProgressIndicator1.Text = "uiProgressIndicator1";
+            // 
             // Form_Login_Admin
             // 
             this.AllowShowTitle = false;
@@ -204,6 +217,7 @@ namespace BS_FS
             this.ShowInTaskbar = false;
             this.ShowTitle = false;
             this.Text = "UILogin";
+            this.Load += new System.EventHandler(this.Form_Login_Admin_Load);
             this.Enter += new System.EventHandler(this.UILoginForm_Enter);
             this.uiPanel1.ResumeLayout(false);
             this.uiPanel1.PerformLayout();
@@ -222,5 +236,6 @@ namespace BS_FS
         private UISymbolButton btnCancel;
         private UILabel uiLabel1;
         protected UIPanel uiPanel1;
+        private UIProgressIndicator uiProgressIndicator1;
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace BS_FS
 {
-    partial class Form_people
+    partial class Form_People
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace BS_FS
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.提交人脸信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.修改密码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.提交申请信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.签到ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看签到信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +59,7 @@ namespace BS_FS
             // 
             this.编辑ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.提交人脸信息ToolStripMenuItem,
-            this.修改密码ToolStripMenuItem,
+            this.提交申请信息ToolStripMenuItem,
             this.签到ToolStripMenuItem});
             this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
             this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
@@ -68,21 +68,21 @@ namespace BS_FS
             // 提交人脸信息ToolStripMenuItem
             // 
             this.提交人脸信息ToolStripMenuItem.Name = "提交人脸信息ToolStripMenuItem";
-            this.提交人脸信息ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.提交人脸信息ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.提交人脸信息ToolStripMenuItem.Text = "提交人脸信息";
             this.提交人脸信息ToolStripMenuItem.Click += new System.EventHandler(this.提交人脸信息ToolStripMenuItem_Click);
             // 
-            // 修改密码ToolStripMenuItem
+            // 提交申请信息ToolStripMenuItem
             // 
-            this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
-            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
-            this.修改密码ToolStripMenuItem.Text = "提交申请信息";
-            this.修改密码ToolStripMenuItem.Click += new System.EventHandler(this.修改密码ToolStripMenuItem_Click);
+            this.提交申请信息ToolStripMenuItem.Name = "提交申请信息ToolStripMenuItem";
+            this.提交申请信息ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.提交申请信息ToolStripMenuItem.Text = "提交申请信息";
+            this.提交申请信息ToolStripMenuItem.Click += new System.EventHandler(this.提交申请信息ToolStripMenuItem_Click);
             // 
             // 签到ToolStripMenuItem
             // 
             this.签到ToolStripMenuItem.Name = "签到ToolStripMenuItem";
-            this.签到ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.签到ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.签到ToolStripMenuItem.Text = "签到";
             this.签到ToolStripMenuItem.Click += new System.EventHandler(this.签到ToolStripMenuItem_Click);
             // 
@@ -97,7 +97,7 @@ namespace BS_FS
             // 查看签到信息ToolStripMenuItem
             // 
             this.查看签到信息ToolStripMenuItem.Name = "查看签到信息ToolStripMenuItem";
-            this.查看签到信息ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.查看签到信息ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.查看签到信息ToolStripMenuItem.Text = "查看签到信息";
             this.查看签到信息ToolStripMenuItem.Click += new System.EventHandler(this.查看签到信息ToolStripMenuItem_Click);
             // 
@@ -112,8 +112,7 @@ namespace BS_FS
             // 修改密码ToolStripMenuItem1
             // 
             this.修改密码ToolStripMenuItem1.Name = "修改密码ToolStripMenuItem1";
-            this.修改密码ToolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
-            this.修改密码ToolStripMenuItem1.Text = "修改密码";
+            this.修改密码ToolStripMenuItem1.Size = new System.Drawing.Size(83, 26);
             // 
             // panel1
             // 
@@ -122,7 +121,7 @@ namespace BS_FS
             this.panel1.Size = new System.Drawing.Size(1067, 529);
             this.panel1.TabIndex = 1;
             // 
-            // Form_people
+            // Form_People
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -131,7 +130,7 @@ namespace BS_FS
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form_people";
+            this.Name = "Form_People";
             this.Text = "Form_people";
             this.Load += new System.EventHandler(this.Form_people_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -148,7 +147,7 @@ namespace BS_FS
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 提交人脸信息ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 修改密码ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 提交申请信息ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 查看签到信息ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改密码ToolStripMenuItem1;
         private System.Windows.Forms.Panel panel1;

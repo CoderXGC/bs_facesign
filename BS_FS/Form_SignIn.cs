@@ -302,7 +302,7 @@ namespace BS_FS
 
                 } else if (int.Parse(DateTime.Now.ToString("HH")) > int.Parse(strArrayout[0]))
                 {
-
+                    MessageBox.Show("执行啦 ");
                     string singid = this.Text + DateTime.Now.ToString("yyyy-MM-dd");
 
                     JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, singid));
@@ -320,6 +320,7 @@ namespace BS_FS
                             }
                             else if (si.code.ToString() == "-1")
                             {
+                                MessageBox.Show("执行啦 1");
                                 MessageBox.Show(si.message);
 
                             }
@@ -348,7 +349,7 @@ namespace BS_FS
                     }
                     else if (fs.code.ToString() == "-1")
                     {
-                        MessageBox.Show(fs.message);
+                        MessageBox.Show(fs.message+",您今天没有签到，已经无法签退了");
                     }
                     else if (fs.code.ToString() == "404")
                     {

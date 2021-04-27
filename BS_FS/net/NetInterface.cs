@@ -9,7 +9,7 @@ namespace BS_FS.net
 {
     interface NetInterface
     {
-        string Login(String id, String pwd);
+        string UserLogin(String id, String pwd);
         string Uploadimg(String id, String path, string filename);
         string Find(String id);
         string Uploadimgtest(string fileKeyName, string filePath, NameValueCollection stringDict);
@@ -20,5 +20,6 @@ namespace BS_FS.net
         string Signin(String id,String signid,String flag,String signintime,String daytime,String signouttime);
         string Signout(String id, String signid, String signouttime);
         string Findsign(String id,String signid);
+        string AdminLogin(String id, String pwd);
     }
 }

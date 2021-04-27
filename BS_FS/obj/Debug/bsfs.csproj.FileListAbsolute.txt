@@ -59,7 +59,6 @@ F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.ControlFm.resource
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.FaceForm.resources
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.Form_Admin.resources
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.Form_people.resources
-F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.Form_Sign.resources
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.Form_Start.resources
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.Properties.Resources.resources
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\bsfs.csproj.GenerateResource.cache
@@ -71,3 +70,8 @@ F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\bsfs.csproj.CopyComplete
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.exe
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.pdb
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\bsfs.csprojAssemblyReference.cache
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.Form_People_Signlog.resources
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.Form_SignIn.resources
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.Form_Login_Admin.resources
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.Form_People_Apply.resources
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\Debug\BS_FS.Form_People_Uppwd.resources

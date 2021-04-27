@@ -73,3 +73,5 @@ F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\Newtonsoft.Json.xml
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_People_Signlog.resources
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_SignIn.resources
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_Login_Admin.resources
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_People_Uppwd.resources
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_People_Apply.resources

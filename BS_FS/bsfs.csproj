@@ -12,7 +12,9 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>F:\VS2019Project\c#\</PublishUrl>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>F:\C#Project\FS\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,14 +25,11 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>http://localhost/ArcSoftFace/</UpdateUrl>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -143,8 +142,8 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.0.0.2422, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.4.0.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.23.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.23\lib\net452\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=8.0.24.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.24\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -168,6 +167,7 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
@@ -197,11 +197,11 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.23\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+      <HintPath>..\packages\MySql.Data.8.0.24\lib\net452\Ubiety.Dns.Core.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.23\lib\net452\Zstandard.Net.dll</HintPath>
+      <HintPath>..\packages\MySql.Data.8.0.24\lib\net452\Zstandard.Net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -212,17 +212,41 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="DataWrite.cs" />
+    <Compile Include="Form_Admin_Audit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Audit.Designer.cs">
+      <DependentUpon>Form_Admin_Audit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Admin_insert.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_Admin_insert.Designer.cs">
       <DependentUpon>Form_Admin_insert.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Admin_Log.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Log.Designer.cs">
+      <DependentUpon>Form_Admin_Log.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Manage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Manage.Designer.cs">
+      <DependentUpon>Form_Admin_Manage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Admin_query.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_Admin_query.Designer.cs">
       <DependentUpon>Form_Admin_query.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Systemset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Systemset.Designer.cs">
+      <DependentUpon>Form_Admin_Systemset.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Admin_update.cs">
       <SubType>Form</SubType>
@@ -250,17 +274,29 @@
     <Compile Include="Form_Admin.Designer.cs">
       <DependentUpon>Form_Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_people.cs">
+    <Compile Include="Form_People.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_people.Designer.cs">
-      <DependentUpon>Form_people.cs</DependentUpon>
+    <Compile Include="Form_People.Designer.cs">
+      <DependentUpon>Form_People.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_People_Apply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_People_Apply.Designer.cs">
+      <DependentUpon>Form_People_Apply.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_People_Signlog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_People_Signlog.Designer.cs">
       <DependentUpon>Form_People_Signlog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_People_Uppwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_People_Uppwd.Designer.cs">
+      <DependentUpon>Form_People_Uppwd.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_SignIn.cs">
       <SubType>Form</SubType>
@@ -318,6 +354,7 @@
     <Compile Include="Utils\FaceUtil.cs" />
     <Compile Include="Utils\ImageUtil.cs" />
     <Compile Include="Utils\MemoryUtil.cs" />
+    <Compile Include="Utils\PwdEncryption.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -342,11 +379,17 @@
     <EmbeddedResource Include="Form_Admin.resx">
       <DependentUpon>Form_Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_people.resx">
-      <DependentUpon>Form_people.cs</DependentUpon>
+    <EmbeddedResource Include="Form_People.resx">
+      <DependentUpon>Form_People.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_People_Apply.resx">
+      <DependentUpon>Form_People_Apply.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_People_Signlog.resx">
       <DependentUpon>Form_People_Signlog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_People_Uppwd.resx">
+      <DependentUpon>Form_People_Uppwd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_SignIn.resx">
       <DependentUpon>Form_SignIn.cs</DependentUpon>

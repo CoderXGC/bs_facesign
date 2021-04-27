@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using BS_FS.net;
 using Newtonsoft.Json;
 using System.Threading;
+using BS_FS.Utils;
+using HZH_Controls.Forms;
 
 namespace BS_FS
 {
@@ -105,10 +107,11 @@ namespace BS_FS
                     uiProgressIndicator1.Visible = false;
 
                     ShowSuccessTip("登录成功");
-                    Form_people form_people = new Form_people(id.Text);
+                    Form_People form_people = new Form_People(id.Text);
                     form_people.StartPosition = FormStartPosition.CenterScreen;
                     form_people.Show();
                     this.Hide();
+                 
                 }
                 else if (code == "-1")
                 {
@@ -162,9 +165,10 @@ namespace BS_FS
             timer.AutoReset = false;//设置是执行一次（false）还是一直执行(true)；  
             timer.Start();
             Net n = new Net();
+            string pwdencrytion=PwdEncryption.MD5Encrypt32(pwd.Text);
             //这个需要引入Newtonsoft.Json这个DLL并using
             //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
-            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Login(id.Text, pwd.Text));
+            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.UserLogin(id.Text, pwdencrytion));
 
         timer.Elapsed += (o, a) =>
             {
@@ -178,6 +182,7 @@ namespace BS_FS
 
         private void uiButton1_Click(object sender, EventArgs e)
         {
+            
             uiButton1.Enabled = false;
             id.Enabled = false;
             pwd.Enabled = false;
