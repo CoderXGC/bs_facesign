@@ -39,6 +39,7 @@ namespace BS_FS
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改密码ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.查看申请信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,7 +90,8 @@ namespace BS_FS
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.查看签到信息ToolStripMenuItem});
+            this.查看签到信息ToolStripMenuItem,
+            this.查看申请信息ToolStripMenuItem});
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
             this.关于ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.关于ToolStripMenuItem.Text = "查看";
@@ -97,7 +99,7 @@ namespace BS_FS
             // 查看签到信息ToolStripMenuItem
             // 
             this.查看签到信息ToolStripMenuItem.Name = "查看签到信息ToolStripMenuItem";
-            this.查看签到信息ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.查看签到信息ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.查看签到信息ToolStripMenuItem.Text = "查看签到信息";
             this.查看签到信息ToolStripMenuItem.Click += new System.EventHandler(this.查看签到信息ToolStripMenuItem_Click);
             // 
@@ -112,7 +114,9 @@ namespace BS_FS
             // 修改密码ToolStripMenuItem1
             // 
             this.修改密码ToolStripMenuItem1.Name = "修改密码ToolStripMenuItem1";
-            this.修改密码ToolStripMenuItem1.Size = new System.Drawing.Size(83, 26);
+            this.修改密码ToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.修改密码ToolStripMenuItem1.Text = "修改密码";
+            this.修改密码ToolStripMenuItem1.Click += new System.EventHandler(this.修改密码ToolStripMenuItem1_Click);
             // 
             // panel1
             // 
@@ -120,6 +124,12 @@ namespace BS_FS
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1067, 529);
             this.panel1.TabIndex = 1;
+            // 
+            // 查看申请信息ToolStripMenuItem
+            // 
+            this.查看申请信息ToolStripMenuItem.Name = "查看申请信息ToolStripMenuItem";
+            this.查看申请信息ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.查看申请信息ToolStripMenuItem.Text = "查看申请信息";
             // 
             // Form_People
             // 
@@ -152,5 +162,6 @@ namespace BS_FS
         private System.Windows.Forms.ToolStripMenuItem 修改密码ToolStripMenuItem1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem 签到ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 查看申请信息ToolStripMenuItem;
     }
 }

@@ -40,11 +40,11 @@
             this.videoSource.VideoSource = null;
             this.videoSource.Paint += new System.Windows.Forms.PaintEventHandler(this.videoSource_Paint);
             // 
-            // Form_Sign
+            // Form_SignIn
             // 
             this.ClientSize = new System.Drawing.Size(769, 563);
             this.Controls.Add(this.videoSource);
-            this.Name = "Form_Sign";
+            this.Name = "Form_SignIn";
             this.Text = "欢迎使用人脸考勤系统";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Sign_FormClosed);
             this.Load += new System.EventHandler(this.Form_User_Load);

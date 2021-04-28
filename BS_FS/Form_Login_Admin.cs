@@ -1,4 +1,5 @@
 ﻿using BS_FS.net;
+using BS_FS.Utils;
 using Newtonsoft.Json;
 using Sunny.UI;
 using System;
@@ -151,7 +152,8 @@ namespace BS_FS
             Net n = new Net();
             //这个需要引入Newtonsoft.Json这个DLL并using
             //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
-            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.AdminLogin(edtUser.Text, edtPassword.Text));
+            string pwdencrytion = PwdEncryption.MD5Encrypt32(edtPassword.Text);
+            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.AdminLogin(edtUser.Text, pwdencrytion));
 
             timer.Elapsed += (o, a) =>
             {

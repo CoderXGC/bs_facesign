@@ -155,26 +155,27 @@
             // 查看签到ToolStripMenuItem
             // 
             this.查看签到ToolStripMenuItem.Name = "查看签到ToolStripMenuItem";
-            this.查看签到ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.查看签到ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.查看签到ToolStripMenuItem.Text = "查看签到";
             this.查看签到ToolStripMenuItem.Click += new System.EventHandler(this.查看签到ToolStripMenuItem_Click);
             // 
             // 查看申请ToolStripMenuItem
             // 
             this.查看申请ToolStripMenuItem.Name = "查看申请ToolStripMenuItem";
-            this.查看申请ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.查看申请ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.查看申请ToolStripMenuItem.Text = "查看申请";
+            this.查看申请ToolStripMenuItem.Click += new System.EventHandler(this.查看申请ToolStripMenuItem_Click);
             // 
             // 日志查看ToolStripMenuItem
             // 
             this.日志查看ToolStripMenuItem.Name = "日志查看ToolStripMenuItem";
-            this.日志查看ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.日志查看ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.日志查看ToolStripMenuItem.Text = "日志查看";
             // 
             // 报表管理ToolStripMenuItem
             // 
             this.报表管理ToolStripMenuItem.Name = "报表管理ToolStripMenuItem";
-            this.报表管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.报表管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.报表管理ToolStripMenuItem.Text = "报表管理";
             // 
             // 帮助ToolStripMenuItem
@@ -194,48 +195,48 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItem1.Text = "查看帮助";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // 发送反馈ToolStripMenuItem
             // 
             this.发送反馈ToolStripMenuItem.Name = "发送反馈ToolStripMenuItem";
-            this.发送反馈ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.发送反馈ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.发送反馈ToolStripMenuItem.Text = "发送反馈";
             this.发送反馈ToolStripMenuItem.Click += new System.EventHandler(this.发送反馈ToolStripMenuItem_Click);
             // 
             // 技术支持ToolStripMenuItem
             // 
             this.技术支持ToolStripMenuItem.Name = "技术支持ToolStripMenuItem";
-            this.技术支持ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.技术支持ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.技术支持ToolStripMenuItem.Text = "技术支持";
             this.技术支持ToolStripMenuItem.Click += new System.EventHandler(this.技术支持ToolStripMenuItem_Click);
             // 
             // 检查更新ToolStripMenuItem
             // 
             this.检查更新ToolStripMenuItem.Name = "检查更新ToolStripMenuItem";
-            this.检查更新ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.检查更新ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.检查更新ToolStripMenuItem.Text = "检查更新";
             this.检查更新ToolStripMenuItem.Click += new System.EventHandler(this.检查更新ToolStripMenuItem_Click);
             // 
             // 关于系统ToolStripMenuItem
             // 
             this.关于系统ToolStripMenuItem.Name = "关于系统ToolStripMenuItem";
-            this.关于系统ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.关于系统ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.关于系统ToolStripMenuItem.Text = "关于系统";
             this.关于系统ToolStripMenuItem.Click += new System.EventHandler(this.关于系统ToolStripMenuItem_Click);
             // 
             // 数据备份ToolStripMenuItem
             // 
             this.数据备份ToolStripMenuItem.Name = "数据备份ToolStripMenuItem";
-            this.数据备份ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.数据备份ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.数据备份ToolStripMenuItem.Text = "数据备份";
             // 
             // 系统设置ToolStripMenuItem
             // 
             this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
-            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.系统设置ToolStripMenuItem.Text = "系统设置";
             // 
             // panel1

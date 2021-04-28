@@ -16,5 +16,19 @@ namespace BS_FS
         {
             InitializeComponent();
         }
+
+        private void Form_Admin_Audit_Load(object sender, EventArgs e)
+        {
+            uiListBox1.Items.Clear();
+            for (int i = 0; i < 50; i++)
+            {
+                uiListBox1.Items.Add(i);
+            }
+        }
+
+        private void uiListBox1_ItemClick(object sender, EventArgs e)
+        {
+            uiListBox1.SelectedItem.ToString();
+        }
     }
 }

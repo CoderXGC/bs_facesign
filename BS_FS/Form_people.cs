@@ -1,6 +1,9 @@
 ﻿
+using System.Collections.Generic;
 using System.Windows.Forms;
 using BS_FS.net;
+using HZH_Controls.Controls;
+using HZH_Controls.Forms;
 using Newtonsoft.Json;
 using Sunny.UI;
 
@@ -158,6 +161,23 @@ namespace BS_FS
             //让窗体显示
 
             form_People_Applly.Show();
+
+        }
+
+        private void 修改密码ToolStripMenuItem1_Click(object sender, System.EventArgs e)
+        {
+            string value = "";
+            if (this.InputPasswordDialog(ref value))
+            {
+               
+            }
+            /* FrmInputs frm = new FrmInputs("动态多输入窗体测试",
+                    new string[] { "姓名", "电话", "身份证号", "新密码" },
+                    new Dictionary<string, HZH_Controls.TextInputType>() { { "电话", HZH_Controls.TextInputType.Regex }, { "身份证号", HZH_Controls.TextInputType.Regex } },
+                    new Dictionary<string, string>() { { "电话", "^1\\d{0,10}$" }, { "身份证号", "^\\d{0,18}$" } },
+                    new Dictionary<string, KeyBoardType>() { { "电话", KeyBoardType.UCKeyBorderNum }, { "身份证号", KeyBoardType.UCKeyBorderNum } },
+                    new List<string>() { "姓名", "电话", "身份证号" });
+             frm.ShowDialog(this);*/
 
         }
     }

@@ -355,8 +355,12 @@
     <Compile Include="Utils\ImageUtil.cs" />
     <Compile Include="Utils\MemoryUtil.cs" />
     <Compile Include="Utils\PwdEncryption.cs" />
+    <Compile Include="Utils\Resize.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Audit.resx">
+      <DependentUpon>Form_Admin_Audit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Admin_insert.resx">
       <DependentUpon>Form_Admin_insert.cs</DependentUpon>

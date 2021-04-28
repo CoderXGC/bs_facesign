@@ -237,5 +237,34 @@ namespace BS_FS
         {
             
         }
+
+        private void 查看申请ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_Admin_Audit from_Admin_Audit = new Form_Admin_Audit(); //实例化一个子窗口
+
+            //设置子窗口不显示为顶级窗口
+
+            from_Admin_Audit.TopLevel = false;
+
+            //设置子窗口的样式，没有上面的标题栏
+
+            from_Admin_Audit.FormBorderStyle = FormBorderStyle.None;
+
+            //填充
+
+            //  From_admin_query.Dock = DockStyle.Fill;
+
+            //清空Panel里面的控件
+
+            this.panel1.Controls.Clear();
+
+            //加入控件
+
+            this.panel1.Controls.Add(from_Admin_Audit);
+
+            //让窗体显示
+
+            from_Admin_Audit.Show();
+        }
     }
 }
