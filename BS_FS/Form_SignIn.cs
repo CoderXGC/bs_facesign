@@ -191,7 +191,7 @@ namespace BS_FS
                     JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, singid));
                     if (fs.code.ToString() == "200")
                     {
-                        MessageBox.Show("尊敬的ID: " +fs.data.user_id +"您今天已经签到！");
+                        MessageBox.Show("尊敬的ID: " +fs.data.user_id +"  ,您今天已经签到！");
                     }
                     else if (fs.code.ToString() == "-1")
                     {
@@ -200,7 +200,7 @@ namespace BS_FS
                         //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
                         if (si.code.ToString() == "200")
                         {
-                            MessageBox.Show("尊敬的ID: " + si.data.user_id + "恭喜您签到成功");
+                            MessageBox.Show("尊敬的ID:  " + si.data.user_id + "  ,恭喜您签到成功");
 
                         }
                         else if (si.code.ToString() == "-1")
@@ -249,17 +249,21 @@ namespace BS_FS
                     JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, signid));
                     if (fs.code.ToString() == "200")
                     {
-                       // MessageBox.Show("当前时间"+ int.Parse(DateTime.Now.ToString("HH"))+"签到时间"+ strArrayin[0]+"签退时间" + int.Parse(strArrayout[0]));
-                        MessageBox.Show("尊敬的ID: " + fs.data.user_id + "您已签到，您今天已经迟到！");
+
+                        int latehours = int.Parse(DateTime.Now.ToString("HH")) - int.Parse(strArrayin[0]);
+                        int lateminute = int.Parse(DateTime.Now.ToString("MM")) - int.Parse(strArrayin[1]);
+                        MessageBox.Show("尊敬的ID: " + fs.data.user_id + "  您已签到，您今天已经迟到,迟到时间" + latehours.ToString() + ":" + lateminute.ToString() + "!");
                     }
                     else if (fs.code.ToString() == "-1")
                     {
 
-                        JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(this.Text, signid, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd"), "0"));
-                        //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
+                        int latehours = int.Parse(DateTime.Now.ToString("HH")) - int.Parse(strArrayin[0]);
+                        int lateminute= int.Parse(DateTime.Now.ToString("MM")) - int.Parse(strArrayin[1]);
+                        JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(this.Text, signid, latehours.ToString()+":" +lateminute.ToString(), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd"), "0"));
+                   
                         if (si.code.ToString() == "200")
                         {
-                            MessageBox.Show("尊敬的ID: " + si.data.user_id + "签到成功，您已经迟到！");
+                            MessageBox.Show("尊敬的ID:  " + si.data.user_id + "  ,签到成功，您已经迟到,迟到时间" + latehours.ToString() + ":" + lateminute.ToString()+"!");
 
                         }
                         else if (si.code.ToString() == "-1")
@@ -302,7 +306,6 @@ namespace BS_FS
 
                 } else if (int.Parse(DateTime.Now.ToString("HH")) > int.Parse(strArrayout[0]))
                 {
-                    MessageBox.Show("执行啦 ");
                     string singid = this.Text + DateTime.Now.ToString("yyyy-MM-dd");
 
                     JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, singid));
@@ -349,7 +352,7 @@ namespace BS_FS
                     }
                     else if (fs.code.ToString() == "-1")
                     {
-                        MessageBox.Show(fs.message+",您今天没有签到，已经无法签退了");
+                        MessageBox.Show("提示信息："+fs.message+" ,您今天没有签到，已经无法签退了");
                     }
                     else if (fs.code.ToString() == "404")
                     {
@@ -388,51 +391,7 @@ namespace BS_FS
 
                 MessageBox.Show(rt.message);
             }
-         
-       /*
-            int flag = 0;
-            DataMysql datasql = new DataMysql();
-            datasql.dataCon();
-        //    string cmdStr = "Select time from signlog";
-            string cmdStr = "Select * from signlog where id = '" + id.ToString() + "'";
-            DataSet ds;
-            ds = datasql.getDataSet(cmdStr);
-            int j = 0;
-            j = ds.Tables[0].Rows.Count;
-            string[] timedata = new string[j];
-            j = 0;
-            foreach (DataRow Row in ds.Tables[0].Rows)
-            {
-                timedata[j] = Convert.ToString(Row["signid"]);
-                j++;
-            }
-            string time = this.Text+ DateTime.Now.ToString("yyyy-MM-dd");
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                if (timedata[i].Equals(time)) {
-                    flag = 1;
-                }
-            }
-            string cmdStrname = "Select name from user where id = '" + id.ToString() + "'";
-            DataSet dsa;
-            dsa = datasql.getDataSet(cmdStrname);
-            if (flag == 0)
-            {
-                string sign = id.ToString() + DateTime.Now.ToString("yyyy-MM-dd");
-               string signtime= DateTime.Now.ToLocalTime().ToString();
-                string insert = "insert into signlog (id,signid,flag,signtime,daytime) values ( '" + id.ToString() + "','" + sign+ "','1','" + signtime + "','" + DateTime.Now.ToString("yyyy-MM-dd") + "')";
-
-
-                if (datasql.sqlExec(insert))
-                {
-                   
-                    MessageBox.Show("恭喜您：" + dsa.Tables[0].Rows[0][0].ToString() + " 签到成功");
-                
-                }
-            }
-            else
-            { MessageBox.Show("尊敬的用户：" + dsa.Tables[0].Rows[0][0].ToString() + " 您今天已经签到无需再次签到"); }*/
-
+   
 
         }
         private FaceTrackUnit trackUnit = new FaceTrackUnit();

@@ -24,6 +24,13 @@ namespace BS_FS.net
         {
             public string id { get; set; }
             public string faceimg { get; set; }
+            public string applyid { get; set; }
+            public string message { get; set; }
+            public string applytime { get; set; }
+            public string starttime { get; set; }
+            public string endtime { get; set; }
+            public string status { get; set; }
+            public string type { get; set; }
         }
     }
 }

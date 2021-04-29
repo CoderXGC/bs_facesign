@@ -36,11 +36,11 @@ namespace BS_FS
 
             //清空Panel里面的控件
 
-            this.panel1.Controls.Clear();
+            this.uiPanel1.Controls.Clear();
 
             //加入控件
 
-            this.panel1.Controls.Add(From_admin_insert);
+            this.uiPanel1.Controls.Add(From_admin_insert);
 
             //让窗体显示
 
@@ -98,10 +98,8 @@ namespace BS_FS
 
         private void 签到ToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-          /*  FaceForm faceForm = new FaceForm();
-            faceForm.Show();*/
-          Form_SignIn form_User = new Form_SignIn(this.Text);
-            form_User.Show();
+          Form_SignIn form_Sign = new Form_SignIn(this.Text);
+            form_Sign.Show();
 
         }
 
@@ -123,11 +121,11 @@ namespace BS_FS
 
             //清空Panel里面的控件
 
-            this.panel1.Controls.Clear();
+            this.uiPanel1.Controls.Clear();
 
             //加入控件
 
-            this.panel1.Controls.Add(form_People_Signlog);
+            this.uiPanel1.Controls.Add(form_People_Signlog);
 
             //让窗体显示
 
@@ -152,11 +150,11 @@ namespace BS_FS
 
             //清空Panel里面的控件
 
-            this.panel1.Controls.Clear();
+            this.uiPanel1.Controls.Clear();
 
             //加入控件
 
-            this.panel1.Controls.Add(form_People_Applly);
+            this.uiPanel1.Controls.Add(form_People_Applly);
 
             //让窗体显示
 
@@ -179,6 +177,35 @@ namespace BS_FS
                     new List<string>() { "姓名", "电话", "身份证号" });
              frm.ShowDialog(this);*/
 
+        }
+
+        private void 查看申请信息ToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Form_People_ApplyShow form_People_AppllyShow = new Form_People_ApplyShow(this.Text); //实例化一个子窗口
+
+            //设置子窗口不显示为顶级窗口
+
+            form_People_AppllyShow.TopLevel = false;
+
+            //设置子窗口的样式，没有上面的标题栏
+
+            form_People_AppllyShow.FormBorderStyle = FormBorderStyle.None;
+
+            //填充
+
+            //  From_admin_query.Dock = DockStyle.Fill;
+
+            //清空Panel里面的控件
+
+            this.uiPanel1.Controls.Clear();
+
+            //加入控件
+
+            this.uiPanel1.Controls.Add(form_People_AppllyShow);
+
+            //让窗体显示
+
+            form_People_AppllyShow.Show();
         }
     }
 }

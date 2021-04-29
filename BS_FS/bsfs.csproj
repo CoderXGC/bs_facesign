@@ -286,6 +286,12 @@
     <Compile Include="Form_People_Apply.Designer.cs">
       <DependentUpon>Form_People_Apply.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_People_ApplyShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_People_ApplyShow.Designer.cs">
+      <DependentUpon>Form_People_ApplyShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_People_Signlog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_People_Apply.resx">
       <DependentUpon>Form_People_Apply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_People_ApplyShow.resx">
+      <DependentUpon>Form_People_ApplyShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_People_Signlog.resx">
       <DependentUpon>Form_People_Signlog.cs</DependentUpon>
