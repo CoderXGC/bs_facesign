@@ -64,7 +64,7 @@ namespace BS_FS
             // 
             this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton1.Location = new System.Drawing.Point(559, 435);
+            this.uiSymbolButton1.Location = new System.Drawing.Point(61, 219);
             this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton1.Name = "uiSymbolButton1";
             this.uiSymbolButton1.Radius = 10;
@@ -78,7 +78,7 @@ namespace BS_FS
             // 
             this.uiSymbolButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton2.Location = new System.Drawing.Point(740, 435);
+            this.uiSymbolButton2.Location = new System.Drawing.Point(240, 219);
             this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton2.Name = "uiSymbolButton2";
             this.uiSymbolButton2.Radius = 10;
@@ -140,7 +140,7 @@ namespace BS_FS
             this.uiDataGridView1.EnableHeadersVisualStyles = false;
             this.uiDataGridView1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.uiDataGridView1.Location = new System.Drawing.Point(309, 11);
+            this.uiDataGridView1.Location = new System.Drawing.Point(16, 73);
             this.uiDataGridView1.Name = "uiDataGridView1";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
@@ -156,7 +156,7 @@ namespace BS_FS
             this.uiDataGridView1.RowTemplate.Height = 29;
             this.uiDataGridView1.SelectedIndex = -1;
             this.uiDataGridView1.ShowGridLine = true;
-            this.uiDataGridView1.Size = new System.Drawing.Size(704, 363);
+            this.uiDataGridView1.Size = new System.Drawing.Size(691, 121);
             this.uiDataGridView1.TabIndex = 15;
             // 
             // id
@@ -195,7 +195,7 @@ namespace BS_FS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1036, 482);
+            this.ClientSize = new System.Drawing.Size(1067, 562);
             this.Controls.Add(this.uiDataGridView1);
             this.Controls.Add(this.uiDatePicker1);
             this.Controls.Add(this.uiSymbolButton2);
