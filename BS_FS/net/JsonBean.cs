@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BS_FS.net
 {
-    class JsonBean
+    public class JsonBean
     {
         public class Data
         {

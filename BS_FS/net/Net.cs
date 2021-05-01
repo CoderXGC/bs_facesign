@@ -222,14 +222,14 @@ namespace BS_FS.net
                 return "{ \"code\":\"1000\",\"message\": \"服务器请求异常，请检查网络。\",\"data\": {\"user_id\": \"null\",\"name\":\"null\" }}";
             }
         }
-        public string AddApply(string applyid, string message, string applytime, string starttime, string endtime, string id,string type)
+        public string AddApply(string applyid, string message, string applytime, string starttime, string endtime, string id,string type,string time)
         {
             try
             {
                 //地址
                 string url = homeurl + "/user/addapply";
                 //json参数
-                string jsonParam = "{ \"applyid\":\"" + applyid + "\",\"message\":\"" + message + "\",\"applytime\":\"" + applytime + "\",\"starttime\":\"" + starttime + "\",\"endtime\":\"" + endtime + "\",\"id\":" + id + ",\"type\":\"" + type + "\"}";
+                string jsonParam = "{ \"applyid\":\"" + applyid + "\",\"message\":\"" + message + "\",\"applytime\":\"" + applytime + "\",\"starttime\":\"" + starttime + "\",\"endtime\":\"" + endtime + "\",\"id\":" + id + ",\"type\":\"" + type + "\",\"time\":\"" + time + "\"}";
                 //将接口传入，这个HttpUitls的类，有兴趣可以研究下，也可以直接用就可以，不用管如何实现。
                 string getJson = HttpUitls.LoginPost(url, jsonParam);
 
@@ -268,6 +268,44 @@ namespace BS_FS.net
                 string url = homeurl + "/user/finduserallapply";
                 //json参数
                 string jsonParam = "{ \"id\":\"" + id + "\"}";
+                //将接口传入，这个HttpUitls的类，有兴趣可以研究下，也可以直接用就可以，不用管如何实现。
+                string getJson = HttpUitls.LoginPost(url, jsonParam);
+
+                return getJson;
+            }
+            catch
+            {
+                return "{ \"code\":\"1000\",\"message\": \"服务器请求异常，请检查网络。\",\"data\": {\"user_id\": \"null\",\"name\":\"null\" }}";
+            }
+        }
+
+        public string DelApply(string id, string applyid)
+        {
+            try
+            {
+                //地址
+                string url = homeurl + "/user/delapply";
+                //json参数
+                string jsonParam = "{ \"applyid\":\"" + applyid + "\",\"id\":\"" + id + "\"}";
+                //将接口传入，这个HttpUitls的类，有兴趣可以研究下，也可以直接用就可以，不用管如何实现。
+                string getJson = HttpUitls.LoginPost(url, jsonParam);
+
+                return getJson;
+            }
+            catch
+            {
+                return "{ \"code\":\"1000\",\"message\": \"服务器请求异常，请检查网络。\",\"data\": {\"user_id\": \"null\",\"name\":\"null\" }}";
+            }
+        }
+
+        public string Uppwd(string id, string password)
+        {
+            try
+            {
+                //地址
+                string url = homeurl + "/user/updatepwd";
+                //json参数
+                string jsonParam = "{ \"id\":" + id + ",\"password\":\"" + password + "\"}";
                 //将接口传入，这个HttpUitls的类，有兴趣可以研究下，也可以直接用就可以，不用管如何实现。
                 string getJson = HttpUitls.LoginPost(url, jsonParam);
 

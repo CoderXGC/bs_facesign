@@ -371,6 +371,9 @@
     <EmbeddedResource Include="Form_Admin_insert.resx">
       <DependentUpon>Form_Admin_insert.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Manage.resx">
+      <DependentUpon>Form_Admin_Manage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Admin_query.resx">
       <DependentUpon>Form_Admin_query.cs</DependentUpon>
     </EmbeddedResource>

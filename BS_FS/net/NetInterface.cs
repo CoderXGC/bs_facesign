@@ -21,8 +21,10 @@ namespace BS_FS.net
         string Signout(String id, String signid, String signouttime);
         string Findsign(String id,String signid);
         string AdminLogin(String id, String pwd);
-        string AddApply(String applyid, String message, String applytime, String starttime,String endtime, String id,String type);
+        string AddApply(String applyid, String message, String applytime, String starttime,String endtime, String id,String type,String time);
         string FindApply(String id);
         string FinduserallApply(String id);
+        string DelApply(String id,String applyid);
+        string Uppwd(String id, String password);
     }
 }

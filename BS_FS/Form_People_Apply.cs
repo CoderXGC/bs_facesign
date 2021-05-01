@@ -115,8 +115,7 @@ namespace BS_FS
             else
             {
                 Net n = new Net();
-                MessageBox.Show(this.Text + uiDatetimePicker1.Value.DateTimeString() + "测试1" + uiRichTextBox1.Text + "测试2" + uiDatetimePicker1.Value.DateTimeString() + "测试3" + uiDatetimePicker2.Value.DateTimeString() + "测试4" + this.Text + "测试5" + uiComboBox1.SelectedItem.ToString());
-                JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.AddApply(this.Text+ uiDatetimePicker1.Value.DateTimeString(),uiRichTextBox1.Text, DateTime.Now.ToString("yyyy-MM-ddHH:mm:ss"), uiDatetimePicker1.Value.DateTimeString(),uiDatetimePicker2.Value.DateTimeString(),this.Text, uiComboBox1.SelectedItem.ToString()));
+                JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.AddApply(this.Text+ DateTime.Now.ToString("yyyy-MM-dd|HH:mm:ss"), uiRichTextBox1.Text, DateTime.Now.ToString("yyyy-MM-dd|HH:mm:ss"), uiDatetimePicker1.Value.DateTimeString(),uiDatetimePicker2.Value.DateTimeString(),this.Text, uiComboBox1.SelectedItem.ToString(),uiTextBox1.Text));
                 if (rt.code.ToString() == "200")
                 {
  

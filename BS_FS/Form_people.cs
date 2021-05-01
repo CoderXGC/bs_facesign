@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using BS_FS.net;
+using BS_FS.Utils;
 using HZH_Controls.Controls;
 using HZH_Controls.Forms;
 using Newtonsoft.Json;
@@ -19,6 +20,8 @@ namespace BS_FS
 
         private void 提交人脸信息ToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
+            UIStyle style = (UIStyle)1;
+            uiStyleManager1.Style = style;
 
             Form_Admin_insert From_admin_insert = new Form_Admin_insert(this.Text); //实例化一个子窗口
 
@@ -64,19 +67,18 @@ namespace BS_FS
             }
             else if (rt.code.ToString() == "404")
             {
-                ShowWarningTip(rt.message);
-                
+                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
             }
             else if (rt.code.ToString() == "100")
             {
-                ShowWarningTip(rt.message);
-              
+                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
 
             }
             else if (rt.code.ToString() == "1000")
             {
-                ShowWarningTip(rt.message);
-           
+                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
 
             }
           
@@ -165,9 +167,43 @@ namespace BS_FS
         private void 修改密码ToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
             string value = "";
+            UIStyle style = (UIStyle)1;
+            uiStyleManager1.Style = style;
             if (this.InputPasswordDialog(ref value))
             {
-               
+                string pwdencrytion = PwdEncryption.MD5Encrypt32(value);
+             //   UIMessageDialog.ShowMessageDialog(value, UILocalize.InfoTitle, false, style);
+         
+                   Net n = new Net();
+                   JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Uppwd(this.Text, pwdencrytion));
+
+               if (rt.code.ToString() == "200")
+                {
+                    UIMessageDialog.ShowMessageDialog("修改成功！", UILocalize.InfoTitle, false, style);
+
+                }
+                else if (rt.code.ToString() == "-1")
+                {
+                    UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
+                }
+                else if (rt.code.ToString() == "404")
+                {
+                    UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
+                }
+                else if (rt.code.ToString() == "100")
+                {
+                    UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
+
+                }
+                else if (rt.code.ToString() == "1000")
+                {
+                    UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
+
+                }
             }
             /* FrmInputs frm = new FrmInputs("动态多输入窗体测试",
                     new string[] { "姓名", "电话", "身份证号", "新密码" },

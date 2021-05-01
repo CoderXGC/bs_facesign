@@ -40,11 +40,11 @@ namespace BS_FS
 
             //清空Panel里面的控件
 
-            this.panel1.Controls.Clear();
+            this.uiPanel1.Controls.Clear();
 
             //加入控件
 
-            this.panel1.Controls.Add(From_admin_insert);
+            this.uiPanel1.Controls.Add(From_admin_insert);
 
             //让窗体显示
 
@@ -70,11 +70,11 @@ namespace BS_FS
 
             //清空Panel里面的控件
 
-            this.panel1.Controls.Clear();
+            this.uiPanel1.Controls.Clear();
 
             //加入控件
 
-            this.panel1.Controls.Add(From_admin_update);
+            this.uiPanel1.Controls.Add(From_admin_update);
 
             //让窗体显示
 
@@ -99,11 +99,11 @@ namespace BS_FS
 
             //清空Panel里面的控件
 
-            this.panel1.Controls.Clear();
+            this.uiPanel1.Controls.Clear();
 
             //加入控件
 
-            this.panel1.Controls.Add(From_admin_query);
+            this.uiPanel1.Controls.Add(From_admin_query);
 
             //让窗体显示
 
@@ -164,9 +164,9 @@ namespace BS_FS
             string url = "https://www.ylesb.com/csimg/bg.jpg";
             this.pictureBox1.Image = Image.FromStream(System.Net.WebRequest.Create(url).GetResponse().GetResponseStream());//背景图片
             this.pictureBox1.SendToBack();//将背景图片放到最下面
-            this.panel1.BackColor = Color.Transparent;//将Panel设为透明
+            this.uiPanel1.BackColor = Color.Transparent;//将Panel设为透明
                                                       // this.panel1.Parent = this.pictureBox1;//将panel父控件设为背景图片控件
-            this.panel1.BringToFront();//将panel放在前面
+            this.uiPanel1.BringToFront();//将panel放在前面
 
 
         }
@@ -256,15 +256,20 @@ namespace BS_FS
 
             //清空Panel里面的控件
 
-            this.panel1.Controls.Clear();
+            this.uiPanel1.Controls.Clear();
 
             //加入控件
 
-            this.panel1.Controls.Add(from_Admin_Audit);
+            this.uiPanel1.Controls.Add(from_Admin_Audit);
 
             //让窗体显示
 
             from_Admin_Audit.Show();
+        }
+
+        private void 系统设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

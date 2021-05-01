@@ -31,22 +31,24 @@ namespace BS_FS
         {
             this.components = new System.ComponentModel.Container();
             this.uiPanel1 = new Sunny.UI.UIPanel();
-            this.uiListBox1 = new Sunny.UI.UIListBox();
             this.uiStyleManager1 = new Sunny.UI.UIStyleManager(this.components);
+            this.uiListBox1 = new Sunny.UI.UIListBox();
+            this.uiButton1 = new Sunny.UI.UIButton();
             this.uiPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiPanel1
             // 
+            this.uiPanel1.Controls.Add(this.uiButton1);
             this.uiPanel1.Controls.Add(this.uiListBox1);
             this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(-2, 0);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel1.Location = new System.Drawing.Point(-1, 0);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(1063, 524);
+            this.uiPanel1.Size = new System.Drawing.Size(755, 382);
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
+            this.uiPanel1.Click += new System.EventHandler(this.uiPanel1_Click);
             // 
             // uiListBox1
             // 
@@ -54,24 +56,38 @@ namespace BS_FS
             this.uiListBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiListBox1.FormatString = "";
             this.uiListBox1.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.uiListBox1.Location = new System.Drawing.Point(246, 24);
+            this.uiListBox1.Location = new System.Drawing.Point(94, 54);
             this.uiListBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiListBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiListBox1.Name = "uiListBox1";
             this.uiListBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.uiListBox1.Size = new System.Drawing.Size(527, 475);
-            this.uiListBox1.TabIndex = 1;
+            this.uiListBox1.Size = new System.Drawing.Size(564, 184);
+            this.uiListBox1.TabIndex = 22;
             this.uiListBox1.Text = "uiListBox1";
+            // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiButton1.Location = new System.Drawing.Point(338, 293);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Size = new System.Drawing.Size(100, 35);
+            this.uiButton1.TabIndex = 23;
+            this.uiButton1.Text = "取消申请";
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
             // 
             // Form_People_ApplyShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1057, 503);
+            this.ClientSize = new System.Drawing.Size(746, 377);
             this.Controls.Add(this.uiPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form_People_ApplyShow";
             this.Text = "Form_People_ApplyShow";
             this.Load += new System.EventHandler(this.Form_People_ApplyShow_Load);
+            this.Shown += new System.EventHandler(this.Form_People_ApplyShow_Shown);
             this.uiPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -80,7 +96,8 @@ namespace BS_FS
         #endregion
 
         private Sunny.UI.UIPanel uiPanel1;
-        private Sunny.UI.UIListBox uiListBox1;
         private Sunny.UI.UIStyleManager uiStyleManager1;
+        private Sunny.UI.UIListBox uiListBox1;
+        private Sunny.UI.UIButton uiButton1;
     }
 }
