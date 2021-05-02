@@ -15,16 +15,18 @@ namespace BS_FS
 {
     public partial class Form_Admin : Form
     {
-        public Form_Admin(string id)
+        string role;
+        public Form_Admin(string id,string role)
         {
             InitializeComponent();
             this.Text = id;
+            this.role = role;
         }
 
         private void 录入员工信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            Form_Admin_insert From_admin_insert = new Form_Admin_insert(this.Text); //实例化一个子窗口
+            Form_Admin_insert From_admin_insert = new Form_Admin_insert(this.Text, role); //实例化一个子窗口
 
             //设置子窗口不显示为顶级窗口
 
@@ -54,7 +56,7 @@ namespace BS_FS
 
         private void 修改员工信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_Admin_update From_admin_update = new Form_Admin_update(); //实例化一个子窗口
+           /* Form_Admin_update From_admin_update = new Form_Admin_update(); //实例化一个子窗口
 
             //设置子窗口不显示为顶级窗口
 
@@ -78,7 +80,7 @@ namespace BS_FS
 
             //让窗体显示
 
-            From_admin_update.Show();
+            From_admin_update.Show();*/
         }
 
         private void 查看签到ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -268,6 +270,51 @@ namespace BS_FS
         }
 
         private void 系统设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_Admin_Systemset from_Admin_Systemset = new Form_Admin_Systemset(); //实例化一个子窗口
+
+            //设置子窗口不显示为顶级窗口
+
+            from_Admin_Systemset.TopLevel = false;
+
+            //设置子窗口的样式，没有上面的标题栏
+
+            from_Admin_Systemset.FormBorderStyle = FormBorderStyle.None;
+
+            //填充
+
+            //  From_admin_query.Dock = DockStyle.Fill;
+
+            //清空Panel里面的控件
+
+            this.uiPanel1.Controls.Clear();
+
+            //加入控件
+
+            this.uiPanel1.Controls.Add(from_Admin_Systemset);
+
+            //让窗体显示
+
+            from_Admin_Systemset.Show();
+        }
+
+        private void 签到签退ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_SignIn form_Sign = new Form_SignIn(this.Text);
+            form_Sign.Show();
+        }
+
+        private void 数据备份ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 分配人员ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 删除人员ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

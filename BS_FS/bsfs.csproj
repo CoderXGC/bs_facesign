@@ -218,6 +218,12 @@
     <Compile Include="Form_Admin_Audit.Designer.cs">
       <DependentUpon>Form_Admin_Audit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Admin_Del.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Del.Designer.cs">
+      <DependentUpon>Form_Admin_Del.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Admin_insert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,6 +374,9 @@
     <EmbeddedResource Include="Form_Admin_Audit.resx">
       <DependentUpon>Form_Admin_Audit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Del.resx">
+      <DependentUpon>Form_Admin_Del.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Admin_insert.resx">
       <DependentUpon>Form_Admin_insert.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Admin_query.resx">
       <DependentUpon>Form_Admin_query.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Systemset.resx">
+      <DependentUpon>Form_Admin_Systemset.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Admin_update.resx">
       <DependentUpon>Form_Admin_update.cs</DependentUpon>

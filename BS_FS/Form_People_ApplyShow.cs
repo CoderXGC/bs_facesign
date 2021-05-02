@@ -67,11 +67,17 @@ namespace BS_FS
                             this.uiListBox1.Items.Add("申请时间:" + data[i].applytime.ToString() + "审批状态：未审批 内容：" + data[i].message.ToString()); 
                         }
 
-                    else {
+                        else if (data[i].status.ToString() == "1")
+                        {
 
-                        this.uiListBox1.Items.Add("申请时间:" + data[i].applytime.ToString() + "审批状态：已审批 内容：" + data[i].message.ToString());
+                            this.uiListBox1.Items.Add("申请时间:" + data[i].applytime.ToString() + "审批状态：已审批 内容：" + data[i].message.ToString());
+                        }
+                        else if (data[i].status.ToString() == "2")
+                        {
+
+                            this.uiListBox1.Items.Add("申请时间:" + data[i].applytime.ToString() + "审批状态：已拒绝 内容：" + data[i].message.ToString());
+                        }
                     }
-                }
 
               
                     uiButton1.Enabled = true;

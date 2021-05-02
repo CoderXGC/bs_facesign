@@ -21,6 +21,7 @@ namespace BS_FS
         {
             InitializeComponent();
             this.MaximizedBounds = Screen.PrimaryScreen.WorkingArea;
+      
 
         }
         public void theout(object source, System.Timers.ElapsedEventArgs e)
@@ -107,7 +108,7 @@ namespace BS_FS
                     uiProgressIndicator1.Visible = false;
 
                     ShowSuccessTip("登录成功");
-                    Form_People form_people = new Form_People(id.Text);
+                    Form_People form_people = new Form_People(id.Text,"1");
                     form_people.StartPosition = FormStartPosition.CenterScreen;
                     form_people.Show();
                     this.Hide();

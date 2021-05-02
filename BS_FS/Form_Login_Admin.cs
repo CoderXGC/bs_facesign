@@ -90,7 +90,7 @@ namespace BS_FS
                     uiProgressIndicator1.Visible = false;
 
                     ShowSuccessTip("登录成功");
-                    Form_Admin form_admin = new Form_Admin(edtUser.Text);
+                    Form_Admin form_admin = new Form_Admin(edtUser.Text,"0");
                     form_admin.StartPosition = FormStartPosition.CenterScreen;
                     form_admin.Show();
                     this.Hide();
@@ -205,6 +205,11 @@ namespace BS_FS
         private void Form_Login_Admin_Load(object sender, EventArgs e)
         {
             uiProgressIndicator1.Visible = false;
+        }
+
+        private void uiPanel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

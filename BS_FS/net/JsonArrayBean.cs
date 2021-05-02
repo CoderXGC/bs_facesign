@@ -31,6 +31,13 @@ namespace BS_FS.net
             public string endtime { get; set; }
             public string status { get; set; }
             public string type { get; set; }
+            public string signid { get; set; }
+            public string latetime { get; set; }
+            public string signintime { get; set; }
+            public string signouttime { get; set; }
+            public string daytime { get; set; }
+            public int did { get; set; }
+            public string machine { get; set; }
         }
     }
 }

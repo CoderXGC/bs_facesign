@@ -72,21 +72,21 @@ namespace BS_FS
             // 提交人脸信息ToolStripMenuItem
             // 
             this.提交人脸信息ToolStripMenuItem.Name = "提交人脸信息ToolStripMenuItem";
-            this.提交人脸信息ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
-            this.提交人脸信息ToolStripMenuItem.Text = "提交人脸信息";
+            this.提交人脸信息ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.提交人脸信息ToolStripMenuItem.Text = "编辑个人信息";
             this.提交人脸信息ToolStripMenuItem.Click += new System.EventHandler(this.提交人脸信息ToolStripMenuItem_Click);
             // 
             // 提交申请信息ToolStripMenuItem
             // 
             this.提交申请信息ToolStripMenuItem.Name = "提交申请信息ToolStripMenuItem";
-            this.提交申请信息ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.提交申请信息ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.提交申请信息ToolStripMenuItem.Text = "提交申请信息";
             this.提交申请信息ToolStripMenuItem.Click += new System.EventHandler(this.提交申请信息ToolStripMenuItem_Click);
             // 
             // 签到ToolStripMenuItem
             // 
             this.签到ToolStripMenuItem.Name = "签到ToolStripMenuItem";
-            this.签到ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.签到ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.签到ToolStripMenuItem.Text = "签到";
             this.签到ToolStripMenuItem.Click += new System.EventHandler(this.签到ToolStripMenuItem_Click);
             // 
@@ -125,18 +125,18 @@ namespace BS_FS
             // 
             this.修改密码ToolStripMenuItem1.BackColor = System.Drawing.Color.SteelBlue;
             this.修改密码ToolStripMenuItem1.Name = "修改密码ToolStripMenuItem1";
-            this.修改密码ToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.修改密码ToolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
             this.修改密码ToolStripMenuItem1.Text = "修改密码";
             this.修改密码ToolStripMenuItem1.Click += new System.EventHandler(this.修改密码ToolStripMenuItem1_Click);
             // 
             // uiPanel1
             // 
             this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel1.Location = new System.Drawing.Point(0, 28);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(1330, 616);
+            this.uiPanel1.Size = new System.Drawing.Size(1330, 583);
             this.uiPanel1.TabIndex = 1;
             this.uiPanel1.Text = null;
             // 

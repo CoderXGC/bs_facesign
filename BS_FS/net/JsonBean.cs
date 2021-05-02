@@ -14,6 +14,7 @@ namespace BS_FS.net
             /// 
             /// </summary>
             public string user_id { get; set; }
+            public string id { get; set; }
             /// <summary>
             /// 徐广超
             /// </summary>
@@ -24,7 +25,11 @@ namespace BS_FS.net
             public string signouttime { get; set; }
 
             public string signid { get; set; }
+            public int did { get; set; }
+            public string role { get; set; }
 
+            public string telnum { get; set; }
+            public string email { get; set; }
 
         }
 

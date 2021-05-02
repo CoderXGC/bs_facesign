@@ -190,6 +190,7 @@ namespace BS_FS
             this.uiPanel1.StyleCustomMode = true;
             this.uiPanel1.TabIndex = 9;
             this.uiPanel1.Text = null;
+            this.uiPanel1.Click += new System.EventHandler(this.uiPanel1_Click);
             // 
             // uiProgressIndicator1
             // 

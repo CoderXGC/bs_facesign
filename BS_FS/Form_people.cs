@@ -12,18 +12,21 @@ namespace BS_FS
 {
     public partial class Form_People : Form
     {
-        public Form_People(string id)
+        string role;
+        public Form_People(string id,string role)
         {
             InitializeComponent();
             this.Text = id;
-        }
+             this.role = role;
 
-        private void 提交人脸信息ToolStripMenuItem_Click(object sender, System.EventArgs e)
+    }
+
+
+    private void 提交人脸信息ToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            UIStyle style = (UIStyle)1;
-            uiStyleManager1.Style = style;
+           
 
-            Form_Admin_insert From_admin_insert = new Form_Admin_insert(this.Text); //实例化一个子窗口
+            Form_Admin_insert From_admin_insert = new Form_Admin_insert(this.Text, role); //实例化一个子窗口
 
             //设置子窗口不显示为顶级窗口
 
@@ -47,40 +50,10 @@ namespace BS_FS
 
             //让窗体显示
 
-      
-            Net n = new Net();
-            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(this.Text));
-            //这样就可以取出json数据里面的值
-            if (rt.data.faceimg.ToString().Equals("0"))
-            {
+
                 From_admin_insert.Show();
 
-            } else if (rt.data.faceimg.ToString() != "")
-            {
-                ShowSuccessTip("已经提交过人脸信息了，请勿重复添加！");
-
-            }
-            else if (rt.code.ToString() == "-1")
-            {
-                From_admin_insert.Show();
-
-            }
-            else if (rt.code.ToString() == "404")
-            {
-                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
-
-            }
-            else if (rt.code.ToString() == "100")
-            {
-                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
-
-            }
-            else if (rt.code.ToString() == "1000")
-            {
-                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
-
-
-            }
+          
           
            
         }
@@ -100,8 +73,45 @@ namespace BS_FS
 
         private void 签到ToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-          Form_SignIn form_Sign = new Form_SignIn(this.Text);
-            form_Sign.Show();
+            Form_SignIn form_Sign = new Form_SignIn(this.Text);
+           
+            UIStyle style = (UIStyle)1;
+            uiStyleManager1.Style = style;
+            Net n = new Net();
+            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(this.Text));
+            //这样就可以取出json数据里面的值
+            if (rt.data.faceimg.ToString().Equals("0"))
+            {
+                UIMessageDialog.ShowMessageDialog("您还未添加人脸信息，请先信息后再来签到吧", UILocalize.InfoTitle, false, style);
+            
+            }
+            else if (rt.data.faceimg.ToString() != "")
+            {
+                form_Sign.Show();
+
+            }
+            else if (rt.code.ToString() == "-1")
+            {
+                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
+            }
+            else if (rt.code.ToString() == "404")
+            {
+                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
+            }
+            else if (rt.code.ToString() == "100")
+            {
+                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
+            }
+            else if (rt.code.ToString() == "1000")
+            {
+                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
+
+            }
+
 
         }
 

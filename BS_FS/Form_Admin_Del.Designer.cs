@@ -1,7 +1,7 @@
 ﻿
 namespace BS_FS
 {
-    partial class Form_Admin_Manage
+    partial class Form_Admin_Del
     {
         /// <summary>
         /// Required designer variable.
@@ -35,21 +35,21 @@ namespace BS_FS
             // uiPanel1
             // 
             this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(0, 1);
+            this.uiPanel1.Location = new System.Drawing.Point(-11, -8);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(801, 459);
+            this.uiPanel1.Size = new System.Drawing.Size(813, 469);
             this.uiPanel1.TabIndex = 0;
             // 
-            // Form_Admin_Manage
+            // Form_Admin_Del
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.uiPanel1);
-            this.Name = "Form_Admin_Manage";
-            this.Text = "Form_Admin_Manage";
+            this.Name = "Form_Admin_Del";
+            this.Text = "Form_Admin_Del";
             this.ResumeLayout(false);
 
         }

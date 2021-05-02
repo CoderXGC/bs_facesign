@@ -17,7 +17,7 @@ namespace BS_FS.net
 
         string Addfaceimg(String id, String faceimg);
         string Findfaceimg(String id);
-        string Signin(String id,String signid,String flag,String signintime,String daytime,String signouttime);
+        string Signin(String id,String signid,String latetime, String signintime,String daytime,String signouttime);
         string Signout(String id, String signid, String signouttime);
         string Findsign(String id,String signid);
         string AdminLogin(String id, String pwd);
@@ -26,5 +26,14 @@ namespace BS_FS.net
         string FinduserallApply(String id);
         string DelApply(String id,String applyid);
         string Uppwd(String id, String password);
+        string FindAllApply(String id);
+        string UpAudit(String applyid, String status);
+        string FindAllSignUser(String id);
+        string FindAllSigntime(String daytime);
+        string FindAllSign();
+        string UpdateSignTime(String signintime, String signouttime);
+        string UpdateUser(String id, String telnum,String email);
+        string AddUser(String id, String name, int did);
+
     }
 }
