@@ -16,5 +16,10 @@ namespace BS_FS
         {
             InitializeComponent();
         }
+
+        private void uiButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

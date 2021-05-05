@@ -308,15 +308,34 @@ namespace BS_FS
         {
 
         }
-
-        private void 分配人员ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 删除人员信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form_Admin_Del form_Admin_Del = new Form_Admin_Del(); //实例化一个子窗口
 
+            //设置子窗口不显示为顶级窗口
+
+            form_Admin_Del.TopLevel = false;
+
+            //设置子窗口的样式，没有上面的标题栏
+
+            form_Admin_Del.FormBorderStyle = FormBorderStyle.None;
+
+            //填充
+
+            //  From_admin_query.Dock = DockStyle.Fill;
+
+            //清空Panel里面的控件
+
+            this.uiPanel1.Controls.Clear();
+
+            //加入控件
+
+            this.uiPanel1.Controls.Add(form_Admin_Del);
+
+            //让窗体显示
+
+            form_Admin_Del.Show();
         }
 
-        private void 删除人员ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

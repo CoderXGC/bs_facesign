@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.首页ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除人员ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.签到签退ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.录入员工信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改密码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除人员信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看签到ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看申请ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,23 +74,15 @@
             // 首页ToolStripMenuItem
             // 
             this.首页ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.删除人员ToolStripMenuItem,
             this.签到签退ToolStripMenuItem});
             this.首页ToolStripMenuItem.Name = "首页ToolStripMenuItem";
             this.首页ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.首页ToolStripMenuItem.Text = "首页";
             // 
-            // 删除人员ToolStripMenuItem
-            // 
-            this.删除人员ToolStripMenuItem.Name = "删除人员ToolStripMenuItem";
-            this.删除人员ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.删除人员ToolStripMenuItem.Text = "删除人员";
-            this.删除人员ToolStripMenuItem.Click += new System.EventHandler(this.删除人员ToolStripMenuItem_Click);
-            // 
             // 签到签退ToolStripMenuItem
             // 
             this.签到签退ToolStripMenuItem.Name = "签到签退ToolStripMenuItem";
-            this.签到签退ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.签到签退ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.签到签退ToolStripMenuItem.Text = "签到签退";
             this.签到签退ToolStripMenuItem.Click += new System.EventHandler(this.签到签退ToolStripMenuItem_Click);
             // 
@@ -98,7 +90,8 @@
             // 
             this.编辑ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.录入员工信息ToolStripMenuItem,
-            this.修改密码ToolStripMenuItem});
+            this.修改密码ToolStripMenuItem,
+            this.删除人员信息ToolStripMenuItem});
             this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
             this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.编辑ToolStripMenuItem.Text = "编辑";
@@ -115,6 +108,13 @@
             this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
             this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.修改密码ToolStripMenuItem.Text = "修改账户密码";
+            // 
+            // 删除人员信息ToolStripMenuItem
+            // 
+            this.删除人员信息ToolStripMenuItem.Name = "删除人员信息ToolStripMenuItem";
+            this.删除人员信息ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.删除人员信息ToolStripMenuItem.Text = "删除人员信息";
+            this.删除人员信息ToolStripMenuItem.Click += new System.EventHandler(this.删除人员信息ToolStripMenuItem_Click);
             // 
             // 查看ToolStripMenuItem
             // 
@@ -286,7 +286,7 @@
         private Sunny.UI.UIPanel uiPanel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem 首页ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 删除人员ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 签到签退ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 删除人员信息ToolStripMenuItem;
     }
 }
