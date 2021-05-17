@@ -77,6 +77,7 @@ namespace BS_FS
             this.uiListBox1.Size = new System.Drawing.Size(564, 184);
             this.uiListBox1.TabIndex = 22;
             this.uiListBox1.Text = "uiListBox1";
+            this.uiListBox1.ItemClick += new System.EventHandler(this.uiListBox1_ItemClick);
             // 
             // Form_People_ApplyShow
             // 

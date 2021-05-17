@@ -77,7 +77,7 @@ namespace BS_FS
 
                             this.uiListBox1.Items.Add("申请时间:" + data[i].applytime.ToString() + "审批状态：已拒绝 内容：" + data[i].message.ToString());
                         }
-                    }
+                           }
 
               
                     uiButton1.Enabled = true;
@@ -152,7 +152,7 @@ namespace BS_FS
                 string[] strArrayapp1 = uiListBox1.SelectedItem.ToString().Split("审批状态：");
 
                 string[] strArrayapp2 = strArrayapp1[0].Split("请时间:");
-           UIMessageDialog.ShowMessageDialog(this.Text+strArrayapp2[1], UILocalize.InfoTitle, false, style);
+                    UIMessageDialog.ShowMessageDialog(this.Text+strArrayapp2[1], UILocalize.InfoTitle, false, style);
                     Net n = new Net();
                     JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.DelApply(this.Text, this.Text+strArrayapp2[1]));
                     if (rt.code.ToString() == "200")
@@ -212,6 +212,11 @@ namespace BS_FS
         }
 
         private void uiPanel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiListBox1_ItemClick(object sender, EventArgs e)
         {
 
         }

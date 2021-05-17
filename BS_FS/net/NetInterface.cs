@@ -34,6 +34,8 @@ namespace BS_FS.net
         string UpdateSignTime(String signintime, String signouttime);
         string UpdateUser(String id, String telnum,String email);
         string AddUser(String id, String name, int did);
+        string DelUser(String id);
+        string FindUser();
 
     }
 }

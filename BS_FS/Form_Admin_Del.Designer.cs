@@ -29,10 +29,12 @@ namespace BS_FS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.uiPanel1 = new Sunny.UI.UIPanel();
-            this.uiButton1 = new Sunny.UI.UIButton();
-            this.uiLabel1 = new Sunny.UI.UILabel();
             this.uiTextBox1 = new Sunny.UI.UITextBox();
+            this.uiLabel1 = new Sunny.UI.UILabel();
+            this.uiButton1 = new Sunny.UI.UIButton();
+            this.uiStyleManager1 = new Sunny.UI.UIStyleManager(this.components);
             this.uiPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,30 +52,6 @@ namespace BS_FS
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
             // 
-            // uiButton1
-            // 
-            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(533, 44);
-            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton1.Name = "uiButton1";
-            this.uiButton1.Radius = 10;
-            this.uiButton1.Size = new System.Drawing.Size(100, 35);
-            this.uiButton1.TabIndex = 0;
-            this.uiButton1.Text = "删除";
-            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
-            // 
-            // uiLabel1
-            // 
-            this.uiLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel1.Location = new System.Drawing.Point(42, 44);
-            this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(211, 23);
-            this.uiLabel1.TabIndex = 1;
-            this.uiLabel1.Text = "请输入删除用户的ID:";
-            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // uiTextBox1
             // 
             this.uiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -88,6 +66,30 @@ namespace BS_FS
             this.uiTextBox1.Padding = new System.Windows.Forms.Padding(5);
             this.uiTextBox1.Size = new System.Drawing.Size(150, 34);
             this.uiTextBox1.TabIndex = 2;
+            // 
+            // uiLabel1
+            // 
+            this.uiLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel1.Location = new System.Drawing.Point(42, 44);
+            this.uiLabel1.Name = "uiLabel1";
+            this.uiLabel1.Size = new System.Drawing.Size(211, 23);
+            this.uiLabel1.TabIndex = 1;
+            this.uiLabel1.Text = "请输入删除用户的ID:";
+            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiButton1.Location = new System.Drawing.Point(533, 44);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Radius = 10;
+            this.uiButton1.Size = new System.Drawing.Size(100, 35);
+            this.uiButton1.TabIndex = 0;
+            this.uiButton1.Text = "删除";
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
             // 
             // Form_Admin_Del
             // 
@@ -108,5 +110,6 @@ namespace BS_FS
         private Sunny.UI.UILabel uiLabel1;
         private Sunny.UI.UIButton uiButton1;
         private Sunny.UI.UITextBox uiTextBox1;
+        private Sunny.UI.UIStyleManager uiStyleManager1;
     }
 }
