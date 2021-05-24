@@ -16,12 +16,12 @@ namespace BS_FS
     public partial class ControlFm : Form
     {
 
-
+        System.Timers.Timer timer = new System.Timers.Timer();
         public ControlFm()
         {
             InitializeComponent();
             this.MaximizedBounds = Screen.PrimaryScreen.WorkingArea;
-      
+          
 
         }
         public void theout(object source, System.Timers.ElapsedEventArgs e)
@@ -108,9 +108,12 @@ namespace BS_FS
                     uiProgressIndicator1.Visible = false;
 
                     ShowSuccessTip("登录成功");
-                    Form_People form_people = new Form_People(id.Text,"1");
-                    form_people.StartPosition = FormStartPosition.CenterScreen;
-                    form_people.Show();
+                    /*  Form_People form_people = new Form_People(id.Text,"1");
+                      form_people.StartPosition = FormStartPosition.CenterScreen;
+                      form_people.Show();*/
+                    Form_User_Main form_User_Main =new Form_User_Main(id.Text, "1");
+                    form_User_Main.StartPosition = FormStartPosition.CenterScreen;
+                    form_User_Main.Show();
                     this.Hide();
                  
                 }
@@ -120,6 +123,10 @@ namespace BS_FS
                     id.Enabled = true;
                     pwd.Enabled = true;
                     uiProgressIndicator1.Visible = false;
+                    pictureBox1.Visible = true;
+                    label4.Enabled = true;
+                    uiLabel1.Visible = false;
+                    uiButton2.Text = "退出系统";
                     ShowErrorTip(message);
 
                 }
@@ -129,6 +136,10 @@ namespace BS_FS
                     id.Enabled = true;
                     pwd.Enabled = true;
                     uiProgressIndicator1.Visible = false;
+                    pictureBox1.Visible = true;
+                    uiLabel1.Visible = false;
+                    label4.Enabled = true;
+                    uiButton2.Text = "退出系统";
                     ShowWarningTip(message);
 
                 }
@@ -138,6 +149,10 @@ namespace BS_FS
                     id.Enabled = true;
                     pwd.Enabled = true;
                     uiProgressIndicator1.Visible = false;
+                    pictureBox1.Visible = true;
+                    uiLabel1.Visible = false;
+                    label4.Enabled = true;
+                    uiButton2.Text = "退出系统";
                     ShowWarningTip(message);
 
                 }
@@ -148,6 +163,10 @@ namespace BS_FS
                     id.Enabled = true;
                     pwd.Enabled = true;
                     uiProgressIndicator1.Visible = false;
+                    pictureBox1.Visible = true;
+                    uiLabel1.Visible = false;
+                    label4.Enabled = true;
+                    uiButton2.Text = "退出系统";
                     ShowWarningTip(message);
 
                 }
@@ -160,7 +179,7 @@ namespace BS_FS
 
         private void GetData()
         {
-            var timer = new System.Timers.Timer();
+
             timer.Interval = 5000;
             timer.Enabled = true;
             timer.AutoReset = false;//设置是执行一次（false）还是一直执行(true)；  
@@ -183,22 +202,21 @@ namespace BS_FS
 
         private void uiButton1_Click(object sender, EventArgs e)
         {
-            
+
+            uiLabel1.Visible = true;
             uiButton1.Enabled = false;
             id.Enabled = false;
             pwd.Enabled = false;
+            pictureBox1.Visible = false;
+            label4.Enabled = false;
+            uiButton2.Text = "取消登录";
             uiProgressIndicator1.Visible = true;
             Thread t = new Thread(new ThreadStart(GetData));
+            t.Priority = ThreadPriority.AboveNormal;
+            t.Name = "登陆判断";
             t.IsBackground = true;
             t.Start();
 
-            //FaceForm faceForm = new FaceForm();
-            //faceForm.Show();
-            /*   Form_Sign form_User = new Form_Sign();
-               form_User.Show();
-               //Form_Admin form_Admin = new Form_Admin();
-               //form_Admin.Show();
-               this.Hide();*/
 
         }
             //引用登录提示框架弹出气泡
@@ -248,7 +266,25 @@ namespace BS_FS
 
         private void uiButton2_Click(object sender, EventArgs e)
         {
-            Close();
+            if (uiButton2.Text=="取消登录")
+            {
+                timer.Stop();
+                uiButton1.Enabled = true;
+                id.Enabled = true;
+                pwd.Enabled = true;
+                uiProgressIndicator1.Visible = false;
+                pictureBox1.Visible = true;
+                uiLabel1.Visible = false;
+                label4.Enabled = true;
+                uiButton2.Text = "退出系统";
+            }
+            else {
+                Close();
+                System.Windows.Forms.Application.Exit();
+                System.Environment.Exit(0);//结束进程时，关闭所有线程  这个很重要，如果没有这个代码，页面关闭了，线程还在开启着
+
+            }
+           
         }
 
         private void label4_Click(object sender, EventArgs e)

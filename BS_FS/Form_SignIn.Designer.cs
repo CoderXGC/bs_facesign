@@ -30,6 +30,10 @@
             this.videoSource = new AForge.Controls.VideoSourcePlayer();
             this.SuspendLayout();
             // 
+            // PagePanel
+            // 
+
+            // 
             // videoSource
             // 
             this.videoSource.Location = new System.Drawing.Point(127, 76);
@@ -48,6 +52,8 @@
             this.Text = "欢迎使用人脸考勤系统";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Sign_FormClosed);
             this.Load += new System.EventHandler(this.Form_User_Load);
+
+            this.Controls.SetChildIndex(this.videoSource, 0);
             this.ResumeLayout(false);
 
         }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlFm));
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,18 +39,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.uiButton2 = new Sunny.UI.UIButton();
             this.uiProgressIndicator1 = new Sunny.UI.UIProgressIndicator();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.uiLabel1 = new Sunny.UI.UILabel();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(188, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "欢迎使用TL系统";
             // 
             // label2
             // 
@@ -168,13 +159,35 @@
             // uiProgressIndicator1
             // 
             this.uiProgressIndicator1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiProgressIndicator1.Location = new System.Drawing.Point(266, 187);
+            this.uiProgressIndicator1.Location = new System.Drawing.Point(243, 0);
             this.uiProgressIndicator1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiProgressIndicator1.Name = "uiProgressIndicator1";
             this.uiProgressIndicator1.Radius = 10;
-            this.uiProgressIndicator1.Size = new System.Drawing.Size(100, 100);
+            this.uiProgressIndicator1.Size = new System.Drawing.Size(125, 129);
             this.uiProgressIndicator1.TabIndex = 16;
             this.uiProgressIndicator1.Text = "uiProgressIndicator1";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BS_FS.Properties.Resources._94x94;
+            this.pictureBox1.Location = new System.Drawing.Point(255, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(94, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
+            // uiLabel1
+            // 
+            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiLabel1.Location = new System.Drawing.Point(265, 132);
+            this.uiLabel1.Name = "uiLabel1";
+            this.uiLabel1.Size = new System.Drawing.Size(88, 28);
+            this.uiLabel1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel1.TabIndex = 18;
+            this.uiLabel1.Text = "登录中...";
+            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel1.Visible = false;
             // 
             // ControlFm
             // 
@@ -183,6 +196,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(590, 420);
             this.ControlBox = false;
+            this.Controls.Add(this.uiLabel1);
             this.Controls.Add(this.uiProgressIndicator1);
             this.Controls.Add(this.uiButton2);
             this.Controls.Add(this.label6);
@@ -193,7 +207,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.id);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -208,14 +222,13 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ControlFm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ControlFm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ControlFm_MouseUp);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -226,5 +239,7 @@
         private System.Windows.Forms.Label label6;
         private Sunny.UI.UIButton uiButton2;
         private Sunny.UI.UIProgressIndicator uiProgressIndicator1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private Sunny.UI.UILabel uiLabel1;
     }
 }

@@ -16,10 +16,13 @@ using BS_FS.net;
 using Newtonsoft.Json;
 using Sunny.UI;
 using System.Collections.Specialized;
+using AForge.Video.DirectShow;
+using ArcSoftFace.Entity;
+
 
 namespace BS_FS
 {
-    public partial class Form_Admin_insert : Form
+    public partial class Form_Admin_insert : UITitlePage
     {
         //引擎Handle
         private IntPtr pImageEngine = IntPtr.Zero;
@@ -34,6 +37,7 @@ namespace BS_FS
 
         private string[] path;
         string role;
+        string uid;
         bool flag = true;
      
         public Form_Admin_insert(string id, string role)
@@ -41,7 +45,7 @@ namespace BS_FS
             InitializeComponent();
             InitEngines();
             this.role = role;
-            this.Text = id;
+            uid = id;
 
 
         }
@@ -171,7 +175,7 @@ namespace BS_FS
              *     string filename = idtb.Text + Path.GetFileName(path[0]);
              * MessageBox.Show(n.Uploadimg(this.Text, path[0], Path.GetFileName(path[0])));
                     //   MessageBox.Show(path[0]);
-                    //    MessageBox.Show(n.Uploadimg(this.Text, path[0], Path.GetFileName(path[0])));
+                    //    MessageBox.Show(n.Uploadimg(uid, path[0], Path.GetFileName(path[0])));
                    // MessageBox.Show(n.Uploadimgtest("file", path[0], nvc));*/
             /* if (!(String.IsNullOrEmpty(path[0])))
              {
@@ -275,6 +279,9 @@ namespace BS_FS
 
         private void Form_Admin_insert_Load(object sender, EventArgs e)
         {
+            if (Form_SignIn.ActiveForm != null) {
+                Form_SignIn.ActiveForm.Hide();
+            }
             if (role == "0")
             {
                 label1.Visible = false;
@@ -346,7 +353,7 @@ namespace BS_FS
                 if (flag)
                 {
                     Net n = new Net();
-                    JsonBean rtt = JsonConvert.DeserializeObject<JsonBean>(n.UpdateUser(this.Text, textBox3.Text, textBox4.Text));
+                    JsonBean rtt = JsonConvert.DeserializeObject<JsonBean>(n.UpdateUser(uid, textBox3.Text, textBox4.Text));
 
                     if (rtt.code.ToString() == "200")
                     {
@@ -386,7 +393,7 @@ namespace BS_FS
 
                 }
                 else{ NameValueCollection nvc = new NameValueCollection();
-                    nvc.Add("id", this.Text);
+                    nvc.Add("id", uid);
                     Net n = new Net();
                     //这个需要引入Newtonsoft.Json这个DLL并using
                     //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
@@ -394,11 +401,11 @@ namespace BS_FS
                     if (rt.code.ToString() == "200")
                     {
 
-                        JsonBean rtt = JsonConvert.DeserializeObject<JsonBean>(n.Addfaceimg(this.Text, rt.data.url));
+                        JsonBean rtt = JsonConvert.DeserializeObject<JsonBean>(n.Addfaceimg(uid, rt.data.url));
 
                         if (rtt.code.ToString() == "200")
                         {
-                            JsonBean rttt = JsonConvert.DeserializeObject<JsonBean>(n.UpdateUser(this.Text, textBox3.Text, textBox4.Text));
+                            JsonBean rttt = JsonConvert.DeserializeObject<JsonBean>(n.UpdateUser(uid, textBox3.Text, textBox4.Text));
 
                                 if (rttt.code.ToString() == "200")
                                 {
@@ -678,7 +685,7 @@ namespace BS_FS
                     HideWaitForm();
                     if (role == "1") { 
                         Net n = new Net();
-                    JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(this.Text));
+                    JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(uid));
                     //这样就可以取出json数据里面的值
                     if (rt.data.faceimg.ToString().Equals("0"))
                     {
@@ -757,7 +764,7 @@ namespace BS_FS
             timer.AutoReset = false;//设置是执行一次（false）还是一直执行(true)；  
             timer.Start();
             Net n = new Net();
-            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(this.Text));
+            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(uid));
 
             timer.Elapsed += (o, a) =>
             {

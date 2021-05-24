@@ -137,7 +137,7 @@ namespace BS_FS
             this.btnCancel.StyleCustomMode = true;
             this.btnCancel.Symbol = 61453;
             this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "取消";
+            this.btnCancel.Text = "退出";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblTitle
@@ -195,7 +195,7 @@ namespace BS_FS
             // uiProgressIndicator1
             // 
             this.uiProgressIndicator1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiProgressIndicator1.Location = new System.Drawing.Point(65, 16);
+            this.uiProgressIndicator1.Location = new System.Drawing.Point(65, 10);
             this.uiProgressIndicator1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiProgressIndicator1.Name = "uiProgressIndicator1";
             this.uiProgressIndicator1.Size = new System.Drawing.Size(70, 66);

@@ -13,10 +13,11 @@ namespace BS_FS
     public partial class Form_People : Form
     {
         string role;
+        string uid;
         public Form_People(string id,string role)
         {
             InitializeComponent();
-            this.Text = id;
+            uid = id;
              this.role = role;
 
     }
@@ -26,7 +27,7 @@ namespace BS_FS
         {
            
 
-            Form_Admin_insert From_admin_insert = new Form_Admin_insert(this.Text, role); //实例化一个子窗口
+            Form_Admin_insert From_admin_insert = new Form_Admin_insert(uid, role); //实例化一个子窗口
 
             //设置子窗口不显示为顶级窗口
 
@@ -73,12 +74,12 @@ namespace BS_FS
 
         private void 签到ToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            Form_SignIn form_Sign = new Form_SignIn(this.Text);
+            Form_SignIn form_Sign = new Form_SignIn(uid);
            
             UIStyle style = (UIStyle)1;
             uiStyleManager1.Style = style;
             Net n = new Net();
-            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(this.Text));
+            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(uid));
             //这样就可以取出json数据里面的值
             if (rt.data.faceimg.ToString().Equals("0"))
             {
@@ -117,7 +118,7 @@ namespace BS_FS
 
         private void 查看签到信息ToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            Form_People_Signlog form_People_Signlog = new Form_People_Signlog(this.Text); //实例化一个子窗口
+            Form_People_Signlog form_People_Signlog = new Form_People_Signlog(uid); //实例化一个子窗口
 
             //设置子窗口不显示为顶级窗口
 
@@ -146,7 +147,7 @@ namespace BS_FS
 
         private void 提交申请信息ToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            Form_People_Apply form_People_Applly = new Form_People_Apply(this.Text); //实例化一个子窗口
+            Form_People_Apply form_People_Applly = new Form_People_Apply(uid); //实例化一个子窗口
 
             //设置子窗口不显示为顶级窗口
 
@@ -185,7 +186,7 @@ namespace BS_FS
              //   UIMessageDialog.ShowMessageDialog(value, UILocalize.InfoTitle, false, style);
          
                    Net n = new Net();
-                   JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Uppwd(this.Text, pwdencrytion));
+                   JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Uppwd(uid, pwdencrytion));
 
                if (rt.code.ToString() == "200")
                 {
@@ -227,7 +228,7 @@ namespace BS_FS
 
         private void 查看申请信息ToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            Form_People_ApplyShow form_People_AppllyShow = new Form_People_ApplyShow(this.Text); //实例化一个子窗口
+            Form_People_ApplyShow form_People_AppllyShow = new Form_People_ApplyShow(uid); //实例化一个子窗口
 
             //设置子窗口不显示为顶级窗口
 

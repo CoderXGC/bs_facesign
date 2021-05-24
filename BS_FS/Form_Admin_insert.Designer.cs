@@ -56,6 +56,11 @@
             this.uiPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // PagePanel
+            // 
+            this.PagePanel.Location = new System.Drawing.Point(0, 0);
+            this.PagePanel.Size = new System.Drawing.Size(1039, 454);
+            // 
             // logBox
             // 
             this.logBox.BackColor = System.Drawing.Color.White;
@@ -93,7 +98,7 @@
             this.label3.Location = new System.Drawing.Point(372, 219);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 15);
+            this.label3.Size = new System.Drawing.Size(0, 27);
             this.label3.TabIndex = 50;
             // 
             // idtb
@@ -232,7 +237,7 @@
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(1057, 460);
+            this.uiPanel1.Size = new System.Drawing.Size(1057, 588);
             this.uiPanel1.TabIndex = 66;
             this.uiPanel1.Text = null;
             this.uiPanel1.Click += new System.EventHandler(this.uiPanel1_Click);
@@ -306,7 +311,7 @@
             // 
             // Form_Admin_insert
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 454);
             this.Controls.Add(this.label3);
@@ -315,6 +320,9 @@
             this.Name = "Form_Admin_insert";
             this.Text = "提交人脸信息";
             this.Load += new System.EventHandler(this.Form_Admin_insert_Load);
+            this.Controls.SetChildIndex(this.PagePanel, 0);
+            this.Controls.SetChildIndex(this.uiPanel1, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
             this.uiPanel1.ResumeLayout(false);
             this.uiPanel1.PerformLayout();
             this.ResumeLayout(false);

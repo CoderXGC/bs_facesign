@@ -63,10 +63,30 @@ namespace BS_FS.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap _94x94 {
+            get {
+                object obj = ResourceManager.GetObject("_94x94", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap bg1 {
             get {
                 object obj = ResourceManager.GetObject("bg1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon bitbug_favicon {
+            get {
+                object obj = ResourceManager.GetObject("bitbug_favicon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -216,6 +236,16 @@ namespace BS_FS.Properties {
         internal static System.Drawing.Bitmap logo1 {
             get {
                 object obj = ResourceManager.GetObject("logo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap logotl {
+            get {
+                object obj = ResourceManager.GetObject("logotl", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

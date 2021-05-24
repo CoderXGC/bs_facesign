@@ -5,6 +5,7 @@ using ArcSoftFace.SDKUtil;
 using ArcSoftFace.Utils;
 using BS_FS.net;
 using Newtonsoft.Json;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -18,8 +19,9 @@ using System.Windows.Forms;
 
 namespace BS_FS
 {
-    public partial class Form_SignIn : Form
+    public partial class Form_SignIn : UITitlePage
     {
+        private string uid;
         //引擎Handle
         private IntPtr pImageEngine = IntPtr.Zero;
 
@@ -61,7 +63,7 @@ namespace BS_FS
         public Form_SignIn(String id)
         {
             InitializeComponent();
-            this.Text = id;
+            uid = id;
             InitEngines();
             videoSource.Hide();
         }
@@ -177,7 +179,7 @@ namespace BS_FS
         private void SignSql(int id)
         {
             Net n = new Net();
-            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(this.Text));
+            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(uid));
             if (rt.code.ToString() == "200")
             {
                 string signintime = rt.data.signintime;
@@ -187,8 +189,8 @@ namespace BS_FS
                 //  MessageBox.Show("当前系统时间"+ int.Parse(DateTime.Now.ToString("HH"))+"签到时间" + strArrayin[0]+"签退时间"+ strArrayout[0]+ "签到时间1" + int.Parse(strArrayin[0]) + "签退时间" + int.Parse(strArrayout[0]));
                 if (int.Parse(DateTime.Now.ToString("HH")) < int.Parse(strArrayin[0]))
                 {
-                    string singid = this.Text + DateTime.Now.ToString("yyyy-MM-dd");
-                    JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, singid));
+                    string singid = uid + DateTime.Now.ToString("yyyy-MM-dd");
+                    JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(uid, singid));
                     if (fs.code.ToString() == "200")
                     {
                         MessageBox.Show("尊敬的ID: " +fs.data.user_id +"  ,您今天已经签到！");
@@ -196,7 +198,7 @@ namespace BS_FS
                     else if (fs.code.ToString() == "-1")
                     {
 
-                        JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(this.Text, singid, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd"),"0"));
+                        JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(uid, singid, "1", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd"),"0"));
                         //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
                         if (si.code.ToString() == "200")
                         {
@@ -245,8 +247,8 @@ namespace BS_FS
                 else if (int.Parse(DateTime.Now.ToString("HH")) > int.Parse(strArrayin[0]) && int.Parse(DateTime.Now.ToString("HH")) < int.Parse(strArrayout[0]))
                 {
 
-                    string signid = this.Text + DateTime.Now.ToString("yyyy-MM-dd");
-                    JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, signid));
+                    string signid = uid + DateTime.Now.ToString("yyyy-MM-dd");
+                    JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(uid, signid));
                     if (fs.code.ToString() == "200")
                     {
 
@@ -259,7 +261,7 @@ namespace BS_FS
 
                         int latehours = int.Parse(DateTime.Now.ToString("HH")) - int.Parse(strArrayin[0]);
                         int lateminute= int.Parse(DateTime.Now.ToString("MM")) - int.Parse(strArrayin[1]);
-                        JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(this.Text, signid, latehours.ToString()+":" +lateminute.ToString(), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd"), "0"));
+                        JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signin(uid, signid, latehours.ToString()+":" +lateminute.ToString(), DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), DateTime.Now.ToString("yyyy-MM-dd"), "0"));
                    
                         if (si.code.ToString() == "200")
                         {
@@ -274,7 +276,7 @@ namespace BS_FS
                         else if (si.code.ToString() == "404")
                         {
 
-                            MessageBox.Show(si.message + this.Text);
+                            MessageBox.Show(si.message + uid);
                         }
                         else if (si.code.ToString() == "100")
                         {
@@ -306,15 +308,15 @@ namespace BS_FS
 
                 } else if (int.Parse(DateTime.Now.ToString("HH")) > int.Parse(strArrayout[0]))
                 {
-                    string singid = this.Text + DateTime.Now.ToString("yyyy-MM-dd");
+                    string singid = uid + DateTime.Now.ToString("yyyy-MM-dd");
 
-                    JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, singid));
+                    JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(uid, singid));
                     if (fs.code.ToString() == "200")
                     {
 
                         if (fs.data.signouttime.Equals("0")) {
 
-                            JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signout(this.Text, singid, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
+                            JsonBean si = JsonConvert.DeserializeObject<JsonBean>(n.Signout(uid, singid, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")));
                             //  MessageBox.Show("代码=" + rt.code + "\r\n" + "信息=" + rt.message + "\r\n" + "数据=" + rt.data);
                             if (si.code.ToString() == "200")
                             {
@@ -330,7 +332,7 @@ namespace BS_FS
                             else if (si.code.ToString() == "404")
                             {
 
-                                MessageBox.Show(si.message + this.Text);
+                                MessageBox.Show(si.message + uid);
                             }
                             else if (si.code.ToString() == "100")
                             {
@@ -548,7 +550,7 @@ namespace BS_FS
                 var numStart = imagePathList.Count;
                 //这个需要引入Newtonsoft.Json这个DLL并using
                 //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
-                JsonArrayBean rt = JsonConvert.DeserializeObject<JsonArrayBean>(n.Findfaceimg(this.Text));
+                JsonArrayBean rt = JsonConvert.DeserializeObject<JsonArrayBean>(n.Findfaceimg(uid));
                 for(int i=0;i<rt.data.Length;i++) {
                     if (rt.data[i].faceimg.Equals("0"))
                     {
@@ -638,7 +640,6 @@ namespace BS_FS
             }
             LoadingHelper.ShowLoading("加载中请稍后。", this, o =>
             {
-
                 //这里写处理耗时的代码，代码处理完成则自动关闭该窗口
                 Thread.Sleep(4000);
             });
@@ -660,5 +661,30 @@ namespace BS_FS
             Dispose();
             Application.Exit();
         }
+
+        private void PagePanel_Click(object sender, EventArgs e)
+        {
+
+        }
+        public override void Init()
+        {
+
+        }
+
+        public override void Final()
+        {
+            //销毁引擎
+            int retCode = ASFFunctions.ASFUninitEngine(pImageEngine);
+            Console.WriteLine("UninitEngine pImageEngine Result:" + retCode);
+            //销毁引擎
+            retCode = ASFFunctions.ASFUninitEngine(pVideoEngine);
+            Console.WriteLine("UninitEngine pVideoEngine Result:" + retCode);
+
+            if (videoSource.IsRunning)
+            {
+                videoSource.SignalToStop(); //关闭摄像头
+            }
+        }
+
     }
 }

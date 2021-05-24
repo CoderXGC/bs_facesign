@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
   <asmv1:assemblyIdentity name="BS_FS.exe" version="1.0.0.5" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
+  <description asmv2:iconFile="bitbug_favicon (3).ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="BS_FS" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
@@ -149,14 +150,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BS_FS.exe" size="804760">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BS_FS.exe" size="1232792">
       <assemblyIdentity name="BS_FS" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/bNOVJr/BmimRZIw93Gu9SHNsqwJToBDfC2BjKHBZpQ=</dsig:DigestValue>
+        <dsig:DigestValue>GGzk9xtvPg8fLS84msEZLwd8G2FppWhPmC5+sVzx8Xs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -409,6 +410,15 @@
       <dsig:DigestValue>9UkRAiP9PzN+8zUQPWbyZjWSnT1RbU4ijx8b34pAMA0=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="bitbug_favicon (3).ico" size="67646">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>3qy9iz7TM7YXyfDFJxU3fOgP7JdkQzFcrEQmUMP+i3M=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="BS_FS.exe.config" size="3402">
     <hash>
       <dsig:Transforms>
@@ -479,6 +489,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>uvpu0EyieCJwB0EnoEmN3gIsKp9Alsa7K448CLs9QE0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="logo.ico" size="4286">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>fVnkG2T06dKKlKlA195dA4z5ygyxycNdfWIG8gGii44=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\bg1.png" size="135979">

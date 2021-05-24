@@ -12,8 +12,8 @@ namespace BS_FS.net
 {
     class Net : NetInterface
     {
-        private string homeurl = "http://localhost:8080";
-        //private string homeurl = "http://bs.ylesb.com";
+       private string homeurl = "http://localhost:8080";
+       // private string homeurl = "http://bs.ylesb.com";
         public String UserLogin(String id, String pwd)
         {
             try

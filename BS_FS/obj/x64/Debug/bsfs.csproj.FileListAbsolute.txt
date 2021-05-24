@@ -80,3 +80,5 @@ F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_People_Ap
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_Admin_Manage.resources
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_Admin_Systemset.resources
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_Admin_Del.resources
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Resources.Resource1.resources
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_User_Main.resources

@@ -30,6 +30,7 @@ namespace BS_FS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Admin_Audit));
             this.uiListBox1 = new Sunny.UI.UIListBox();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiButton2 = new Sunny.UI.UIButton();
@@ -101,6 +102,7 @@ namespace BS_FS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.uiPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Admin_Audit";
             this.Text = "Form_Admin_Audit";
             this.Load += new System.EventHandler(this.Form_Admin_Audit_Load);

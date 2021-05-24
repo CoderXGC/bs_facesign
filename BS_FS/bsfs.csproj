@@ -68,8 +68,7 @@
     <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>bitbug_favicon %283%29.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>A29932A573D68E98BC676240932DF5AE060534B8</ManifestCertificateThumbprint>
@@ -212,6 +211,12 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="DataWrite.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Admin_Audit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +327,12 @@
     <Compile Include="Form_Start.Designer.cs">
       <DependentUpon>Form_Start.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_User_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_User_Main.Designer.cs">
+      <DependentUpon>Form_User_Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoadingDot.cs" />
     <Compile Include="LoadingHelper.cs" />
     <Compile Include="Net\JsonArrayBean.cs" />
@@ -329,6 +340,11 @@
     <Compile Include="Net\HttpUitls.cs" />
     <Compile Include="Net\Net.cs" />
     <Compile Include="Net\NetInterface.cs" />
+    <Compile Include="Resources\Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
     <Compile Include="SDKModels\ASF_AgeInfo.cs" />
     <Compile Include="SDKModels\ASF_Face3DAngle.cs" />
     <Compile Include="SDKModels\ASF_FaceFeature.cs" />
@@ -364,6 +380,7 @@
       <DependentUpon>Form_Login_Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\FaceUtil.cs" />
+    <Compile Include="Utils\GetIP.cs" />
     <Compile Include="Utils\ImageUtil.cs" />
     <Compile Include="Utils\MemoryUtil.cs" />
     <Compile Include="Utils\PwdEncryption.cs" />
@@ -425,6 +442,9 @@
     <EmbeddedResource Include="Form_Start.resx">
       <DependentUpon>Form_Start.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_User_Main.resx">
+      <DependentUpon>Form_User_Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -432,6 +452,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Login_Admin.resx">
       <DependentUpon>Form_Login_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
@@ -452,6 +476,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bg.jpg" />
+    <Content Include="bitbug_favicon %283%29.ico" />
     <Content Include="lib\AForge.Controls.dll" />
     <Content Include="lib\AForge.dll" />
     <Content Include="lib\AForge.Imaging.dll" />
@@ -459,7 +484,10 @@
     <Content Include="lib\AForge.Math.dll" />
     <Content Include="lib\AForge.Video.DirectShow.dll" />
     <Content Include="lib\AForge.Video.dll" />
+    <Content Include="logo.ico" />
+    <None Include="Resources\94x94.png" />
     <Content Include="Resources\bg1.png" />
+    <None Include="Resources\bitbug_favicon.ico" />
     <Content Include="Resources\close.png" />
     <Content Include="Resources\colorbarIndicators.bmp" />
     <Content Include="Resources\favicon.ico" />
@@ -475,6 +503,7 @@
     <Content Include="Resources\Login5.png" />
     <Content Include="Resources\Login6.png" />
     <None Include="Resources\logo1.png" />
+    <None Include="Resources\logotl.png" />
     <Content Include="Resources\menu.png" />
     <Content Include="Resources\min.png" />
     <Content Include="Resources\notifier.png" />

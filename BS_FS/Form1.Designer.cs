@@ -1,6 +1,7 @@
-﻿namespace BS_FS
+﻿
+namespace BS_FS
 {
-    partial class Form_Start
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -29,30 +30,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Start));
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.SuspendLayout();
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // Form_Start
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1281, 795);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form_Start";
-            this.Text = "Form_Start";
-            this.Load += new System.EventHandler(this.Form_Start_Load);
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "Form1";
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer timer1;
     }
 }

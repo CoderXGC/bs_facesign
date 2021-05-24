@@ -18,7 +18,7 @@ namespace BS_FS
             InitializeComponent();
         }
 
-
+        System.Timers.Timer timer = new System.Timers.Timer();
 
 
         private UILoginImage loginImage;
@@ -55,8 +55,21 @@ namespace BS_FS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-       
-                this.Close();
+            if (btnCancel.Text =="取消") {
+                btnCancel.Enabled = true;
+                btnLogin.Enabled = true;
+                edtUser.Enabled = true;
+                edtPassword.Enabled = true;
+                btnCancel.Text = "退出";
+                uiProgressIndicator1.Visible = false;
+                timer.Stop();
+            }
+            else {
+                Close();
+                System.Windows.Forms.Application.Exit();
+                System.Environment.Exit(0);//结束进程时，关闭所有线程  这个很重要，如果没有这个代码，页面关闭了，线程还在开启着
+            }
+                
         }
         //方法一 声明委托
         private delegate void SetDataDelegate();
@@ -102,6 +115,7 @@ namespace BS_FS
                     edtUser.Enabled = true;
                     edtPassword.Enabled = true;
                     uiProgressIndicator1.Visible = false;
+                    btnCancel.Text = "退出";
                     ShowErrorTip(message);
 
                 }
@@ -112,6 +126,7 @@ namespace BS_FS
                     edtUser.Enabled = true;
                     edtPassword.Enabled = true;
                     uiProgressIndicator1.Visible = false;
+                    btnCancel.Text = "退出";
                     ShowWarningTip(message);
 
                 }
@@ -122,6 +137,7 @@ namespace BS_FS
                     edtUser.Enabled = true;
                     edtPassword.Enabled = true;
                     uiProgressIndicator1.Visible = false;
+                    btnCancel.Text = "退出";
                     ShowWarningTip(message);
 
                 }
@@ -132,6 +148,7 @@ namespace BS_FS
                     edtUser.Enabled = true;
                     edtPassword.Enabled = true;
                     uiProgressIndicator1.Visible = false;
+                    btnCancel.Text ="退出";
                     ShowWarningTip(message);
 
                 }
@@ -144,7 +161,7 @@ namespace BS_FS
 
         private void GetData()
         {
-            var timer = new System.Timers.Timer();
+     
             timer.Interval = 5000;
             timer.Enabled = true;
             timer.AutoReset = false;//设置是执行一次（false）还是一直执行(true)；  
@@ -166,7 +183,7 @@ namespace BS_FS
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            btnCancel.Enabled = false;
+            btnCancel.Text = "取消";
             btnLogin.Enabled = false;
             edtUser.Enabled = false;
             edtPassword.Enabled = false;

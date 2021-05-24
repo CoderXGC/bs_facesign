@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Admin));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.首页ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.签到签退ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,7 +83,7 @@
             // 签到签退ToolStripMenuItem
             // 
             this.签到签退ToolStripMenuItem.Name = "签到签退ToolStripMenuItem";
-            this.签到签退ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.签到签退ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.签到签退ToolStripMenuItem.Text = "签到签退";
             this.签到签退ToolStripMenuItem.Click += new System.EventHandler(this.签到签退ToolStripMenuItem_Click);
             // 
@@ -99,20 +100,20 @@
             // 录入员工信息ToolStripMenuItem
             // 
             this.录入员工信息ToolStripMenuItem.Name = "录入员工信息ToolStripMenuItem";
-            this.录入员工信息ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.录入员工信息ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.录入员工信息ToolStripMenuItem.Text = "录入员工信息";
             this.录入员工信息ToolStripMenuItem.Click += new System.EventHandler(this.录入员工信息ToolStripMenuItem_Click);
             // 
             // 修改密码ToolStripMenuItem
             // 
             this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
-            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.修改密码ToolStripMenuItem.Text = "修改账户密码";
             // 
             // 删除人员信息ToolStripMenuItem
             // 
             this.删除人员信息ToolStripMenuItem.Name = "删除人员信息ToolStripMenuItem";
-            this.删除人员信息ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.删除人员信息ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
             this.删除人员信息ToolStripMenuItem.Text = "删除人员信息";
             this.删除人员信息ToolStripMenuItem.Click += new System.EventHandler(this.删除人员信息ToolStripMenuItem_Click);
             // 
@@ -248,6 +249,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.uiPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_Admin";
