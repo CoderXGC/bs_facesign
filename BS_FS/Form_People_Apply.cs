@@ -8,14 +8,15 @@ using System.Windows.Forms;
 
 namespace BS_FS
 {
-    public partial class Form_People_Apply : Form
+    public partial class Form_People_Apply : UITitlePage
     {
         public bool start = true;
         public bool end = true;
+        string uid;
         public Form_People_Apply(string id)
         {
             InitializeComponent();
-            this.Text = id;
+            uid = id;
             this.SizeChanged += new Resize(this).Form1_Resize;  //窗口自适应代码
             uiComboBox1.Items.Add("事假");//选择项1
             uiComboBox1.Items.Add("调休");
@@ -115,7 +116,7 @@ namespace BS_FS
             else
             {
                 Net n = new Net();
-                JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.AddApply(this.Text+ DateTime.Now.ToString("yyyy-MM-dd|HH:mm:ss"), uiRichTextBox1.Text, DateTime.Now.ToString("yyyy-MM-dd|HH:mm:ss"), uiDatetimePicker1.Value.DateTimeString(),uiDatetimePicker2.Value.DateTimeString(),this.Text, uiComboBox1.SelectedItem.ToString(),uiTextBox1.Text));
+                JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.AddApply(uid+ DateTime.Now.ToString("yyyy-MM-dd|HH:mm:ss"), uiRichTextBox1.Text, DateTime.Now.ToString("yyyy-MM-dd|HH:mm:ss"), uiDatetimePicker1.Value.DateTimeString(),uiDatetimePicker2.Value.DateTimeString(),uid, uiComboBox1.SelectedItem.ToString(),uiTextBox1.Text));
                 if (rt.code.ToString() == "200")
                 {
  
@@ -221,7 +222,7 @@ namespace BS_FS
             Net n = new Net();
             //这个需要引入Newtonsoft.Json这个DLL并using
             //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
-            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(this.Text));
+            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(uid));
             string signintime = rt.data.signintime;
             string signouttime = rt.data.signouttime;
             string[] strArrayin = signintime.Split(':');

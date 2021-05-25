@@ -16,10 +16,11 @@ namespace BS_FS
 {
     public partial class Form_People_Signlog : Form
     {
+        string uid;
         public Form_People_Signlog(String id)
         {
             InitializeComponent();
-            this.Text = id;
+            uid = id;
 
 
         }
@@ -56,7 +57,7 @@ namespace BS_FS
             saveFileDialog.Title = "导出Excel文件到";
 
             DateTime now = DateTime.Now;
-            saveFileDialog.FileName = uiDatePicker1.Value.ToString("yyyy-MM-dd") + "人员签到情况表";
+            saveFileDialog.FileName = uid+ uiDatePicker1.Value.ToString("yyyy-MM-dd") + "人员签到情况表";
             saveFileDialog.ShowDialog();
 
             Stream myStream = saveFileDialog.OpenFile();
@@ -132,7 +133,7 @@ namespace BS_FS
                 Net n = new Net();
                 //这个需要引入Newtonsoft.Json这个DLL并using
                 //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
-                JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(this.Text, this.Text + uiDatePicker1.Value.ToString("yyyy-MM-dd")));
+                JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(uid, uid + uiDatePicker1.Value.ToString("yyyy-MM-dd")));
                 if (rt.code.ToString() == "200")
                 {
 

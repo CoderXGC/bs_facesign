@@ -8,12 +8,14 @@ using static BS_FS.net.JsonArrayBean;
 
 namespace BS_FS
 {
+  
     public partial class Form_People_ApplyShow : Form
     {
+        string uid;
         public Form_People_ApplyShow(String id)
         {
             InitializeComponent();
-            this.Text = id;
+            uid = id;
           
             uiButton1.Enabled = false;
             Thread t = new Thread(new ThreadStart(GetData));
@@ -124,7 +126,7 @@ namespace BS_FS
             timer.AutoReset = false;//设置是执行一次（false）还是一直执行(true)；  
             timer.Start();
             Net n = new Net();
-            JsonArrayBean rt = JsonConvert.DeserializeObject<JsonArrayBean>(n.FinduserallApply(this.Text));
+            JsonArrayBean rt = JsonConvert.DeserializeObject<JsonArrayBean>(n.FinduserallApply(uid));
 
             timer.Elapsed += (o, a) =>
             {
@@ -152,9 +154,9 @@ namespace BS_FS
                 string[] strArrayapp1 = uiListBox1.SelectedItem.ToString().Split("审批状态：");
 
                 string[] strArrayapp2 = strArrayapp1[0].Split("请时间:");
-                    UIMessageDialog.ShowMessageDialog(this.Text+strArrayapp2[1], UILocalize.InfoTitle, false, style);
+                    UIMessageDialog.ShowMessageDialog(uid+strArrayapp2[1], UILocalize.InfoTitle, false, style);
                     Net n = new Net();
-                    JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.DelApply(this.Text, this.Text+strArrayapp2[1]));
+                    JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.DelApply(uid, uid + strArrayapp2[1]));
                     if (rt.code.ToString() == "200")
                     {
                         uiListBox1.Items.RemoveAt(uiListBox1.SelectedIndex);

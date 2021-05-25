@@ -1,7 +1,4 @@
-﻿using BS_FS.net;
-using BS_FS.Utils;
-using Newtonsoft.Json;
-using Sunny.UI;
+﻿using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +11,9 @@ using System.Windows.Forms;
 
 namespace BS_FS
 {
-    public partial class Form1 : UITitlePage
+    public partial class Form_Admin_Main : UIHeaderAsideMainFrame
     {
-        public Form1()
+        public Form_Admin_Main()
         {
             InitializeComponent();
         }

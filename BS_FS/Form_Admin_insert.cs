@@ -279,9 +279,10 @@ namespace BS_FS
 
         private void Form_Admin_insert_Load(object sender, EventArgs e)
         {
-            if (Form_SignIn.ActiveForm != null) {
+          /*  if (Form_SignIn.ActiveForm != null) {
                 Form_SignIn.ActiveForm.Hide();
-            }
+            }*/
+
             if (role == "0")
             {
                 label1.Visible = false;
@@ -787,6 +788,35 @@ namespace BS_FS
         private void uiPanel1_Click(object sender, EventArgs e)
         {
 
+        }
+        public override void Init()
+        {
+
+            if (role == "0")
+            {
+                label1.Visible = false;
+                uiButton4.Visible = false;
+                imageList.Visible = false;
+                textBox3.Visible = false;
+                textBox4.Visible = false;
+                label7.Visible = false;
+                label8.Visible = false;
+                logBox.Visible = false;
+                textBox2.Text = "管理员";
+
+            }
+            if (role == "1")
+            {
+                textBox1.Text = "员工";
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
+                idtb.Enabled = false;
+                Thread t = new Thread(new ThreadStart(GetData));
+                t.IsBackground = true;
+                t.Start();
+                ShowWaitForm();
+
+            }
         }
     }
 }

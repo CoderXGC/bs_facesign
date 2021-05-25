@@ -217,6 +217,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Admin_Audit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,12 @@
     </Compile>
     <Compile Include="Form_Admin_Log.Designer.cs">
       <DependentUpon>Form_Admin_Log.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_Main.Designer.cs">
+      <DependentUpon>Form_Admin_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Admin_Manage.cs">
       <SubType>Form</SubType>
@@ -387,6 +399,12 @@
     <Compile Include="Utils\Resize.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Admin_Audit.resx">
       <DependentUpon>Form_Admin_Audit.cs</DependentUpon>

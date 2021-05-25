@@ -50,15 +50,21 @@ namespace BS_FS
             this.uiComboBox1 = new Sunny.UI.UIComboBox();
             this.uiDatetimePicker2 = new Sunny.UI.UIDatetimePicker();
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.PagePanel.SuspendLayout();
             this.uiPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // PagePanel
+            // 
+            this.PagePanel.Controls.Add(this.uiPanel1);
+            this.PagePanel.Location = new System.Drawing.Point(0, 0);
+            this.PagePanel.Size = new System.Drawing.Size(1057, 503);
             // 
             // uiLabel5
             // 
             this.uiLabel5.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel5.ForeColor = System.Drawing.Color.Red;
-            this.uiLabel5.Location = new System.Drawing.Point(375, 116);
+            this.uiLabel5.Location = new System.Drawing.Point(275, 117);
             this.uiLabel5.Name = "uiLabel5";
             this.uiLabel5.Size = new System.Drawing.Size(100, 23);
             this.uiLabel5.TabIndex = 37;
@@ -69,8 +75,7 @@ namespace BS_FS
             // 
             this.uiLabel3.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel3.ForeColor = System.Drawing.Color.Red;
-            this.uiLabel3.Location = new System.Drawing.Point(375, 49);
+            this.uiLabel3.Location = new System.Drawing.Point(275, 50);
             this.uiLabel3.Name = "uiLabel3";
             this.uiLabel3.Size = new System.Drawing.Size(100, 23);
             this.uiLabel3.TabIndex = 35;
@@ -81,8 +86,7 @@ namespace BS_FS
             // 
             this.uiLabel7.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel7.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel7.ForeColor = System.Drawing.Color.Red;
-            this.uiLabel7.Location = new System.Drawing.Point(375, 181);
+            this.uiLabel7.Location = new System.Drawing.Point(275, 182);
             this.uiLabel7.Name = "uiLabel7";
             this.uiLabel7.Size = new System.Drawing.Size(100, 23);
             this.uiLabel7.TabIndex = 40;
@@ -93,7 +97,7 @@ namespace BS_FS
             // 
             this.uiLabel8.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel8.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel8.Location = new System.Drawing.Point(400, 183);
+            this.uiLabel8.Location = new System.Drawing.Point(300, 184);
             this.uiLabel8.Name = "uiLabel8";
             this.uiLabel8.Size = new System.Drawing.Size(100, 23);
             this.uiLabel8.TabIndex = 41;
@@ -104,8 +108,7 @@ namespace BS_FS
             // 
             this.uiLabel9.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel9.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel9.ForeColor = System.Drawing.Color.Red;
-            this.uiLabel9.Location = new System.Drawing.Point(375, 248);
+            this.uiLabel9.Location = new System.Drawing.Point(275, 249);
             this.uiLabel9.Name = "uiLabel9";
             this.uiLabel9.Size = new System.Drawing.Size(100, 23);
             this.uiLabel9.TabIndex = 42;
@@ -116,7 +119,7 @@ namespace BS_FS
             // 
             this.uiLabel6.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel6.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel6.Location = new System.Drawing.Point(400, 116);
+            this.uiLabel6.Location = new System.Drawing.Point(300, 117);
             this.uiLabel6.Name = "uiLabel6";
             this.uiLabel6.Size = new System.Drawing.Size(100, 23);
             this.uiLabel6.TabIndex = 38;
@@ -127,7 +130,7 @@ namespace BS_FS
             // 
             this.uiLabel10.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel10.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel10.Location = new System.Drawing.Point(400, 248);
+            this.uiLabel10.Location = new System.Drawing.Point(300, 249);
             this.uiLabel10.Name = "uiLabel10";
             this.uiLabel10.Size = new System.Drawing.Size(60, 23);
             this.uiLabel10.TabIndex = 43;
@@ -138,7 +141,7 @@ namespace BS_FS
             // 
             this.uiLabel4.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel4.Location = new System.Drawing.Point(400, 49);
+            this.uiLabel4.Location = new System.Drawing.Point(300, 50);
             this.uiLabel4.Name = "uiLabel4";
             this.uiLabel4.Size = new System.Drawing.Size(100, 23);
             this.uiLabel4.TabIndex = 36;
@@ -149,8 +152,7 @@ namespace BS_FS
             // 
             this.uiLabel11.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel11.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel11.ForeColor = System.Drawing.Color.Red;
-            this.uiLabel11.Location = new System.Drawing.Point(375, 287);
+            this.uiLabel11.Location = new System.Drawing.Point(275, 288);
             this.uiLabel11.Name = "uiLabel11";
             this.uiLabel11.Size = new System.Drawing.Size(100, 23);
             this.uiLabel11.TabIndex = 46;
@@ -161,7 +163,7 @@ namespace BS_FS
             // 
             this.uiLabel12.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel12.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel12.Location = new System.Drawing.Point(400, 287);
+            this.uiLabel12.Location = new System.Drawing.Point(300, 288);
             this.uiLabel12.Name = "uiLabel12";
             this.uiLabel12.Size = new System.Drawing.Size(100, 23);
             this.uiLabel12.TabIndex = 47;
@@ -172,7 +174,7 @@ namespace BS_FS
             // 
             this.uiLabel2.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiLabel2.Location = new System.Drawing.Point(452, 13);
+            this.uiLabel2.Location = new System.Drawing.Point(352, 14);
             this.uiLabel2.Name = "uiLabel2";
             this.uiLabel2.Size = new System.Drawing.Size(101, 23);
             this.uiLabel2.TabIndex = 33;
@@ -183,7 +185,7 @@ namespace BS_FS
             // 
             this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(380, 445);
+            this.uiButton1.Location = new System.Drawing.Point(280, 446);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
             this.uiButton1.Radius = 10;
@@ -196,7 +198,7 @@ namespace BS_FS
             // 
             this.uiButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton2.Location = new System.Drawing.Point(522, 445);
+            this.uiButton2.Location = new System.Drawing.Point(422, 446);
             this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton2.Name = "uiButton2";
             this.uiButton2.Radius = 10;
@@ -208,7 +210,7 @@ namespace BS_FS
             // 
             this.uiDatetimePicker1.FillColor = System.Drawing.Color.White;
             this.uiDatetimePicker1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiDatetimePicker1.Location = new System.Drawing.Point(380, 144);
+            this.uiDatetimePicker1.Location = new System.Drawing.Point(280, 145);
             this.uiDatetimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiDatetimePicker1.MaxLength = 19;
             this.uiDatetimePicker1.MinimumSize = new System.Drawing.Size(63, 0);
@@ -228,7 +230,7 @@ namespace BS_FS
             this.uiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.uiTextBox1.FillColor = System.Drawing.Color.White;
             this.uiTextBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiTextBox1.Location = new System.Drawing.Point(475, 248);
+            this.uiTextBox1.Location = new System.Drawing.Point(375, 249);
             this.uiTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiTextBox1.Maximum = 2147483647D;
             this.uiTextBox1.Minimum = -2147483648D;
@@ -245,7 +247,7 @@ namespace BS_FS
             this.uiRichTextBox1.AutoWordSelection = true;
             this.uiRichTextBox1.FillColor = System.Drawing.Color.White;
             this.uiRichTextBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiRichTextBox1.Location = new System.Drawing.Point(380, 326);
+            this.uiRichTextBox1.Location = new System.Drawing.Point(280, 327);
             this.uiRichTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiRichTextBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiRichTextBox1.Name = "uiRichTextBox1";
@@ -260,7 +262,7 @@ namespace BS_FS
             this.uiComboBox1.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
             this.uiComboBox1.FillColor = System.Drawing.Color.White;
             this.uiComboBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiComboBox1.Location = new System.Drawing.Point(380, 77);
+            this.uiComboBox1.Location = new System.Drawing.Point(280, 78);
             this.uiComboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiComboBox1.MinimumSize = new System.Drawing.Size(63, 0);
             this.uiComboBox1.Name = "uiComboBox1";
@@ -274,7 +276,7 @@ namespace BS_FS
             // 
             this.uiDatetimePicker2.FillColor = System.Drawing.Color.White;
             this.uiDatetimePicker2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiDatetimePicker2.Location = new System.Drawing.Point(380, 209);
+            this.uiDatetimePicker2.Location = new System.Drawing.Point(280, 210);
             this.uiDatetimePicker2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiDatetimePicker2.MaxLength = 19;
             this.uiDatetimePicker2.MinimumSize = new System.Drawing.Size(63, 0);
@@ -291,7 +293,6 @@ namespace BS_FS
             // 
             // uiPanel1
             // 
-            this.uiPanel1.AutoSize = true;
             this.uiPanel1.Controls.Add(this.uiRichTextBox1);
             this.uiPanel1.Controls.Add(this.uiLabel12);
             this.uiPanel1.Controls.Add(this.uiDatetimePicker2);
@@ -311,27 +312,26 @@ namespace BS_FS
             this.uiPanel1.Controls.Add(this.uiLabel9);
             this.uiPanel1.Controls.Add(this.uiLabel11);
             this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(-41, -4);
+            this.uiPanel1.Location = new System.Drawing.Point(0, 14);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(1077, 543);
+            this.uiPanel1.Size = new System.Drawing.Size(966, 507);
             this.uiPanel1.TabIndex = 21;
             this.uiPanel1.Text = null;
             // 
             // Form_People_Apply
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1057, 503);
-            this.Controls.Add(this.uiPanel1);
             this.Name = "Form_People_Apply";
             this.Text = "Form_People_Apply";
             this.Load += new System.EventHandler(this.Form_People_Apply_Load);
+            this.PagePanel.ResumeLayout(false);
             this.uiPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

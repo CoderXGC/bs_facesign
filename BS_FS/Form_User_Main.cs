@@ -23,14 +23,13 @@ namespace BS_FS
             int pageIndex = 1000;
             Header.SetNodePageIndex(Header.Nodes[0], pageIndex);
             Header.SetNodeSymbol(Header.Nodes[0], 61451);
-            TreeNode parent = Aside.CreateNode("首页", 61451, 24, pageIndex);
-
+            TreeNode parent = Aside.CreateNode("Controls", 61451, 24, pageIndex);
             //通过设置PageIndex关联
             Aside.CreateChildNode(parent, 61640, 24, AddPage(new Form1(), ++pageIndex));
             Aside.CreateChildNode(parent, 62141, 24, AddPage(new Form_SignIn(uid), ++pageIndex));
             Aside.CreateChildNode(parent, 61490, 24, AddPage(new Form_Admin_insert(uid, role), ++pageIndex));
-            Aside.CreateChildNode(parent, 61770, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61842, 24, AddPage(new Form1(), ++pageIndex));
+            Aside.CreateChildNode(parent, 61770, 24, AddPage(new Form_People_Apply(uid), ++pageIndex));
+            Aside.CreateChildNode(parent, 61842, 24, AddPage(new Form2(), ++pageIndex));
             Aside.CreateChildNode(parent, 61962, 24, AddPage(new Form1(), ++pageIndex));
             Aside.CreateChildNode(parent, 61776, 24, AddPage(new Form1(), ++pageIndex));
             Aside.CreateChildNode(parent, 61646, 24, AddPage(new Form1(), ++pageIndex));
@@ -48,29 +47,29 @@ namespace BS_FS
             Aside.CreateChildNode(parent, AddPage(new Form1(), ++pageIndex));
             Aside.CreateChildNode(parent, 61668, 24, AddPage(new Form1(), ++pageIndex));
             Aside.CreateChildNode(parent, 62173, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.SetNodeTipsText(parent.Nodes[0], "1");
+            Aside.SetNodeTipsText(parent.Nodes[0], "666666");
 
-          pageIndex = 2000;
-               Header.SetNodePageIndex(Header.Nodes[1], pageIndex);
-                Header.SetNodeSymbol(Header.Nodes[1], 61818);
-                parent = Aside.CreateNode("Forms", 61818, 24, pageIndex);
-                //通过设置GUID关联，节点字体图标和大小由UIPage设置
-                Aside.CreateChildNode(parent, AddPage(new Form1(), Guid.NewGuid()));
-                Aside.CreateChildNode(parent, AddPage(new Form1(), Guid.NewGuid()));
-                Aside.CreateChildNode(parent, AddPage(new Form1(), Guid.NewGuid()));
+            pageIndex = 2000;
+            Header.SetNodePageIndex(Header.Nodes[1], pageIndex);
+            Header.SetNodeSymbol(Header.Nodes[1], 61818);
+            parent = Aside.CreateNode("Forms", 61818, 24, pageIndex);
+            //通过设置GUID关联，节点字体图标和大小由UIPage设置
+            Aside.CreateChildNode(parent, AddPage(new Form1(), Guid.NewGuid()));
+            Aside.CreateChildNode(parent, AddPage(new Form1(), Guid.NewGuid()));
+            Aside.CreateChildNode(parent, AddPage(new Form1(), Guid.NewGuid()));
 
-                pageIndex = 3000;
-                Header.SetNodePageIndex(Header.Nodes[2], pageIndex);
-                Header.SetNodeSymbol(Header.Nodes[2], 61950);
-                parent = Aside.CreateNode("Charts", 61950, 24, pageIndex);
-                //直接关联（默认自动生成GUID）
-                Aside.CreateChildNode(parent, AddPage(new Form1()));
-                Aside.CreateChildNode(parent, AddPage(new Form1()));
-                Aside.CreateChildNode(parent, AddPage(new Form1()));
-                Aside.CreateChildNode(parent, AddPage(new Form1()));
-                Aside.CreateChildNode(parent, AddPage(new Form1()));
+            pageIndex = 3000;
+            Header.SetNodePageIndex(Header.Nodes[2], pageIndex);
+            Header.SetNodeSymbol(Header.Nodes[2], 61950);
+            parent = Aside.CreateNode("Charts", 61950, 24, pageIndex);
+            //直接关联（默认自动生成GUID）
+            Aside.CreateChildNode(parent, AddPage(new Form1()));
+            Aside.CreateChildNode(parent, AddPage(new Form1()));
+            Aside.CreateChildNode(parent, AddPage(new Form1()));
+            Aside.CreateChildNode(parent, AddPage(new Form1()));
+            Aside.CreateChildNode(parent, AddPage(new Form1()));
 
-                Header.SetNodeSymbol(Header.Nodes[3], 61502);
+            Header.SetNodeSymbol(Header.Nodes[3], 61502);
             var styles = UIStyles.PopularStyles();
             foreach (UIStyle style in styles)
             {
@@ -78,7 +77,9 @@ namespace BS_FS
             }
 
             Aside.SelectFirst();
-        }
+        
+        
+    }
 
         private void Header_MenuItemClick(string text, int menuIndex, int pageIndex)
         {

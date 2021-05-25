@@ -58,8 +58,7 @@
             // 
             // PagePanel
             // 
-            this.PagePanel.Location = new System.Drawing.Point(0, 0);
-            this.PagePanel.Size = new System.Drawing.Size(1039, 454);
+            this.PagePanel.Size = new System.Drawing.Size(1039, 419);
             // 
             // logBox
             // 

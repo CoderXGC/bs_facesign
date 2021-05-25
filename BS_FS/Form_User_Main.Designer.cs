@@ -131,6 +131,7 @@ namespace BS_FS
             this.Header.ResumeLayout(false);
             this.uiContextMenuStrip1.ResumeLayout(false);
             this.uiNavBar1.ResumeLayout(false);
+            this.Selecting += new Sunny.UI.UIMainFrame.OnSelecting(this.FMain_Selecting);
             this.uiNavBar1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

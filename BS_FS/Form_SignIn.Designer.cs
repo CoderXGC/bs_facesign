@@ -32,7 +32,8 @@
             // 
             // PagePanel
             // 
-
+            this.PagePanel.Location = new System.Drawing.Point(0, 0);
+            this.PagePanel.Size = new System.Drawing.Size(769, 563);
             // 
             // videoSource
             // 
@@ -52,7 +53,7 @@
             this.Text = "欢迎使用人脸考勤系统";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Sign_FormClosed);
             this.Load += new System.EventHandler(this.Form_User_Load);
-
+            this.Controls.SetChildIndex(this.PagePanel, 0);
             this.Controls.SetChildIndex(this.videoSource, 0);
             this.ResumeLayout(false);
 
