@@ -293,6 +293,11 @@ namespace BS_FS
             form_Login_Admin.Show();
             this.Hide();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

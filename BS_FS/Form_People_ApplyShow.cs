@@ -9,19 +9,14 @@ using static BS_FS.net.JsonArrayBean;
 namespace BS_FS
 {
   
-    public partial class Form_People_ApplyShow : Form
+    public partial class Form_People_ApplyShow : UITitlePage
     {
         string uid;
         public Form_People_ApplyShow(String id)
         {
             InitializeComponent();
             uid = id;
-          
-            uiButton1.Enabled = false;
-            Thread t = new Thread(new ThreadStart(GetData));
-            t.IsBackground = true;
-            t.Start(); 
-            ShowWaitForm();
+            this.Text = "查看申请";
             //Thread.Sleep(3000);
             //  SetWaitFormDescription(UILocalize.SystemProcessing + "50%");
             //Thread.Sleep(3000);
@@ -222,5 +217,15 @@ namespace BS_FS
         {
 
         }
-    }
+        public override void Init()
+        {
+            uiListBox1.Items.Clear();
+            uiButton1.Enabled = false;
+            Thread t = new Thread(new ThreadStart(GetData));
+            t.IsBackground = true;
+            t.Start();
+            ShowWaitForm();
+
+        }
+        }
 }

@@ -66,6 +66,7 @@ namespace BS_FS
             uid = id;
             InitEngines();
             videoSource.Hide();
+            this.Text = "签到签退";
         }
         /// <summary>
         /// 初始化引擎
@@ -178,6 +179,8 @@ namespace BS_FS
         //执行数据库操作
         private void SignSql(int id)
         {
+            UIStyle style = (UIStyle)1;
+            uiStyleManager1.Style = style;
             Net n = new Net();
             JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(uid));
             if (rt.code.ToString() == "200")
@@ -186,14 +189,16 @@ namespace BS_FS
                 string signouttime = rt.data.signouttime;
                 string[] strArrayin = signintime.Split(':');
                 string[] strArrayout = signouttime.Split(':');
-                //  MessageBox.Show("当前系统时间"+ int.Parse(DateTime.Now.ToString("HH"))+"签到时间" + strArrayin[0]+"签退时间"+ strArrayout[0]+ "签到时间1" + int.Parse(strArrayin[0]) + "签退时间" + int.Parse(strArrayout[0]));
-                if (int.Parse(DateTime.Now.ToString("HH")) < int.Parse(strArrayin[0]))
+                 MessageBox.Show("当前系统时间"+ int.Parse(DateTime.Now.ToString("HH"))+"签到时间" + strArrayin[0]+"签退时间"+ strArrayout[0]+ "签到时间1" + int.Parse(strArrayin[0]) + "签退时间" + int.Parse(strArrayout[0]));
+                if (int.Parse(DateTime.Now.ToString("HH")) <= int.Parse(strArrayin[0]))
                 {
                     string singid = uid + DateTime.Now.ToString("yyyy-MM-dd");
                     JsonBean fs = JsonConvert.DeserializeObject<JsonBean>(n.Findsign(uid, singid));
                     if (fs.code.ToString() == "200")
                     {
-                        MessageBox.Show("尊敬的ID: " +fs.data.user_id +"  ,您今天已经签到！");
+                        MessageBox.Show("尊敬的ID: " + fs.data.user_id + "  ,您今天已经签到！");
+                        UIMessageDialog.ShowMessageDialog("尊敬的ID: " + fs.data.user_id + "  ,您今天已经签到！", UILocalize.InfoTitle, false, style);
+       
                     }
                     else if (fs.code.ToString() == "-1")
                     {
@@ -203,6 +208,8 @@ namespace BS_FS
                         if (si.code.ToString() == "200")
                         {
                             MessageBox.Show("尊敬的ID:  " + si.data.user_id + "  ,恭喜您签到成功");
+
+                            UIMessageDialog.ShowMessageDialog("尊敬的ID:  " + si.data.user_id + "  ,恭喜您签到成功", UILocalize.InfoTitle, false, style);
 
                         }
                         else if (si.code.ToString() == "-1")
@@ -254,7 +261,9 @@ namespace BS_FS
 
                         int latehours = int.Parse(DateTime.Now.ToString("HH")) - int.Parse(strArrayin[0]);
                         int lateminute = int.Parse(DateTime.Now.ToString("MM")) - int.Parse(strArrayin[1]);
-                        MessageBox.Show("尊敬的ID: " + fs.data.user_id + "  您已签到，您今天已经迟到,迟到时间" + latehours.ToString() + ":" + lateminute.ToString() + "!");
+                        MessageBox.Show("尊敬的ID: " + fs.data.user_id + "  您已签到，您今天已经迟到,迟到时间  " + latehours.ToString() + ":" + lateminute.ToString() + "  !");
+                        UIMessageDialog.ShowMessageDialog("尊敬的ID: " + fs.data.user_id + "  您已签到，您今天已经迟到,迟到时间  " + latehours.ToString() + ":" + lateminute.ToString() + "  !", UILocalize.InfoTitle, false, style);
+
                     }
                     else if (fs.code.ToString() == "-1")
                     {
@@ -265,7 +274,9 @@ namespace BS_FS
                    
                         if (si.code.ToString() == "200")
                         {
-                            MessageBox.Show("尊敬的ID:  " + si.data.user_id + "  ,签到成功，您已经迟到,迟到时间" + latehours.ToString() + ":" + lateminute.ToString()+"!");
+                            MessageBox.Show("尊敬的ID:  " + si.data.user_id + "  ,签到成功，您已经迟到,迟到时间  " + latehours.ToString() + ":" + lateminute.ToString() + "  !");
+                            UIMessageDialog.ShowMessageDialog("尊敬的ID:  " + si.data.user_id + "  ,签到成功，您已经迟到,迟到时间  " + latehours.ToString() + ":" + lateminute.ToString() + "  !", UILocalize.InfoTitle, false, style);
+
 
                         }
                         else if (si.code.ToString() == "-1")
@@ -321,11 +332,13 @@ namespace BS_FS
                             if (si.code.ToString() == "200")
                             {
                                 MessageBox.Show("尊敬的ID: " + fs.data.user_id + "恭喜您签退成功");
+                                UIMessageDialog.ShowMessageDialog("尊敬的ID: " + fs.data.user_id + "恭喜您签退成功", UILocalize.InfoTitle, false, style);
+
 
                             }
                             else if (si.code.ToString() == "-1")
                             {
-                                MessageBox.Show("执行啦 1");
+                               
                                 MessageBox.Show(si.message);
 
                             }
@@ -347,14 +360,15 @@ namespace BS_FS
 
                         }
                         else {
-
                             MessageBox.Show("尊敬的ID: " + fs.data.user_id + "您今天已经签退！");
+                           UIMessageDialog.ShowMessageDialog("尊敬的ID: " + fs.data.user_id + "您今天已经签退！", UILocalize.InfoTitle, false, style);
                         }
                    
                     }
                     else if (fs.code.ToString() == "-1")
                     {
-                        MessageBox.Show("提示信息："+fs.message+" ,您今天没有签到，已经无法签退了");
+                        MessageBox.Show("提示信息：" + fs.message + " ,您今天没有签到，已经无法签退了");
+                        UIMessageDialog.ShowMessageDialog("提示信息：" + fs.message + " ,您今天没有签到，已经无法签退了", UILocalize.InfoTitle, false, style);
                     }
                     else if (fs.code.ToString() == "404")
                     {
@@ -686,6 +700,11 @@ namespace BS_FS
             }
         }
 
-
+        public void ShowSuccessTip(string text, int delay = 500, bool floating = true)
+=> UIMessageTip.ShowOk(text, delay, floating);
+        public void ShowWarningTip(string text, int delay = 1000, bool floating = true)
+    => UIMessageTip.ShowWarning(text, delay, floating);
+        public void ShowErrorTip(string text, int delay = 1000, bool floating = true)
+    => UIMessageTip.ShowError(text, delay, floating);
     }
 }

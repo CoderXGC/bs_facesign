@@ -50,9 +50,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.label2.Location = new System.Drawing.Point(344, 272);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 15);
+            this.label2.Size = new System.Drawing.Size(0, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "忘记密码";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label4
             // 
@@ -78,7 +78,7 @@
             this.uiButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(181, 305);
+            this.uiButton1.Location = new System.Drawing.Point(181, 287);
             this.uiButton1.Margin = new System.Windows.Forms.Padding(2);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
@@ -141,7 +141,7 @@
             this.uiButton2.FillPressColor = System.Drawing.Color.Salmon;
             this.uiButton2.FillSelectedColor = System.Drawing.Color.Salmon;
             this.uiButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiButton2.Location = new System.Drawing.Point(319, 305);
+            this.uiButton2.Location = new System.Drawing.Point(319, 287);
             this.uiButton2.Margin = new System.Windows.Forms.Padding(2);
             this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton2.Name = "uiButton2";

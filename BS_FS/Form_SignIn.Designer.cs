@@ -27,13 +27,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.videoSource = new AForge.Controls.VideoSourcePlayer();
+            this.uiStyleManager1 = new Sunny.UI.UIStyleManager(this.components);
             this.SuspendLayout();
             // 
             // PagePanel
             // 
-            this.PagePanel.Location = new System.Drawing.Point(0, 0);
-            this.PagePanel.Size = new System.Drawing.Size(769, 563);
+            this.PagePanel.Size = new System.Drawing.Size(769, 528);
             // 
             // videoSource
             // 
@@ -67,6 +68,7 @@
         private System.Windows.Forms.ImageList imageLists;
         private System.Windows.Forms.ListView imageList;
         private AForge.Controls.VideoSourcePlayer videoSource;
+        private Sunny.UI.UIStyleManager uiStyleManager1;
     }
   
 

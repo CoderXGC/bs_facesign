@@ -19,6 +19,7 @@ namespace BS_FS
         public Form1()
         {
             InitializeComponent();
+            this.Text = "首页";
         }
     }
 }

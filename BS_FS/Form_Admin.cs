@@ -163,12 +163,12 @@ namespace BS_FS
 
             //string url = "http://img.zcool.cn/community/01635d571ed29832f875a3994c7836.png@900w_1l_2o_100sh.jpg";
             //this.pictureBox.Image = Image.FromStream(System.Net.WebRequest.Create(url).GetResponse().GetResponseStream());
-            string url = "https://www.ylesb.com/csimg/bg.jpg";
+        /*    string url = "https://www.ylesb.com/csimg/bg.jpg";
             this.pictureBox1.Image = Image.FromStream(System.Net.WebRequest.Create(url).GetResponse().GetResponseStream());//背景图片
             this.pictureBox1.SendToBack();//将背景图片放到最下面
             this.uiPanel1.BackColor = Color.Transparent;//将Panel设为透明
                                                       // this.panel1.Parent = this.pictureBox1;//将panel父控件设为背景图片控件
-            this.uiPanel1.BringToFront();//将panel放在前面
+            this.uiPanel1.BringToFront();//将panel放在前面*/
 
 
         }

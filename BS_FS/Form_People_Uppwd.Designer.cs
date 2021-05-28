@@ -29,11 +29,17 @@ namespace BS_FS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.uiStyleManager1 = new Sunny.UI.UIStyleManager(this.components);
             this.SuspendLayout();
+            // 
+            // PagePanel
+            // 
+            this.PagePanel.Size = new System.Drawing.Size(1036, 447);
             // 
             // Form_People_Uppwd
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 482);
             this.Name = "Form_People_Uppwd";
@@ -43,5 +49,7 @@ namespace BS_FS
         }
 
         #endregion
+
+        private Sunny.UI.UIStyleManager uiStyleManager1;
     }
 }

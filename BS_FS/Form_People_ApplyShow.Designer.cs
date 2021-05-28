@@ -37,6 +37,11 @@ namespace BS_FS
             this.uiPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // PagePanel
+            // 
+            this.PagePanel.Location = new System.Drawing.Point(0, 0);
+            this.PagePanel.Size = new System.Drawing.Size(746, 377);
+            // 
             // uiPanel1
             // 
             this.uiPanel1.Controls.Add(this.uiButton1);
@@ -81,7 +86,7 @@ namespace BS_FS
             // 
             // Form_People_ApplyShow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 377);
             this.Controls.Add(this.uiPanel1);
@@ -90,6 +95,8 @@ namespace BS_FS
             this.Text = "Form_People_ApplyShow";
             this.Load += new System.EventHandler(this.Form_People_ApplyShow_Load);
             this.Shown += new System.EventHandler(this.Form_People_ApplyShow_Shown);
+            this.Controls.SetChildIndex(this.PagePanel, 0);
+            this.Controls.SetChildIndex(this.uiPanel1, 0);
             this.uiPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

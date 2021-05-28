@@ -24,6 +24,7 @@ namespace BS_FS
 {
     public partial class Form_Admin_insert : UITitlePage
     {
+        System.Timers.Timer timer = new System.Timers.Timer();
         //引擎Handle
         private IntPtr pImageEngine = IntPtr.Zero;
 
@@ -283,7 +284,7 @@ namespace BS_FS
                 Form_SignIn.ActiveForm.Hide();
             }*/
 
-            if (role == "0")
+       /*     if (role == "0")
             {
                 label1.Visible = false;
                 uiButton4.Visible = false;
@@ -307,7 +308,7 @@ namespace BS_FS
                 t.Start();
                 ShowWaitForm();
 
-            }
+            }*/
      
         }
 
@@ -659,7 +660,7 @@ namespace BS_FS
             }
             else
             {
-
+                try { 
 
                 if (code == "200")
                 {
@@ -700,22 +701,26 @@ namespace BS_FS
                     }
                     else if (rt.code.ToString() == "-1")
                     {
-                        UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+                            HideWaitForm();
+                            UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
 
                     }
                     else if (rt.code.ToString() == "404")
                     {
-                        UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+                            HideWaitForm();
+                            UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
 
                     }
                     else if (rt.code.ToString() == "100")
                     {
-                        UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+                            HideWaitForm();
+                            UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
 
                     }
                     else if (rt.code.ToString() == "1000")
                     {
-                        UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+                            HideWaitForm();
+                            UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
 
 
                     }
@@ -747,11 +752,16 @@ namespace BS_FS
                 else if (code == "1000")
                 {
                     HideWaitForm();
-
                     UIMessageDialog.ShowMessageDialog(message, UILocalize.InfoTitle, false, style);
 
                 }
+                 }
+                   catch {
+                    HideWaitForm();
+                    UIMessageDialog.ShowMessageDialog("未知异常请联系管理员", UILocalize.InfoTitle, false, style);
 
+
+                 }
             }
         }
         //另外一种委托写法
@@ -759,7 +769,8 @@ namespace BS_FS
 
         private void GetData()
         {
-            var timer = new System.Timers.Timer();
+            UIStyle style = (UIStyle)1;
+            uiStyleManager1.Style = style;
             timer.Interval = 5000;
             timer.Enabled = true;
             timer.AutoReset = false;//设置是执行一次（false）还是一直执行(true)；  
@@ -767,10 +778,41 @@ namespace BS_FS
             Net n = new Net();
             JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Find(uid));
 
-            timer.Elapsed += (o, a) =>
+            if (rt.code.ToString() == "200") {
+                timer.Elapsed += (o, a) =>
+                {
+                    ShowMessage(rt.code.ToString(), rt.message, rt.data.id, rt.data.name, rt.data.did.ToString(), rt.data.telnum, rt.data.email);
+                };
+
+            }
+            else if (rt.code.ToString() == "-1")
             {
-                ShowMessage(rt.code.ToString(), rt.message, rt.data.id, rt.data.name, rt.data.did.ToString(),rt.data.telnum,rt.data.email);
-            };
+                HideWaitForm();
+                timer.Stop();
+                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+            }
+            else if (rt.code.ToString() == "404")
+            {
+                HideWaitForm();
+                timer.Stop();
+                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
+            }
+            else if (rt.code.ToString() == "100")
+            {
+                HideWaitForm();
+                timer.Stop();
+                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
+            }
+            else if (rt.code.ToString() == "1000")
+            {
+                HideWaitForm();
+                timer.Stop();
+                UIMessageDialog.ShowMessageDialog(rt.message, UILocalize.InfoTitle, false, style);
+
+            }
+     
         }
         public void SetWaitFormDescription(string desc)
         {

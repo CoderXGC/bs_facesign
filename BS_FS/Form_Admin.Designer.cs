@@ -51,10 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.uiPanel1 = new Sunny.UI.UIPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
-            this.uiPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -220,7 +217,6 @@
             // 
             // uiPanel1
             // 
-            this.uiPanel1.Controls.Add(this.pictureBox1);
             this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiPanel1.Location = new System.Drawing.Point(0, 31);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -229,17 +225,6 @@
             this.uiPanel1.Size = new System.Drawing.Size(1067, 531);
             this.uiPanel1.TabIndex = 4;
             this.uiPanel1.Text = null;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(390, 163);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(237, 180);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // Form_Admin
             // 
@@ -259,8 +244,6 @@
             this.Load += new System.EventHandler(this.Form_Admin_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.uiPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,7 +269,6 @@
         private System.Windows.Forms.ToolStripMenuItem 修改密码ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统设置ToolStripMenuItem;
         private Sunny.UI.UIPanel uiPanel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem 首页ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 签到签退ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除人员信息ToolStripMenuItem;

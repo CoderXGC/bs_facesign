@@ -14,14 +14,14 @@ using Newtonsoft.Json;
 using Sunny.UI;
 namespace BS_FS
 {
-    public partial class Form_People_Signlog : Form
+    public partial class Form_People_Signlog : UITitlePage
     {
         string uid;
         public Form_People_Signlog(String id)
         {
             InitializeComponent();
             uid = id;
-
+            this.Text = "查看签到";
 
         }
 

@@ -45,7 +45,6 @@ F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\System.Numerics.Vect
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\Interop.WMPLib.dll
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\bin\x64\Debug\AxInterop.WMPLib.dll
-F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\bsfs.csprojAssemblyReference.cache
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\Interop.WMPLib.dll
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\AxInterop.WMPLib.dll
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\bsfs.csproj.ResolveComReference.cache
@@ -83,4 +82,4 @@ F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_Admin_Del
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Resources.Resource1.resources
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form_User_Main.resources
 F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form1.resources
-F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\BS_FS.Form2.resources
+F:\C#Project\ArcSoftFace(2)\ArcSoftFace\BS_FS\obj\x64\Debug\bsfs.csproj.AssemblyReference.cache

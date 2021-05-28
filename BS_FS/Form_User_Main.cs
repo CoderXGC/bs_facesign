@@ -1,4 +1,6 @@
-﻿using Sunny.UI;
+﻿using BS_FS.net;
+using Newtonsoft.Json;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,57 +19,40 @@ namespace BS_FS
         string uid;
         public Form_User_Main(string id, string role)
         {
+        
+ 
+
             uid = id;
             this.role = role;
             InitializeComponent();
+            this.Text = uid;
             int pageIndex = 1000;
             Header.SetNodePageIndex(Header.Nodes[0], pageIndex);
             Header.SetNodeSymbol(Header.Nodes[0], 61451);
-            TreeNode parent = Aside.CreateNode("Controls", 61451, 24, pageIndex);
+            TreeNode parent = Aside.CreateNode("首页", 61451, 24, pageIndex);
             //通过设置PageIndex关联
-            Aside.CreateChildNode(parent, 61640, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 62141, 24, AddPage(new Form_SignIn(uid), ++pageIndex));
-            Aside.CreateChildNode(parent, 61490, 24, AddPage(new Form_Admin_insert(uid, role), ++pageIndex));
-            Aside.CreateChildNode(parent, 61770, 24, AddPage(new Form_People_Apply(uid), ++pageIndex));
-            Aside.CreateChildNode(parent, 61842, 24, AddPage(new Form2(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61962, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61776, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61646, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61474, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61499, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61912, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61716, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61544, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61590, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61516, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61447, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 62104, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 61668, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.CreateChildNode(parent, 62173, 24, AddPage(new Form1(), ++pageIndex));
-            Aside.SetNodeTipsText(parent.Nodes[0], "666666");
+            Aside.CreateChildNode(parent, 61461, 24, AddPage(new Form1(), ++pageIndex));
+            Aside.CreateChildNode(parent, 62140, 24, AddPage(new Form_SignIn(uid), ++pageIndex));
+            Aside.CreateChildNode(parent, 62144, 24, AddPage(new Form_Admin_insert(uid, role), ++pageIndex));
+            Aside.CreateChildNode(parent, 61508, 24, AddPage(new Form_People_Apply(uid), ++pageIndex));
+            Aside.SetNodeTipsText(parent.Nodes[0], "0");
 
             pageIndex = 2000;
             Header.SetNodePageIndex(Header.Nodes[1], pageIndex);
             Header.SetNodeSymbol(Header.Nodes[1], 61818);
-            parent = Aside.CreateNode("Forms", 61818, 24, pageIndex);
+            parent = Aside.CreateNode("查看", 61818, 24, pageIndex);
+
             //通过设置GUID关联，节点字体图标和大小由UIPage设置
-            Aside.CreateChildNode(parent, AddPage(new Form1(), Guid.NewGuid()));
-            Aside.CreateChildNode(parent, AddPage(new Form1(), Guid.NewGuid()));
-            Aside.CreateChildNode(parent, AddPage(new Form1(), Guid.NewGuid()));
+    
+            Aside.CreateChildNode(parent, 61584, 24, AddPage(new Form_People_Signlog(uid), ++pageIndex));
+            Aside.CreateChildNode(parent, 61584, 24, AddPage(new Form_People_ApplyShow(uid), ++pageIndex));
 
             pageIndex = 3000;
             Header.SetNodePageIndex(Header.Nodes[2], pageIndex);
             Header.SetNodeSymbol(Header.Nodes[2], 61950);
-            parent = Aside.CreateNode("Charts", 61950, 24, pageIndex);
+            parent = Aside.CreateNode("帮助", 61546, 24, pageIndex);
             //直接关联（默认自动生成GUID）
-            Aside.CreateChildNode(parent, AddPage(new Form1()));
-            Aside.CreateChildNode(parent, AddPage(new Form1()));
-            Aside.CreateChildNode(parent, AddPage(new Form1()));
-            Aside.CreateChildNode(parent, AddPage(new Form1()));
-            Aside.CreateChildNode(parent, AddPage(new Form1()));
+            Aside.CreateChildNode(parent, 61842, 24, AddPage(new Form_People_Uppwd(uid), ++pageIndex));
 
             Header.SetNodeSymbol(Header.Nodes[3], 61502);
             var styles = UIStyles.PopularStyles();
@@ -77,9 +62,9 @@ namespace BS_FS
             }
 
             Aside.SelectFirst();
-        
-        
-    }
+
+
+        }
 
         private void Header_MenuItemClick(string text, int menuIndex, int pageIndex)
         {
@@ -96,6 +81,7 @@ namespace BS_FS
                     uiStyleManager1.Style = style;
                     break;
             }
+   
         }
 
         private void FMain_Selecting(object sender, TabControlCancelEventArgs e, UIPage page)
@@ -112,6 +98,63 @@ namespace BS_FS
         private void 关于ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://gitee.com/yhuse/SunnyUI");
+        }
+        public void Net(object source, System.Timers.ElapsedEventArgs e)
+
+        {
+            Net n = new Net();
+            //这个需要引入Newtonsoft.Json这个DLL并using
+            //传入实体类还有需要解析的JSON字符串这样就OK了。然后就可以通过实体类使用数据了。
+            JsonBean rt = JsonConvert.DeserializeObject<JsonBean>(n.Findfaceimg(uid));
+
+            if (rt.code.ToString() == "200")
+            {
+
+            }
+            else if (rt.code.ToString() == "-1")
+            {
+
+                System.Environment.Exit(System.Environment.ExitCode);
+                this.Dispose();
+                this.Close();
+
+            }
+            else if (rt.code.ToString() == "404")
+            {
+                System.Environment.Exit(System.Environment.ExitCode);
+                this.Dispose();
+                this.Close();
+
+
+            }
+            else if (rt.code.ToString() == "100")
+            {
+
+                System.Environment.Exit(System.Environment.ExitCode);
+                this.Dispose();
+                this.Close();
+
+            }
+            else if (rt.code.ToString() == "1000")
+            {
+
+                System.Environment.Exit(System.Environment.ExitCode);
+                this.Dispose();
+                this.Close();
+
+
+            }
+        }
+
+        private void Aside_MenuItemClick(TreeNode node, NavMenuItem item, int pageIndex)
+        {
+         
+
+        }
+
+        private void uiLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

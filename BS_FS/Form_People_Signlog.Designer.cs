@@ -52,11 +52,16 @@ namespace BS_FS
             this.uiPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // PagePanel
+            // 
+            this.PagePanel.Location = new System.Drawing.Point(0, 0);
+            this.PagePanel.Size = new System.Drawing.Size(1067, 562);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(25, 13);
+            this.label1.Location = new System.Drawing.Point(258, 13);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(212, 27);
@@ -67,7 +72,7 @@ namespace BS_FS
             // 
             this.uiSymbolButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton1.Location = new System.Drawing.Point(61, 219);
+            this.uiSymbolButton1.Location = new System.Drawing.Point(251, 382);
             this.uiSymbolButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton1.Name = "uiSymbolButton1";
             this.uiSymbolButton1.Radius = 10;
@@ -81,7 +86,7 @@ namespace BS_FS
             // 
             this.uiSymbolButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiSymbolButton2.Location = new System.Drawing.Point(240, 219);
+            this.uiSymbolButton2.Location = new System.Drawing.Point(379, 382);
             this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton2.Name = "uiSymbolButton2";
             this.uiSymbolButton2.Radius = 10;
@@ -95,7 +100,7 @@ namespace BS_FS
             // 
             this.uiDatePicker1.FillColor = System.Drawing.Color.White;
             this.uiDatePicker1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiDatePicker1.Location = new System.Drawing.Point(21, 54);
+            this.uiDatePicker1.Location = new System.Drawing.Point(251, 54);
             this.uiDatePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiDatePicker1.MaxLength = 10;
             this.uiDatePicker1.MinimumSize = new System.Drawing.Size(63, 0);
@@ -143,7 +148,7 @@ namespace BS_FS
             this.uiDataGridView1.EnableHeadersVisualStyles = false;
             this.uiDataGridView1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.uiDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.uiDataGridView1.Location = new System.Drawing.Point(21, 96);
+            this.uiDataGridView1.Location = new System.Drawing.Point(116, 96);
             this.uiDataGridView1.Name = "uiDataGridView1";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
@@ -159,7 +164,7 @@ namespace BS_FS
             this.uiDataGridView1.RowTemplate.Height = 29;
             this.uiDataGridView1.SelectedIndex = -1;
             this.uiDataGridView1.ShowGridLine = true;
-            this.uiDataGridView1.Size = new System.Drawing.Size(456, 121);
+            this.uiDataGridView1.Size = new System.Drawing.Size(554, 259);
             this.uiDataGridView1.TabIndex = 15;
             // 
             // id
@@ -196,6 +201,8 @@ namespace BS_FS
             // 
             // uiPanel1
             // 
+            this.uiPanel1.Controls.Add(this.uiSymbolButton1);
+            this.uiPanel1.Controls.Add(this.uiSymbolButton2);
             this.uiPanel1.Controls.Add(this.uiDatePicker1);
             this.uiPanel1.Controls.Add(this.uiDataGridView1);
             this.uiPanel1.Controls.Add(this.label1);
@@ -210,15 +217,15 @@ namespace BS_FS
             // 
             // Form_People_Signlog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 562);
-            this.Controls.Add(this.uiSymbolButton2);
-            this.Controls.Add(this.uiSymbolButton1);
             this.Controls.Add(this.uiPanel1);
             this.Name = "Form_People_Signlog";
             this.Text = "Form_People_Signlog";
             this.Load += new System.EventHandler(this.Form_People_Signlog_Load);
+            this.Controls.SetChildIndex(this.PagePanel, 0);
+            this.Controls.SetChildIndex(this.uiPanel1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.uiPanel1.ResumeLayout(false);

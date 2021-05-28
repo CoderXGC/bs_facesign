@@ -22,7 +22,6 @@ namespace BS_FS.net
                 string url = homeurl + "/user/login";
                 //json参数
                 string jsonParam = "{ \"id\":\"" + id + "\",\"password\":\"" + pwd + "\"}";
-                //将接口传入，这个HttpUitls的类，有兴趣可以研究下，也可以直接用就可以，不用管如何实现。
                 string getJson = HttpUitls.LoginPost(url, jsonParam);
 
                 return getJson;

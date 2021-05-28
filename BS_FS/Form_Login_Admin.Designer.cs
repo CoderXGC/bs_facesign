@@ -207,7 +207,7 @@ namespace BS_FS
             // 
             this.AllowShowTitle = false;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = global::BS_FS.Properties.Resources.bg1;
+            this.BackgroundImage = global::BS_FS.Properties.Resources.logo1;
             this.ClientSize = new System.Drawing.Size(750, 450);
             this.Controls.Add(this.uiPanel1);
             this.Controls.Add(this.lblTitle);

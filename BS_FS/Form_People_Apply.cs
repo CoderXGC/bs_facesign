@@ -27,6 +27,7 @@ namespace BS_FS
             uiComboBox1.Items.Add("婚假");
             uiComboBox1.Items.Add("例假");
             uiComboBox1.Items.Add("哺乳假");
+            this.Text = "提交申请";
             //用户输入
 
         }
