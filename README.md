@@ -1,4 +1,8 @@
-# face-sign-in
+<h1 align="center" style="text-align:center;">
+  face-sign-in（人脸识别签到）
+</h1>
+ 
+<p align="center">☔ 人脸识别 基于 虹软SDK 和 前后分离 系统</p>
 基于C#WIINFORM的人脸识别的签到系统，可以使用，使用虹软的SDK开发包，实现了基本的人脸签到后台查看等功能，后续功能不断完善中，敬请期待。欢迎STAR~
 本项目是采用SunnyUIC#winform前端框架。本项目作为2021年毕业设计项目。对本人比较有意义。项目运行需要与后端配合，后端项目请看 https://github.com/CoderXGC/bsfs
 ## 1.简介
